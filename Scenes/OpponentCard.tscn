@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://dusu8yxqub5q8" path="res://Skripts/OpponentCard.gd" id="1_mv32a"]
 [ext_resource type="Texture2D" uid="uid://c5jtj8vubmmsk" path="res://Pics/CardBack.png" id="2_qrb68"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pnb5n"]
-load_path = "res://.godot/imported/Card.png-9024a84e9fa1428a13e63ff0786a57af.ctex"
-
 [sub_resource type="Animation" id="Animation_h8wm0"]
 length = 0.001
 tracks/0/type = "value"
@@ -200,7 +197,6 @@ texture = ExtResource("2_qrb68")
 z_index = -1
 position = Vector2(4, -2)
 scale = Vector2(0.1, 0.1)
-texture = SubResource("CompressedTexture2D_pnb5n")
 
 [node name="Health" type="RichTextLabel" parent="." unique_id=1619744458]
 modulate = Color(1, 1, 1, 0)

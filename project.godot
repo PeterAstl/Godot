@@ -13,7 +13,6 @@ config_version=5
 config/name="Deathwish"
 run/main_scene="uid://bmwr40mr2hksh"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://Pics/icon.svg"
 
 [display]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buwwhfsikynve"]
 
 [ext_resource type="Script" uid="uid://ct63vqc26w40o" path="res://Skripts/Deck.gd" id="1_io7pv"]
-[ext_resource type="Texture2D" uid="uid://bncrhuekfwe6g" path="res://Pics/Card_deck.png" id="2_nlncs"]
+[ext_resource type="Texture2D" uid="uid://ef3584k01h08" path="res://Pics/Card_deck.png" id="2_nlncs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(80, 128)
