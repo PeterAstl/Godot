@@ -16,4 +16,7 @@ data_*/
 mono_crash.*.json
 
 Pics/
-/*.tmp
+.import/
+.export/
+*.tmp
+*.log

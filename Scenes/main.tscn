@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://clniikb6aa6p6" path="res://Skripts/OpponentHand.gd" id="4_hptm8"]
 [ext_resource type="PackedScene" uid="uid://buwwhfsikynve" path="res://Scenes/deck.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://b6uslatiyhddw" path="res://Scenes/CardSlot.tscn" id="5_kry3j"]
-[ext_resource type="Texture2D" uid="uid://bncrhuekfwe6g" path="res://Pics/Card_deck.png" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://ef3584k01h08" path="res://Pics/Card_deck.png" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
 [ext_resource type="Script" uid="uid://bcaqyqw36bacy" path="res://Skripts/OpponentDeck.gd" id="8_d1ilt"]
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Scenes/BattleManagerSkript.gd" id="10_6iyac"]
