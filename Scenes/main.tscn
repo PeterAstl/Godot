@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bmwr40mr2hksh"]
+
+[ext_resource type="Script" uid="uid://gyll5jd45yex" path="res://Skripts/CardManager.gd" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://buuua4bvu6x6f" path="res://Scenes/CardSlotEnemy.tscn" id="3_6bp64"]
+[ext_resource type="Script" uid="uid://bux0hvivo8jpk" path="res://Skripts/Playerhand.gd" id="3_344ge"]
+[ext_resource type="Script" uid="uid://clniikb6aa6p6" path="res://Skripts/OpponentHand.gd" id="4_hptm8"]
+[ext_resource type="PackedScene" uid="uid://buwwhfsikynve" path="res://Scenes/deck.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b6uslatiyhddw" path="res://Scenes/CardSlot.tscn" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://bncrhuekfwe6g" path="res://Pics/Card_deck.png" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
+[ext_resource type="Script" uid="uid://bcaqyqw36bacy" path="res://Skripts/OpponentDeck.gd" id="8_d1ilt"]
+[ext_resource type="Script" uid="uid://box830fsci70p" path="res://Scenes/BattleManagerSkript.gd" id="10_6iyac"]
+
+[node name="Main" type="Node2D" unique_id=40358678]
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1267260433]
+script = ExtResource("1_21xkr")
+
+[node name="CardSlots_Player" type="Node2D" parent="." unique_id=287090504]
+
+[node name="CardSlot" parent="CardSlots_Player" unique_id=1031181629 instance=ExtResource("5_kry3j")]
+position = Vector2(600, 600)
+
+[node name="CardSlot2" parent="CardSlots_Player" unique_id=1744993710 instance=ExtResource("5_kry3j")]
+position = Vector2(750, 600)
+
+[node name="CardSlot3" parent="CardSlots_Player" unique_id=1690882529 instance=ExtResource("5_kry3j")]
+position = Vector2(900, 600)
+
+[node name="CardSlot4" parent="CardSlots_Player" unique_id=889572711 instance=ExtResource("5_kry3j")]
+position = Vector2(1050, 600)
+
+[node name="CardSlot5" parent="CardSlots_Player" unique_id=1705288064 instance=ExtResource("5_kry3j")]
+position = Vector2(1200, 600)
+
+[node name="CardSlots_Enemy" type="Node2D" parent="." unique_id=1453268792]
+
+[node name="CardSlot" parent="CardSlots_Enemy" unique_id=1744934376 instance=ExtResource("3_6bp64")]
+position = Vector2(600, 400)
+script = null
+
+[node name="CardSlot2" parent="CardSlots_Enemy" unique_id=302198417 instance=ExtResource("3_6bp64")]
+position = Vector2(750, 400)
+script = null
+
+[node name="CardSlot3" parent="CardSlots_Enemy" unique_id=1343401586 instance=ExtResource("3_6bp64")]
+position = Vector2(900, 400)
+script = null
+
+[node name="CardSlot4" parent="CardSlots_Enemy" unique_id=714707243 instance=ExtResource("3_6bp64")]
+position = Vector2(1050, 400)
+script = null
+
+[node name="CardSlot5" parent="CardSlots_Enemy" unique_id=709054749 instance=ExtResource("3_6bp64")]
+position = Vector2(1200, 400)
+script = null
+
+[node name="OpponentHand" type="Node2D" parent="." unique_id=834570780]
+script = ExtResource("4_hptm8")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=1954708184]
+script = ExtResource("3_344ge")
+
+[node name="Deck" parent="." unique_id=368514955 instance=ExtResource("4_kry3j")]
+
+[node name="InputManager" type="Node2D" parent="." unique_id=620736888]
+script = ExtResource("6_d1ilt")
+
+[node name="Button" type="Button" parent="." unique_id=1017366725]
+offset_left = 450.0
+offset_top = 475.0
+offset_right = 528.0
+offset_bottom = 506.0
+text = "End Turn"
+
+[node name="OpponentDeck" type="Node2D" parent="." unique_id=365820089]
+position = Vector2(1800, 100)
+script = ExtResource("8_d1ilt")
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck" unique_id=1479028769]
+z_index = -2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_21xkr")
+
+[node name="BattleManager" type="Node" parent="." unique_id=2115354227]
+script = ExtResource("10_6iyac")
+
+[node name="BattleTimer" type="Timer" parent="." unique_id=2105420457]
+one_shot = true
+
+[connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]
