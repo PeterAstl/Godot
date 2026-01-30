@@ -18,7 +18,7 @@ script = ExtResource("1_21xkr")
 
 [node name="CardSlots_Player" type="Node2D" parent="." unique_id=287090504]
 
-[node name="CardSlot" parent="CardSlots_Player" unique_id=1031181629 instance=ExtResource("5_kry3j")]
+[node name="CardSlot1" parent="CardSlots_Player" unique_id=1031181629 instance=ExtResource("5_kry3j")]
 position = Vector2(600, 600)
 
 [node name="CardSlot2" parent="CardSlots_Player" unique_id=1744993710 instance=ExtResource("5_kry3j")]
@@ -35,7 +35,7 @@ position = Vector2(1200, 600)
 
 [node name="CardSlots_Enemy" type="Node2D" parent="." unique_id=1453268792]
 
-[node name="CardSlot" parent="CardSlots_Enemy" unique_id=1744934376 instance=ExtResource("3_6bp64")]
+[node name="CardSlot1" parent="CardSlots_Enemy" unique_id=1744934376 instance=ExtResource("3_6bp64")]
 position = Vector2(600, 400)
 script = null
 

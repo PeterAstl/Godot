@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Deathwish"
+config/name="CardGameBase"
 run/main_scene="uid://bmwr40mr2hksh"
 config/features=PackedStringArray("4.6", "Forward Plus")
 

@@ -19,7 +19,6 @@ func _ready() -> void:
 func draw_card():
 	var card_drawn_name = opponent_deck[0]
 	opponent_deck.erase(card_drawn_name)
-	
 	if opponent_deck.size() == 0:
 		$Sprite2D.visible = false
 
@@ -32,4 +31,4 @@ func draw_card():
 	new_card.get_node("Health").text = str(card_database_reference.CARDS[card_drawn_name][1])
 	$"../CardManager".add_child(new_card)
 	new_card.name = "Card"
-	$"../OpponentHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
+	await $"../OpponentHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
