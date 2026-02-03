@@ -31,4 +31,4 @@ func draw_card():
 	new_card.get_node("Health").text = str(card_database_reference.CARDS[card_drawn_name][1])
 	$"../CardManager".add_child(new_card)
 	new_card.name = "Card"
-	await $"../OpponentHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
+	$"../OpponentHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)

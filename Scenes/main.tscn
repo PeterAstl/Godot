@@ -37,23 +37,18 @@ position = Vector2(1200, 600)
 
 [node name="CardSlot1" parent="CardSlots_Enemy" unique_id=1744934376 instance=ExtResource("3_6bp64")]
 position = Vector2(600, 400)
-script = null
 
 [node name="CardSlot2" parent="CardSlots_Enemy" unique_id=302198417 instance=ExtResource("3_6bp64")]
 position = Vector2(750, 400)
-script = null
 
 [node name="CardSlot3" parent="CardSlots_Enemy" unique_id=1343401586 instance=ExtResource("3_6bp64")]
 position = Vector2(900, 400)
-script = null
 
 [node name="CardSlot4" parent="CardSlots_Enemy" unique_id=714707243 instance=ExtResource("3_6bp64")]
 position = Vector2(1050, 400)
-script = null
 
 [node name="CardSlot5" parent="CardSlots_Enemy" unique_id=709054749 instance=ExtResource("3_6bp64")]
 position = Vector2(1200, 400)
-script = null
 
 [node name="OpponentHand" type="Node2D" parent="." unique_id=834570780]
 script = ExtResource("4_hptm8")
@@ -87,5 +82,12 @@ script = ExtResource("10_6iyac")
 
 [node name="BattleTimer" type="Timer" parent="." unique_id=2105420457]
 one_shot = true
+
+[node name="Health_Enemy" type="RichTextLabel" parent="." unique_id=1741568441]
+offset_left = 1400.0
+offset_top = 350.0
+offset_right = 1494.0
+offset_bottom = 445.0
+text = "10"
 
 [connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]

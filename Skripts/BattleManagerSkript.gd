@@ -43,27 +43,32 @@ func opponent_turn():
 	
 	await player_turn_attack()
 	
-	await wait(2)
+	await wait(1)
 	
 	if $"../OpponentDeck".opponent_deck.size() != 0:
-		await $"../OpponentDeck".draw_card()
-		
+		$"../OpponentDeck".draw_card()
+		await wait(1)
+	
+	await opponent_turn_attack()
 		
 	
+func opponent_turn_attack():
 	if empty_card_slots_opponent.size() != 0:
-		await try_play_card_random_card()
+		try_play_card_random_card()
+		
+		await wait(1)
+		
 		if opponent_cards_on_board.size() != 0:
-			
-			await wait(1)
-			
 			var cards_to_attack = opponent_cards_on_board.duplicate()
 			for card in cards_to_attack:
 				card.fought = false
 			for card in cards_to_attack:
 				if player_cards_on_board.size() == 0:
-					await hit_attack_opponent(card)
+					await wait(1)
+					hit_attack_opponent(card)
 				else:
-					await fight_attack_opponent(card)
+					await wait(1)
+					fight_attack_opponent(card)
 	end_opponent_turn()
 	
 func fight_attack_opponent(card):
@@ -75,15 +80,15 @@ func fight_attack_opponent(card):
 			if card.fought == false:
 				print("fight_opponent")
 				card.fought = true
-				await animate_attack_to_card(card, player_card)
+				animate_attack_to_card(card, player_card, 1)
 				return
 				
-	await hit_attack_opponent(card)
+	hit_attack_opponent(card)
 	card.fought = true
 
 func hit_attack_opponent(card):
 	print("health_hit_opponent")
-	await animate_attack_to_player(card, false)
+	animate_attack_to_player(card, false)
 	
 func player_turn_attack():
 	if empty_card_slots_player.size() != 0:
@@ -93,9 +98,11 @@ func player_turn_attack():
 				card.fought = false
 			for card in cards_to_attack:
 				if opponent_cards_on_board.size() == 0:
-					await hit_attack_player(card)
+					await wait(1)
+					hit_attack_player(card)
 				else:
-					await fight_attack_player(card)
+					await wait(1)
+					fight_attack_player(card)
 					
 func fight_attack_player(card):
 	if card.fought:
@@ -106,33 +113,53 @@ func fight_attack_player(card):
 			if card.fought == false:
 				print("fight-player")
 				card.fought = true
-				await animate_attack_to_card(card, opponent_card)
+				animate_attack_to_card(card, opponent_card, 0)
 				return
 	
-	await hit_attack_player(card)
+	hit_attack_player(card)
 	card.fought = true
 
 func hit_attack_player(card):
 	print("health_hit_player")
-	await animate_attack_to_player(card, true)
+	animate_attack_to_player(card, true)
 					
 	
-func animate_attack_to_card(attacking_card, damaged_card):
+func animate_attack_to_card(attacking_card, damaged_card, side):
+	var attacking_damage = int(attacking_card.get_node("Attack").text)
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(attacking_card, "position", damaged_card.position, CARD_MOVE_SPEED/2)
-	tween.tween_property(attacking_card, "position", attacking_card.position, CARD_MOVE_SPEED/2)
-	await tween.finished
+	if attacking_damage != 0:
+		var damaged_health = int(damaged_card.get_node("Health").text)
+		attacking_card.z_index = 5
+		var tween = get_tree().create_tween()
+		tween.tween_property(attacking_card, "position", damaged_card.position, CARD_MOVE_SPEED/2)
+		tween.tween_property(attacking_card, "position", attacking_card.position, CARD_MOVE_SPEED/2)
+		attacking_card.z_index = 0
+		if attacking_damage >= damaged_health:
+			###Spieler killt Karte###
+			if side == 0:
+				damaged_card.card_slot_card_in.card_in_slot = false
+				damaged_card.queue_free()
+				opponent_cards_on_board.erase(damaged_card)
+			###Gegner killt Karte###
+			else:
+				damaged_card.card_slot_card_in.card_in_slot = false
+				damaged_card.queue_free()
+				player_cards_on_board.erase(damaged_card)
+		else:
+			damaged_card.get_node("Health").text = str(damaged_health - attacking_damage)
+			
+		await wait(1)
 	
 func animate_attack_to_player(card, boolean):
+	card.z_index = 5
 	var tween = get_tree().create_tween()
 	if boolean:
-		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y - 500), CARD_MOVE_SPEED)
+		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y - 400), CARD_MOVE_SPEED)
 	else:
-		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y + 500), CARD_MOVE_SPEED)
+		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y + 400), CARD_MOVE_SPEED)
 	tween.tween_property(card, "position", card.position , CARD_MOVE_SPEED)
-	await tween.finished
-	
+	card.z_index = 0
+	await wait(1)
 	
 func try_play_card_random_card():
 	
@@ -151,8 +178,7 @@ func try_play_card_random_card():
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(random_card, "scale", Vector2(CARD_SMALLER_SCALE, CARD_SMALLER_SCALE), CARD_MOVE_SPEED)
 	random_card.get_node("AnimationPlayer").play("card_flip")
-	await tween.finished
-	await tween2.finished
+	await wait(1)
 		
 	$"../OpponentHand".remove_card_from_hand(random_card)
 	
@@ -163,4 +189,3 @@ func end_opponent_turn():
 	$"../Deck".reset_draw()
 	$"../Button".visible = true
 	$"../Button".disabled = false
-	

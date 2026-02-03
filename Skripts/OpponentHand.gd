@@ -15,7 +15,7 @@ func _ready() -> void:
 func add_card_to_hand(card, speed):
 	if card not in opponent_hand:
 		opponent_hand.insert(0, card)
-		await update_hand_positions(speed)
+		update_hand_positions(speed)
 	else:
 		animate_card_to_position(card, card.position_in_hand, DEFAULT_CARD_MOVE_SPEED)
 
@@ -36,10 +36,9 @@ func calculate_card_positions(index):
 func animate_card_to_position(card, new_position, speed):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "position", new_position, speed)
-	await tween.finished
 
 
 func remove_card_from_hand(card):
 	if card in opponent_hand:
 		opponent_hand.erase(card)
-		await update_hand_positions(DEFAULT_CARD_MOVE_SPEED)
+		update_hand_positions(DEFAULT_CARD_MOVE_SPEED)
