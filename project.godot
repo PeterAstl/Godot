@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="CardGameBase"
-run/main_scene="uid://bmwr40mr2hksh"
+run/main_scene="uid://ctgpoi4afqmmd"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+DataBase="*uid://c66myif1jhsbp"
 
 [display]
 

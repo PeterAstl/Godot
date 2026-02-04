@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://buuua4bvu6x6f"]
 
-[ext_resource type="Script" uid="uid://bq8qvq4k5e2l7" path="res://Skripts/Card_Slot.gd" id="1_fx5bw"]
-[ext_resource type="Texture2D" uid="uid://cyh8gfpxixsdp" path="res://Pics/Screenshot 2026-01-26 193345.png" id="2_ll7fb"]
+[ext_resource type="Script" uid="uid://bq8qvq4k5e2l7" path="res://Skripts/CardSlot.gd" id="1_fx5bw"]
+[ext_resource type="Texture2D" uid="uid://b2wubj13xntrc" path="res://Pics/Card_Slot.png" id="2_fx5bw"]
 
 [node name="CardSlot" type="Node2D" unique_id=1031181629]
 z_index = -2
 script = ExtResource("1_fx5bw")
 
 [node name="CardSlotImage" type="Sprite2D" parent="." unique_id=6782980]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_ll7fb")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fx5bw")

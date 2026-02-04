@@ -10,11 +10,17 @@
 [ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
 [ext_resource type="Script" uid="uid://bcaqyqw36bacy" path="res://Skripts/OpponentDeck.gd" id="8_d1ilt"]
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
+[ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Scenes/ContinueButton.gd" id="11_d1ilt"]
 
 [node name="Main" type="Node2D" unique_id=40358678]
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1267260433]
 script = ExtResource("1_21xkr")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=1954708184]
+script = ExtResource("3_344ge")
+
+[node name="PlayerDeck" parent="." unique_id=368514955 instance=ExtResource("4_kry3j")]
 
 [node name="CardSlots_Player" type="Node2D" parent="." unique_id=287090504]
 
@@ -53,21 +59,6 @@ position = Vector2(1200, 400)
 [node name="OpponentHand" type="Node2D" parent="." unique_id=834570780]
 script = ExtResource("4_hptm8")
 
-[node name="PlayerHand" type="Node2D" parent="." unique_id=1954708184]
-script = ExtResource("3_344ge")
-
-[node name="Deck" parent="." unique_id=368514955 instance=ExtResource("4_kry3j")]
-
-[node name="InputManager" type="Node2D" parent="." unique_id=620736888]
-script = ExtResource("6_d1ilt")
-
-[node name="Button" type="Button" parent="." unique_id=1017366725]
-offset_left = 450.0
-offset_top = 475.0
-offset_right = 528.0
-offset_bottom = 506.0
-text = "End Turn"
-
 [node name="OpponentDeck" type="Node2D" parent="." unique_id=365820089]
 position = Vector2(1800, 100)
 script = ExtResource("8_d1ilt")
@@ -76,6 +67,18 @@ script = ExtResource("8_d1ilt")
 z_index = -2
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_21xkr")
+
+[node name="InputManager" type="Node2D" parent="." unique_id=620736888]
+script = ExtResource("6_d1ilt")
+
+[node name="Button" type="Button" parent="." unique_id=1017366725]
+offset_left = 375.0
+offset_top = 460.0
+offset_right = 495.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 25
+text = "End Turn"
+icon_alignment = 1
 
 [node name="BattleManager" type="Node" parent="." unique_id=2115354227]
 script = ExtResource("10_6iyac")
@@ -86,8 +89,57 @@ one_shot = true
 [node name="Health_Enemy" type="RichTextLabel" parent="." unique_id=1741568441]
 offset_left = 1400.0
 offset_top = 350.0
-offset_right = 1494.0
+offset_right = 1650.0
 offset_bottom = 445.0
-text = "10"
+theme_override_font_sizes/normal_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health_Player" type="RichTextLabel" parent="." unique_id=1955239820]
+offset_left = 1400.0
+offset_top = 550.0
+offset_right = 1650.0
+offset_bottom = 645.0
+theme_override_font_sizes/normal_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win" type="RichTextLabel" parent="." unique_id=602786402]
+visible = false
+offset_left = 455.0
+offset_top = 90.0
+offset_right = 1345.0
+offset_bottom = 374.0
+theme_override_font_sizes/normal_font_size = 199
+text = "YOU WIN"
+
+[node name="Loose" type="RichTextLabel" parent="." unique_id=1304955312]
+visible = false
+offset_left = 436.0
+offset_top = 88.0
+offset_right = 1446.0
+offset_bottom = 372.0
+theme_override_font_sizes/normal_font_size = 199
+text = "YOU LOST"
+
+[node name="Continue_Button" type="Button" parent="." unique_id=1233731211]
+process_mode = 2
+visible = false
+offset_left = 737.0
+offset_top = 437.0
+offset_right = 1037.0
+offset_bottom = 562.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_font_sizes/font_size = 61
+disabled = true
+text = "Continue"
+script = ExtResource("11_d1ilt")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]
+[connection signal="pressed" from="Continue_Button" to="Continue_Button" method="_on_pressed"]

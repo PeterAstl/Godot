@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://ctgpoi4afqmmd"]
+
+[ext_resource type="PackedScene" uid="uid://bi2tg57udu577" path="res://Scenes/Card.tscn" id="1_ocodm"]
+[ext_resource type="Script" uid="uid://xnjj5g1qdkp6" path="res://Scenes/Add_Ability_Buttons.gd" id="2_af5o4"]
+
+[node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Add_Cards_Card" parent="." unique_id=597020301 instance=ExtResource("1_ocodm")]
+position = Vector2(350, 508)
+scale = Vector2(5, 5)
+script = ExtResource("2_af5o4")
+
+[node name="Buttons" type="Node2D" parent="." unique_id=1998768276]
+
+[node name="Button3" type="Button" parent="Buttons" unique_id=373897951]
+offset_left = 600.0
+offset_top = 550.0
+offset_right = 772.0
+offset_bottom = 625.0
+
+[node name="Button4" type="Button" parent="Buttons" unique_id=1698891946]
+offset_left = 600.0
+offset_top = 650.0
+offset_right = 772.0
+offset_bottom = 725.0
+
+[node name="Button5" type="Button" parent="Buttons" unique_id=1446500673]
+offset_left = 600.0
+offset_top = 750.0
+offset_right = 772.0
+offset_bottom = 825.0
+
+[node name="Button6" type="Button" parent="Buttons" unique_id=453785154]
+offset_left = 800.0
+offset_top = 348.0
+offset_right = 972.0
+offset_bottom = 423.0
+
+[node name="Button7" type="Button" parent="Buttons" unique_id=1090788707]
+offset_left = 800.0
+offset_top = 448.0
+offset_right = 972.0
+offset_bottom = 523.0
+
+[node name="Button8" type="Button" parent="Buttons" unique_id=948550784]
+offset_left = 800.0
+offset_top = 548.0
+offset_right = 972.0
+offset_bottom = 623.0
+
+[node name="Button9" type="Button" parent="Buttons" unique_id=2087925539]
+offset_left = 800.0
+offset_top = 648.0
+offset_right = 972.0
+offset_bottom = 723.0
+
+[node name="Button10" type="Button" parent="Buttons" unique_id=759730324]
+offset_left = 800.0
+offset_top = 748.0
+offset_right = 972.0
+offset_bottom = 823.0
+
+[node name="Health_Upgrade" type="Button" parent="Buttons" unique_id=668165183]
+offset_left = 600.0
+offset_top = 450.0
+offset_right = 772.0
+offset_bottom = 525.0
+text = "Health"
+
+[node name="Attack_Upgrade" type="Button" parent="Buttons" unique_id=424753775]
+offset_left = 600.0
+offset_top = 350.0
+offset_right = 772.0
+offset_bottom = 425.0
+text = "Attack"
+
+[node name="Next_Card" type="Button" parent="Buttons" unique_id=1420192734]
+offset_left = 1059.0
+offset_top = 546.0
+offset_right = 1212.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 30
+text = "Next Card"
+
+[node name="Texts" type="Node2D" parent="." unique_id=1963774032]
+
+[node name="Punkte" type="RichTextLabel" parent="Texts" unique_id=257549043]
+offset_left = 604.0
+offset_top = 192.0
+offset_right = 975.0
+offset_bottom = 274.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Points"
+horizontal_alignment = 1
+
+[node name="Cards" type="RichTextLabel" parent="Texts" unique_id=200045578]
+offset_left = 152.0
+offset_top = 108.0
+offset_right = 346.0
+offset_bottom = 190.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Cards:"
+horizontal_alignment = 1
+
+[node name="Health" type="RichTextLabel" parent="Texts" unique_id=1303297120]
+offset_left = 355.0
+offset_top = 823.0
+offset_right = 549.0
+offset_bottom = 905.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Health"
+horizontal_alignment = 1
+
+[node name="Attack" type="RichTextLabel" parent="Texts" unique_id=1130669252]
+offset_left = 152.0
+offset_top = 822.0
+offset_right = 346.0
+offset_bottom = 904.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Attack"
+horizontal_alignment = 1
+
+[node name="Counters" type="Node2D" parent="." unique_id=1326352612]
+
+[node name="Punkte_Counter" type="RichTextLabel" parent="Counters" unique_id=1039320199]
+offset_left = 601.0
+offset_top = 260.0
+offset_right = 972.0
+offset_bottom = 342.0
+theme_override_font_sizes/normal_font_size = 53
+text = "10"
+horizontal_alignment = 1
+
+[node name="Cards_Counter" type="RichTextLabel" parent="Counters" unique_id=816310687]
+offset_left = 336.0
+offset_top = 108.0
+offset_right = 530.0
+offset_bottom = 190.0
+theme_override_font_sizes/normal_font_size = 53
+text = "3"
+horizontal_alignment = 1
+
+[node name="Health_Counter" type="RichTextLabel" parent="Counters" unique_id=959141451]
+offset_left = 429.0
+offset_top = 728.0
+offset_right = 541.0
+offset_bottom = 810.0
+theme_override_font_sizes/normal_font_size = 53
+text = "0"
+horizontal_alignment = 1
+
+[node name="Attack_Counter" type="RichTextLabel" parent="Counters" unique_id=1404874247]
+offset_left = 158.0
+offset_top = 733.0
+offset_right = 259.0
+offset_bottom = 815.0
+theme_override_font_sizes/normal_font_size = 53
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Buttons/Health_Upgrade" to="Add_Cards_Card" method="Health"]
+[connection signal="pressed" from="Buttons/Attack_Upgrade" to="Add_Cards_Card" method="Attack"]
+[connection signal="pressed" from="Buttons/Attack_Upgrade" to="Add_Cards_Card" method="Button1"]
+[connection signal="pressed" from="Buttons/Next_Card" to="Add_Cards_Card" method="Next_Card"]

@@ -8,12 +8,16 @@ var empty_card_slots_opponent = []
 var empty_card_slots_player = []
 var opponent_cards_on_board = []
 var player_cards_on_board = []
-
+var player_health = 3
+var opponent_health = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	battle_timer = $"../BattleTimer"
 	battle_timer.one_shot = true
+	
+	$"../Health_Enemy".text = "❤️".repeat(opponent_health)
+	$"../Health_Player".text = "❤️".repeat(player_health)
 	
 	empty_card_slots_opponent.append($"../CardSlots_Enemy/CardSlot1")
 	empty_card_slots_opponent.append($"../CardSlots_Enemy/CardSlot2")
@@ -40,7 +44,7 @@ func opponent_turn():
 	$"../Button".visible = false
 	
 	await wait(1)
-	
+
 	await player_turn_attack()
 	
 	await wait(1)
@@ -50,7 +54,7 @@ func opponent_turn():
 		await wait(1)
 	
 	await opponent_turn_attack()
-		
+			
 	
 func opponent_turn_attack():
 	if empty_card_slots_opponent.size() != 0:
@@ -155,14 +159,30 @@ func animate_attack_to_player(card, boolean):
 	var tween = get_tree().create_tween()
 	if boolean:
 		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y - 400), CARD_MOVE_SPEED)
+		opponent_health = opponent_health - 1
+		if opponent_health == 0:
+			$"../Win".visible = true
+			$"../Continue_Button".visible = true
+			$"../Continue_Button".disabled = false
+			$"../Continue_Button".battle_won = true
+			get_tree().paused = true
+		else:
+			$"../Health_Enemy".text = "❤️".repeat(opponent_health)
 	else:
 		tween.tween_property(card, "position", Vector2(card.position.x, card.position.y + 400), CARD_MOVE_SPEED)
+		player_health = player_health - 1
+		if player_health == 0:
+			$"../Loose".visible = true
+			$"../Continue_Button".visible = true
+			$"../Continue_Button".disabled = false
+			$"../Continue_Button".battle_won = false
+			get_tree().paused = true
+		else:
+			$"../Health_Player".text = "❤️".repeat(player_health)
 	tween.tween_property(card, "position", card.position , CARD_MOVE_SPEED)
 	card.z_index = 0
-	await wait(1)
 	
 func try_play_card_random_card():
-	
 	var opponend_hand = $"../OpponentHand".opponent_hand
 	if opponend_hand.size() == 0:
 		end_opponent_turn()
@@ -181,11 +201,10 @@ func try_play_card_random_card():
 	await wait(1)
 		
 	$"../OpponentHand".remove_card_from_hand(random_card)
-	
 	opponent_cards_on_board.append(random_card)
 
 func end_opponent_turn():
 	$"../CardManager".reset_played_card()
-	$"../Deck".reset_draw()
+	$"../PlayerDeck".reset_draw()
 	$"../Button".visible = true
 	$"../Button".disabled = false
