@@ -9,7 +9,7 @@ var screen_size
 var card_being_dragged
 var is_hovering_over_card
 var player_hand_reference
-var player_card_this_turn = false
+var ressource_amount = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,17 +29,21 @@ func start_drag(card):
 	
 func finish_drag():
 	var card_slot_found = raycast_check_for_card_slot()
-	if card_slot_found and not card_slot_found.card_in_slot and not player_card_this_turn:
-		player_card_this_turn = true
-		card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
-		card_being_dragged.card_slot_card_in = card_slot_found
-		card_being_dragged.z_index = -1
-		is_hovering_over_card = false
-		player_hand_reference.remove_card_from_hand(card_being_dragged)
-		card_being_dragged.global_position = card_slot_found.global_position
-		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
-		card_slot_found.card_in_slot = true
-		$"../BattleManager".player_cards_on_board.append(card_being_dragged)
+	if card_slot_found and not card_slot_found.card_in_slot:
+		if ressource_amount >= int(card_being_dragged.get_node("Costs").text):
+			ressource_amount -= int(card_being_dragged.get_node("Costs").text)
+			card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
+			card_being_dragged.card_slot_card_in = card_slot_found
+			card_being_dragged.z_index = -1
+			is_hovering_over_card = false
+			player_hand_reference.remove_card_from_hand(card_being_dragged)
+			card_being_dragged.global_position = card_slot_found.global_position
+			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+			card_slot_found.card_in_slot = true
+			$"../BattleManager".player_cards_on_board.append(card_being_dragged)
+		else:
+			player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+			card_being_dragged = null
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 	card_being_dragged = null
@@ -68,7 +72,7 @@ func on_hovered_off_card(card):
 
 func highlight_card(card, hovered):
 	if hovered:
-		card.scale = Vector2(2, 2)
+		card.scale = Vector2(1.5, 1.5)
 		card.z_index = 2
 	else:
 		card.scale = Vector2(1,1)
@@ -108,4 +112,4 @@ func get_card_with_highest_z_index(cards):
 	return highest_z_card
 	
 func reset_played_card():
-	player_card_this_turn = false
+	ressource_amount = 2

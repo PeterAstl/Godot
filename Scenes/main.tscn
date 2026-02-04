@@ -12,6 +12,43 @@
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Scenes/ContinueButton.gd" id="11_d1ilt"]
 
+[sub_resource type="Animation" id="Animation_d1ilt"]
+resource_name = "Draw_Your_Card"
+length = 1.3333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9607843, 0, 0.011764706, 0), Color(0.9607843, 0, 0.011764706, 1), Color(0.9607843, 0, 0.011764706, 0.39215687), Color(0.9607843, 0, 0.011764706, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6iyac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9607843, 0, 0.011764706, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdnlq"]
+_data = {
+&"Draw_Your_Card": SubResource("Animation_d1ilt"),
+&"RESET": SubResource("Animation_6iyac")
+}
+
 [node name="Main" type="Node2D" unique_id=40358678]
 
 [node name="CardManager" type="Node2D" parent="." unique_id=1267260433]
@@ -101,6 +138,21 @@ offset_top = 550.0
 offset_right = 1650.0
 offset_bottom = 645.0
 theme_override_font_sizes/normal_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info_Card_Draw_Animation" type="AnimationPlayer" parent="." unique_id=1723952672]
+root_node = NodePath("../Info_Card_Draw")
+libraries/ = SubResource("AnimationLibrary_fdnlq")
+
+[node name="Info_Card_Draw" type="RichTextLabel" parent="." unique_id=729445554]
+offset_left = 19.0
+offset_top = 670.0
+offset_right = 374.0
+offset_bottom = 767.0
+theme_override_colors/default_color = Color(0.9607843, 0, 0.011764706, 0)
+theme_override_font_sizes/normal_font_size = 40
+text = "Draw your Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 

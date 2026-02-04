@@ -33,6 +33,8 @@ func update_stats():
 	$"../Counters/Attack_Counter".text = str(attack)
 	$"../Counters/Punkte_Counter".text = str(points)
 	$"../Counters/Cards_Counter".text = str(cards_left)
+	$"../Counters/Cost_Counter".text = str(costs)
+	
 
 func Attack() -> void:
 	if points > 0:
@@ -44,4 +46,10 @@ func Health() -> void:
 	if points > 0:
 		health += 1
 		points -= 1
+		update_stats()
+
+func Costs_Downgrade() -> void:
+	if points > 2:
+		costs -= 1
+		points -= 3
 		update_stats()

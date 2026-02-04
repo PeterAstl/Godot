@@ -3,7 +3,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/OpponentCard.tscn"
 const CARD_DRAW_SPEED = 0.5
-const STARTING_HAND_SIZE = 3
+const STARTING_HAND_SIZE = 5
 
 var opponent_deck = ["Card1", "Card2", "Card3","Card1", "Card2", "Card3"]
 var card_database_reference
@@ -14,7 +14,6 @@ func _ready() -> void:
 	card_database_reference = preload("res://Skripts/DataBase.gd")
 	for i in range(STARTING_HAND_SIZE):
 		draw_card()
-
 
 func draw_card():
 	var card_drawn_name = opponent_deck[0]

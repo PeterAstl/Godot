@@ -7,11 +7,11 @@ const CARDS = {
 }
 
 var cards_buff = {
-	"Card1" : [0, 1],
-	"Card2" : [0, 1],
-	"Card3" : [0, 1],
-	"Card4" : [0, 1],
-	"Card5" : [0, 1],
+	"Card1" : [0, 1, "", 1],
+	"Card2" : [0, 1, "", 1],
+	"Card3" : [0, 1, "", 1],
+	"Card4" : [0, 1, "", 1],
+	"Card5" : [0, 5, "", 2],
 }
 
 var level = 0
