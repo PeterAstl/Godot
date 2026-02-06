@@ -9,7 +9,7 @@ var empty_card_slots_player = []
 var opponent_cards_on_board = []
 var player_cards_on_board = []
 var player_health = 3
-var opponent_health = 3
+var opponent_health = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,10 +39,11 @@ func wait(wait_time):
 	await battle_timer.timeout
 
 func _on_button_pressed() -> void:
-	if $"../PlayerDeck".drawn_card_this_turn == false:
-		$"../Info_Card_Draw_Animation".play("Draw_Your_Card")
-	else:
-		opponent_turn()
+	if $"../PlayerDeck".player_deck.size() != 0:
+		if $"../PlayerDeck".drawn_card_this_turn == false:
+			$"../Info_Card_Draw_Animation".play("Draw_Your_Card")
+			return
+	opponent_turn()
 
 func opponent_turn():
 	$"../Button".disabled = true

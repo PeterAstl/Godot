@@ -141,6 +141,15 @@ theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Cost_Player" type="RichTextLabel" parent="." unique_id=2112016811]
+offset_left = 1529.0
+offset_top = 800.0
+offset_right = 1779.0
+offset_bottom = 895.0
+theme_override_font_sizes/normal_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Info_Card_Draw_Animation" type="AnimationPlayer" parent="." unique_id=1723952672]
 root_node = NodePath("../Info_Card_Draw")
 libraries/ = SubResource("AnimationLibrary_fdnlq")

@@ -15,6 +15,7 @@ var ressource_amount = 2
 func _ready():
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
+	$"../Cost_Player".text = "🪙".repeat(ressource_amount)
 	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
 
 func _process(_delta: float) -> void:
@@ -32,6 +33,7 @@ func finish_drag():
 	if card_slot_found and not card_slot_found.card_in_slot:
 		if ressource_amount >= int(card_being_dragged.get_node("Costs").text):
 			ressource_amount -= int(card_being_dragged.get_node("Costs").text)
+			$"../Cost_Player".text = "🪙".repeat(ressource_amount)
 			card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
 			card_being_dragged.card_slot_card_in = card_slot_found
 			card_being_dragged.z_index = -1
@@ -113,3 +115,4 @@ func get_card_with_highest_z_index(cards):
 	
 func reset_played_card():
 	ressource_amount = 2
+	$"../Cost_Player".text = "🪙".repeat(ressource_amount)
