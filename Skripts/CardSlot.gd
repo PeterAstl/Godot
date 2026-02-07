@@ -1,3 +1,4 @@
-extends Node2D
+extends Area2D
+class_name CardSlot
 
-var card_in_slot = false
+var card_in_slot := false

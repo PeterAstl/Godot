@@ -1,6 +1,6 @@
 extends Node
 
-class_name Card
+class_name Card_Data
 
 var attack: int
 var health: int
@@ -15,7 +15,7 @@ func _init(args := {}):
 	# Default-Werte
 	attack = args.get("damage", 0)
 	health = args.get("health", 1)
-	card_name = args.get("name", "NoName")
+	card_name = args.get("name", "No_Name")
 	cost = args.get("cost", 1)
 	effects = args.get("effects", [])
 	image_path = args.get("image_path", "")

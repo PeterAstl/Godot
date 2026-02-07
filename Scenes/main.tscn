@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bux0hvivo8jpk" path="res://Skripts/Playerhand.gd" id="3_344ge"]
 [ext_resource type="Script" uid="uid://clniikb6aa6p6" path="res://Skripts/OpponentHand.gd" id="4_hptm8"]
 [ext_resource type="PackedScene" uid="uid://buwwhfsikynve" path="res://Scenes/deck.tscn" id="4_kry3j"]
+[ext_resource type="Script" uid="uid://bq8qvq4k5e2l7" path="res://Skripts/CardSlot.gd" id="5_6iyac"]
 [ext_resource type="PackedScene" uid="uid://b6uslatiyhddw" path="res://Scenes/CardSlot.tscn" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://ef3584k01h08" path="res://Pics/Card_deck.png" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
@@ -63,18 +64,23 @@ script = ExtResource("3_344ge")
 
 [node name="CardSlot1" parent="CardSlots_Player" unique_id=1031181629 instance=ExtResource("5_kry3j")]
 position = Vector2(600, 600)
+script = ExtResource("5_6iyac")
 
 [node name="CardSlot2" parent="CardSlots_Player" unique_id=1744993710 instance=ExtResource("5_kry3j")]
 position = Vector2(750, 600)
+script = ExtResource("5_6iyac")
 
 [node name="CardSlot3" parent="CardSlots_Player" unique_id=1690882529 instance=ExtResource("5_kry3j")]
 position = Vector2(900, 600)
+script = ExtResource("5_6iyac")
 
 [node name="CardSlot4" parent="CardSlots_Player" unique_id=889572711 instance=ExtResource("5_kry3j")]
 position = Vector2(1050, 600)
+script = ExtResource("5_6iyac")
 
 [node name="CardSlot5" parent="CardSlots_Player" unique_id=1705288064 instance=ExtResource("5_kry3j")]
 position = Vector2(1200, 600)
+script = ExtResource("5_6iyac")
 
 [node name="CardSlots_Enemy" type="Node2D" parent="." unique_id=1453268792]
 

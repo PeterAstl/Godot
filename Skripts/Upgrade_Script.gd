@@ -2,7 +2,7 @@ extends Node2D
 
 var random_card = {
 	"Schwarz": "Card1",
-	"Schwarz2": "Card2",
+	"Grün": "Card2",
 	"Rot": "Card3",
 	"Blau": "Card4",
 }
@@ -21,16 +21,16 @@ var card_name
 var points
 var cards_left
 var next_id = 0
+var player_cards = 5
 
 var starting = true
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	if starting:
-		add_card()
-		add_card()
-		add_card()
-	
+		for i in range(player_cards):
+			add_card()
 	points = 10
 	cards_left = DataBase.deck_list.size()
 	
@@ -55,6 +55,7 @@ func _ready() -> void:
 		card.effects = effects
 		
 		$"../Texts/Card_Name".clear()
+		$"../Counters/Double_Attack".visible = false
 		cards_left -= 1
 	
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
@@ -73,7 +74,7 @@ func add_card():
 	random_card_image = random_card.keys().pick_random()
 	random_card_image_path = random_card[random_card_image]
 	
-	card_name = Card.new({
+	card_name = Card_Data.new({
 	"name": random_card_image,
 	"damage": 1,
 	"health": 2,
@@ -99,3 +100,12 @@ func Costs_Downgrade() -> void:
 		costs -= 1
 		points -= 3
 		update_stats()
+
+func Double_Attack() -> void:
+	if "double_attack" not in effects:
+		if points > 2:
+			effects.append("double_attack")
+			$"../Counters/Double_Attack".visible = true
+			points -= 3
+			update_stats()
+		

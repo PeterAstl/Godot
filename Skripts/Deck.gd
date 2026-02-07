@@ -1,6 +1,5 @@
 extends Node2D
 
-
 const CARD_SCENE_PATH = "res://Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 const STARTING_HAND_SIZE = 1
@@ -33,13 +32,10 @@ func draw_card():
 	$RichTextLabel.text = str(player_deck.size())
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
-	new_card.get_node("CardImage").texture = load(str(drawn_card.image_path))
-	new_card.get_node("Attack").text = str(drawn_card.attack)
-	new_card.get_node("Health").text = str(drawn_card.health)
-	new_card.get_node("Name").text = str(drawn_card.card_name)
-	new_card.get_node("Costs").text = str(drawn_card.cost)
+	new_card.set_data(drawn_card)
+	$"../CardManager".connect_card_signals(new_card)
 	$"../CardManager".add_child(new_card)
-	new_card.name = "Card"
+	new_card.name = str(drawn_card)
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	new_card.get_node("AnimationPlayer").play("card_flip")
 	
