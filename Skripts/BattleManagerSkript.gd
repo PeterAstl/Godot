@@ -9,14 +9,22 @@ var empty_card_slots_player = []
 var opponent_cards_on_board = []
 var player_cards_on_board = []
 var player_health = 3
-var opponent_health = 6
+var opponent_health = 8
 
 ###effects###
 var attack_amount : int
+var name_slot
+var last_char
+var last_char_links
+var last_char_rechts
+var shortened
+var player_card_check
+var hits
 ###effects###
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hits = 3
 	battle_timer = $"../BattleTimer"
 	battle_timer.one_shot = true
 	
@@ -88,13 +96,23 @@ func player_turn_attack():
 		for player_card in cards_that_attack:
 			player_card.fought = false
 			await wait(1)
-			if "double_attack" in player_card.data.effects:
-				await fight_attack_player(player_card)
-				await wait(1)
-				player_card.fought = false
-			await fight_attack_player(player_card)
-			
-			
+			if "multi_attack" in player_card.data.effects:
+				if "double_attack" in player_card.data.effects:
+					await fight_attack_player_multi(player_card)
+					await wait(1)
+					await fight_attack_player_multi(player_card)
+				else:
+					await fight_attack_player_multi(player_card)
+					await wait(1)
+			if "multi_attack" not in player_card.data.effects:
+				if "double_attack" in player_card.data.effects:
+					await fight_attack_player(player_card)
+					await wait(1)
+					player_card.fought = false
+					await fight_attack_player(player_card)
+				else:
+					await fight_attack_player(player_card)
+				
 func fight_attack_opponent(opponent_card):
 	for player_card in player_cards_on_board:
 		if player_card.card_slot_card_in.name == opponent_card.card_slot_card_in.name:
@@ -110,6 +128,33 @@ func fight_attack_player(player_card):
 			return
 	if player_card.fought == false:
 		animate_attack_to_player(player_card, true)
+		
+func fight_attack_player_multi(player_card):
+	player_card_check = str(player_card.card_slot_card_in.name)
+	for opponent_card in opponent_cards_on_board:
+		name_slot = str(opponent_card.card_slot_card_in.name)
+		shortened = name_slot.left(name_slot.length() - 1)
+		last_char = name_slot[name_slot.length() -1]
+		last_char_links = str((int(last_char) - 1))
+		last_char_rechts =  str((int(last_char) + 1))
+		if player_card_check == (shortened + last_char):
+			await wait(1)
+			animate_attack_to_card(player_card, opponent_card, 0)
+			hits -= 1
+		if player_card_check == (shortened + last_char_links):
+			await wait(1)
+			animate_attack_to_card(player_card, opponent_card, 0)
+			hits -= 1
+		if player_card_check == (shortened + last_char_rechts):
+			await wait(1)
+			animate_attack_to_card(player_card, opponent_card, 0)
+			hits -= 1
+		
+	for i in range(hits):
+		await wait(1)
+		animate_attack_to_player(player_card, true)
+		hits = 3
+
 
 func animate_attack_to_card(attacking_card, damaged_card, side):
 	attacking_card.fought = true
@@ -117,7 +162,7 @@ func animate_attack_to_card(attacking_card, damaged_card, side):
 	
 	if attacking_damage != 0:
 		var damaged_health = int(damaged_card.get_node("Health").text)
-		attacking_card.z_index = 5
+		attacking_card.z_index = 10
 		var tween = get_tree().create_tween()
 		tween.tween_property(attacking_card, "position", damaged_card.position, CARD_MOVE_SPEED/2)
 		tween.tween_property(attacking_card, "position", attacking_card.position, CARD_MOVE_SPEED/2)
@@ -135,30 +180,35 @@ func animate_attack_to_card(attacking_card, damaged_card, side):
 		else:
 			damaged_card.get_node("Health").text = str(damaged_health - attacking_damage)
 		
-		attacking_card.z_index = 0
 		await wait(1)
+		attacking_card.z_index = 0
 	
 func animate_attack_to_player(card, boolean):
 	if int(card.get_node("Attack").text) != 0:
-		card.z_index = 5
+		card.z_index = 10
 		var tween = get_tree().create_tween()
 		if boolean:
+			if "lifesteal" in card.data.effects:
+				player_health += 1
+				$"../Health_Player".text = "❤️".repeat(player_health)
 			tween.tween_property(card, "position", Vector2(card.position.x, card.position.y - 400), CARD_MOVE_SPEED)
-			opponent_health = opponent_health - 1
+			opponent_health -= 1
 			if opponent_health <= 0:
 				continue_screen(true)
 			else:
 				$"../Health_Enemy".text = "❤️".repeat(opponent_health)
 		else:
 			tween.tween_property(card, "position", Vector2(card.position.x, card.position.y + 400), CARD_MOVE_SPEED)
-			player_health = player_health - 1
+			player_health -= 1
 			if player_health <= 0:
 				continue_screen(false)
 			else:
 				$"../Health_Player".text = "❤️".repeat(player_health)
 		if opponent_health > 0:
 			tween.tween_property(card, "position", card.position , CARD_MOVE_SPEED)
-			card.z_index = 0
+			
+		await wait(1)
+		card.z_index = 0
 
 func continue_screen(win):
 	if win:

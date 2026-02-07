@@ -2,26 +2,27 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
-const STARTING_HAND_SIZE = 1
+const STARTING_HAND_SIZE = 3
 
-var player_deck = DataBase.deck_list
+var player_deck
 var drawn_card_this_turn = false
 var ready_to_start = false
+var drawn_card
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-		player_deck.shuffle()
-		$RichTextLabel.text = str(player_deck.size())
-		for i in range(STARTING_HAND_SIZE):
-			draw_card()
-			drawn_card_this_turn = false
-
-
+	player_deck = DataBase.deck_list.duplicate()
+	player_deck.shuffle()
+	$RichTextLabel.text = str(player_deck.size())
+	for i in range(STARTING_HAND_SIZE):
+		draw_card()
+		drawn_card_this_turn = false
 
 func draw_card():
 	if drawn_card_this_turn:
 		return
-	var drawn_card = player_deck[0]
+	if player_deck.size() == 0:
+		return
+	drawn_card = player_deck[0]
 	player_deck.erase(drawn_card)
 	
 	if player_deck.size() == 0:
@@ -35,7 +36,6 @@ func draw_card():
 	new_card.set_data(drawn_card)
 	$"../CardManager".connect_card_signals(new_card)
 	$"../CardManager".add_child(new_card)
-	new_card.name = str(drawn_card)
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	new_card.get_node("AnimationPlayer").play("card_flip")
 	

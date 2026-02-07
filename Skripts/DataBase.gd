@@ -10,6 +10,7 @@ var effects: Array
 var image_path: String
 
 var deck_list = []
+var starting = true
 
 func _init(args := {}):
 	# Default-Werte
@@ -25,5 +26,7 @@ const CARDS = {
 	"Card2" : [0, 5],
 	"Card3" : [1, 6],
 }
+
+var deck_enemy = ["Card1", "Card1", "Card2", "Card2","Card3", "Card3",]
 
 var level = 0

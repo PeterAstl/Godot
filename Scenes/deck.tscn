@@ -30,5 +30,6 @@ offset_left = 16.0
 offset_top = -63.0
 offset_right = 38.0
 offset_bottom = -38.5
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "0"
 horizontal_alignment = 1

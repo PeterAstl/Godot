@@ -5,7 +5,7 @@ const CARD_SCENE_PATH = "res://Scenes/OpponentCard.tscn"
 const CARD_DRAW_SPEED = 0.5
 const STARTING_HAND_SIZE = 5
 
-var opponent_deck = ["Card1", "Card2", "Card3","Card1", "Card2", "Card3"]
+var opponent_deck = DataBase.deck_enemy.duplicate()
 var card_database_reference
 
 # Called when the node enters the scene tree for the first time.
