@@ -12,6 +12,7 @@ var player_hand_reference
 var ressource_amount = 2
 var your_turn
 var dropped_on_slot
+var last_hovered_card
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -31,12 +32,11 @@ func on_left_click_pressed():
 	if card:
 		start_drag(card)
 
-func _process(_delta: float) -> void:
+func _process(_delta):
 	if card_being_dragged:
-		var mouse_pos = get_global_mouse_position()
-		card_being_dragged.global_position = Vector2(clamp(mouse_pos.x, 0, screen_size.x), 
-			clamp(mouse_pos.y, 0, screen_size.y))
+		card_being_dragged.global_position = get_global_mouse_position()
 
+		
 func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
@@ -65,33 +65,27 @@ func finish_drag():
 	card_being_dragged = null
 	
 func connect_card_signals(card: Card):
-	if not card.hovered.is_connected(on_hovered_over_card):
-		card.hovered.connect(on_hovered_over_card)
+	var hover_callable = Callable(self, "on_hovered_over_card")
+	var hover_off_callable = Callable(self, "on_hovered_off_card")
+	if not card.hovered.is_connected(hover_callable):
+		card.hovered.connect(hover_callable)
+	if not card.hovered_off.is_connected(hover_off_callable):
+		card.hovered_off.connect(hover_off_callable)
 
-	if not card.hovered_off.is_connected(on_hovered_off_card):
-		card.hovered_off.connect(on_hovered_off_card)
-	
 func on_hovered_over_card(card):
-	if !is_hovering_over_card:
-		is_hovering_over_card = true
-		highlight_card(card, true)
+	highlight_card(card, true)
 
 func on_hovered_off_card(card):
-	if !card.card_slot_card_in && !card_being_dragged:
-		highlight_card(card, false)
-		var new_card_hovered = raycast_check_for_card()
-		if new_card_hovered:
-			highlight_card(new_card_hovered, true)
-		else:
-			is_hovering_over_card = false
+	highlight_card(card, false)
 
 func highlight_card(card, hovered):
-	if hovered:
-		card.scale = Vector2(1.5, 1.5)
-		card.z_index = 2
-	else:
-		card.scale = Vector2(1,1)
-		card.z_index = 1
+	if not card_being_dragged:
+		if hovered:
+			card.scale = Vector2(1.5, 1.5)
+			card.z_index = 2
+		else:
+			card.scale = Vector2(1,1)
+			card.z_index = 1
 
 func raycast_check_for_card_slot():
 	var space_state = get_world_2d().direct_space_state
@@ -110,13 +104,14 @@ func raycast_check_for_card_slot():
 
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
-	var parameters = PhysicsPointQueryParameters2D.new()
-	parameters.position = get_global_mouse_position()
-	parameters.collide_with_areas = true
-	parameters.collision_mask = COLLISION_MASK_CARD
-	var result = space_state.intersect_point(parameters)
-	if result.size() > 0:
-		return get_card_with_highest_z_index(result)
+	var params = PhysicsPointQueryParameters2D.new()
+	params.position = get_global_mouse_position()
+	params.collide_with_areas = true
+	params.collision_mask = COLLISION_MASK_CARD
+	var result = space_state.intersect_point(params)
+	for r in result:
+		if r.collider is Card:  # nur echte Cards
+			return r.collider
 	return null
 
 func get_card_with_highest_z_index(cards):

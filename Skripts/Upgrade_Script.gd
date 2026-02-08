@@ -1,10 +1,15 @@
 extends Node2D
 
 var random_card = {
-	"Schwarz": "Card1",
-	"Grün": "Card2",
-	"Rot": "Card3",
-	"Blau": "Card4",
+	"Le'Murr": "Le'Murr",
+	"Lion Mask": "Lion Mask",
+	"Lucy'Faer": "Lucy'Faer",
+	"Mirae": "Mirae",
+	"Mor’Yra": "Mor’Yra",
+	"Serxia": "Serxia",
+	"Sun Mask": "Sun Mask",
+	"Xera": "Xera",
+	"Zeyx": "Zeyx",
 }
 
 var random_card_image
