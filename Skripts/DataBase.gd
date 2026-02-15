@@ -8,6 +8,8 @@ var card_name: String
 var cost: int
 var effects: Array
 var image_path: String
+var toe_finger_places : Array
+var left_or_right : bool
 
 var deck_list = []
 var starting = true
@@ -20,6 +22,9 @@ func _init(args := {}):
 	cost = args.get("cost", 1)
 	effects = args.get("effects", [])
 	image_path = args.get("image_path", "")
+	toe_finger_places = args.get("toe_finger_places", [false,false,false,false,false])
+	left_or_right =  args.get("left_or_right", false)
+	
 
 const CARDS = {
 	"Card1" : [4, 1],

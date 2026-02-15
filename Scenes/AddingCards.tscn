@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://ctgpoi4afqmmd"]
 
 [ext_resource type="Script" uid="uid://d2ptketlngj35" path="res://Skripts/Upgrade_Script.gd" id="1_af5o4"]
-[ext_resource type="Texture2D" uid="uid://bssg0i6ypoxh3" path="res://Pics/Card1.png" id="2_uyl4t"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
 
 [node name="Card" type="Node2D" parent="." unique_id=561863995]
 script = ExtResource("1_af5o4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Card" unique_id=209711549]
-position = Vector2(347, 514.00006)
-scale = Vector2(0.48523867, 0.4852387)
-texture = ExtResource("2_uyl4t")
+[node name="CardContainer" type="Node2D" parent="Card" unique_id=1464130909]
+position = Vector2(311, 494)
 
 [node name="Buttons" type="Node2D" parent="." unique_id=1998768276]
 
@@ -164,36 +161,6 @@ offset_right = 530.0
 offset_bottom = 190.0
 theme_override_font_sizes/normal_font_size = 53
 text = "3"
-horizontal_alignment = 1
-
-[node name="Health_Counter" type="RichTextLabel" parent="Counters" unique_id=959141451]
-offset_left = 430.0
-offset_top = 735.0
-offset_right = 540.0
-offset_bottom = 815.0
-theme_override_colors/default_color = Color(0, 0.89411765, 0.45882353, 1)
-theme_override_font_sizes/normal_font_size = 53
-text = "0"
-horizontal_alignment = 1
-
-[node name="Attack_Counter" type="RichTextLabel" parent="Counters" unique_id=1404874247]
-offset_left = 160.0
-offset_top = 735.0
-offset_right = 260.0
-offset_bottom = 815.0
-theme_override_colors/default_color = Color(0.9254902, 0, 0.2, 1)
-theme_override_font_sizes/normal_font_size = 53
-text = "0"
-horizontal_alignment = 1
-
-[node name="Cost_Counter" type="RichTextLabel" parent="Counters" unique_id=617036549]
-offset_left = 290.0
-offset_top = 735.0
-offset_right = 390.0
-offset_bottom = 815.0
-theme_override_colors/default_color = Color(0.45882353, 0.5568628, 1, 1)
-theme_override_font_sizes/normal_font_size = 53
-text = "0"
 horizontal_alignment = 1
 
 [node name="Double_Attack" type="RichTextLabel" parent="Counters" unique_id=1717944987]

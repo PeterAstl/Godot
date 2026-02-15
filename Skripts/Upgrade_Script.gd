@@ -1,16 +1,17 @@
 extends Node2D
 
-var random_card = {
-	"Le'Murr": "Le'Murr",
-	"Lion Mask": "Lion Mask",
-	"Lucy'Faer": "Lucy'Faer",
-	"Mirae": "Mirae",
-	"Mor’Yra": "Mor’Yra",
-	"Serxia": "Serxia",
-	"Sun Mask": "Sun Mask",
-	"Xera": "Xera",
-	"Zeyx": "Zeyx",
-}
+var foot
+var hand
+var nose
+var mouth
+var eye
+var left_or_right
+var body_parts_count = 0
+var true_or_false
+var toe_finger_list = []
+var true_false = [true, false]
+var foot_name = ["Fußibert", "Lord Fußion", "Sir Barfuß", "Der Kurfüßt", "Kleiner Fußel"]
+var hand_name = ["Handy"]
 
 var random_card_image
 var random_card_image_path
@@ -27,19 +28,29 @@ var points
 var cards_left
 var next_id = 0
 var player_cards = 5
-
+var card_instance
+var card_scene
+@onready var card_container = $CardContainer
+var card_now
 
 func _ready() -> void:
 	get_tree().paused = false
+	print(card_container)
+	card_scene = load("res://Scenes/Card.tscn")
 	if DataBase.starting:
 		for i in range(player_cards):
-			add_card()
+			add_foot()
+			#add_hand()
+			#add_eye()
+			#add_mouth()
+			#add_nose()
 			DataBase.starting = false
 	points = 20
 	cards_left = DataBase.deck_list.size()
 	
 	for card in DataBase.deck_list:
-		texture = card.image_path
+		card_now = card
+		show_card(card)
 		costs = card.cost
 		attack = card.attack
 		health = card.health
@@ -70,10 +81,22 @@ func _ready() -> void:
 		card.effects = effects
 		
 		hide_counters()
+		card_container.remove_child(card_instance)
 		
 		cards_left -= 1
 		
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	
+func show_card(card_data: Card_Data):
+	card_instance = card_scene.instantiate()
+	card_instance.set_data(card_data)
+	card_container.add_child(card_instance)
+	card_instance.scale = Vector2(3, 3)
+	card_instance.get_node("Costs").modulate.a = 1
+	card_instance.get_node("Name").modulate.a = 1
+	card_instance.get_node("Attack").modulate.a = 1
+	card_instance.get_node("Health").modulate.a = 1
+	
 
 func hide_counters():
 	$"../Texts/Card_Name".clear()
@@ -83,27 +106,39 @@ func hide_counters():
 	$"../Counters/Lifesteal".visible = false
 	
 func update_stats():
-	$Sprite2D.texture = load(texture)
-	$"../Counters/Health_Counter".text = str(health)
-	$"../Counters/Attack_Counter".text = str(attack)
 	$"../Counters/Punkte_Counter".text = str(points)
 	$"../Counters/Cards_Counter".text = str(cards_left)
-	$"../Counters/Cost_Counter".text = str(costs)
 	
-func add_card():
+func add_foot():
+	left_or_right = randi_range(0, 1)
+	if left_or_right == 1:
+		foot = "L_Foot"
+		left_or_right = false
+	else:
+		left_or_right = true
+		foot = "R_Foot"
+		
 	next_id += 1
 	card_name = "Card" + str(next_id)
-	random_card_image = random_card.keys().pick_random()
-	random_card_image_path = random_card[random_card_image]
+	
+	for i in range(5):
+		true_or_false = true_false.pick_random()
+		toe_finger_list.append(true_or_false)
+		if true_or_false:
+			body_parts_count += 1
 	
 	card_name = Card_Data.new({
-	"name": random_card_image,
-	"damage": 1,
-	"health": 2,
-	"cost": 1,
-	"image_path": str("res://Pics/" + random_card_image_path + ".png")
+	"name": foot_name.pick_random(),
+	"damage": body_parts_count,
+	"health": 5,
+	"cost": 2,
+	"image_path": str("res://Pics/" + foot + ".png"),
+	 "toe_finger_places": toe_finger_list,
+	"left_or_right": left_or_right,
 	})
 	DataBase.deck_list.append(card_name)
+	body_parts_count = 0
+	toe_finger_list = []
 
 func Attack() -> void:
 	if points >= 1:
