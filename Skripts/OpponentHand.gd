@@ -1,8 +1,8 @@
 extends Node2D
 
-const CARD_WIDTH = 95
+const CARD_WIDTH = 200
 const HAND_Y_POSITION = 100
-const DEFAULT_CARD_MOVE_SPEED = 0.1
+const DEFAULT_CARD_MOVE_SPEED = 0.2
 
 var opponent_hand = []
 var center_screen_x
@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func add_card_to_hand(card, speed):
 	if card not in opponent_hand:
+		card.global_position = $"../OpponentDeck".global_position
+		
 		opponent_hand.insert(0, card)
 		update_hand_positions(speed)
 	else:

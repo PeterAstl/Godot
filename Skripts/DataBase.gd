@@ -13,6 +13,7 @@ var left_or_right : bool
 
 var deck_list = []
 var starting = true
+var starting_fight = true
 
 func _init(args := {}):
 	# Default-Werte
@@ -26,12 +27,14 @@ func _init(args := {}):
 	left_or_right =  args.get("left_or_right", false)
 	
 
-const CARDS = {
+var cards = {
 	"Card1" : [4, 1],
 	"Card2" : [0, 5],
 	"Card3" : [1, 6],
 }
 
-var deck_enemy = ["Card1", "Card1", "Card2", "Card2","Card3", "Card3",]
+var deck_enemy = []
 
-var level = 0
+var level = 1
+
+var battle_path

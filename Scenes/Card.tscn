@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bi2tg57udu577"]
 
 [ext_resource type="Script" uid="uid://1lisqr5ca35b" path="res://Skripts/Card.gd" id="1_hael8"]
-[ext_resource type="Texture2D" uid="uid://00si0hqfn7fi" path="res://Pics/R_Foot.png" id="3_1geux"]
-[ext_resource type="Texture2D" uid="uid://bimerpr82u6ss" path="res://Pics/R_Toe1.png" id="4_13sua"]
-[ext_resource type="Texture2D" uid="uid://b00a1ustxe76g" path="res://Pics/R_Toe2.png" id="5_pbuqb"]
-[ext_resource type="Texture2D" uid="uid://de21dv55koow3" path="res://Pics/R_Toe3.png" id="6_f3ywt"]
-[ext_resource type="Texture2D" uid="uid://bg3nnw0yftvu4" path="res://Pics/R_Toe4.png" id="7_6elyo"]
-[ext_resource type="Texture2D" uid="uid://7wjkkg4558x4" path="res://Pics/R_Toe5.png" id="8_gnfes"]
+[ext_resource type="Texture2D" uid="uid://00si0hqfn7fi" path="res://Pics/Gliedmaßen/R_Foot.png" id="3_1geux"]
+[ext_resource type="Texture2D" uid="uid://bimerpr82u6ss" path="res://Pics/Gliedmaßen/R_Toe1.png" id="4_13sua"]
+[ext_resource type="Texture2D" uid="uid://b00a1ustxe76g" path="res://Pics/Gliedmaßen/R_Toe2.png" id="5_pbuqb"]
+[ext_resource type="Texture2D" uid="uid://de21dv55koow3" path="res://Pics/Gliedmaßen/R_Toe3.png" id="6_f3ywt"]
+[ext_resource type="Texture2D" uid="uid://bg3nnw0yftvu4" path="res://Pics/Gliedmaßen/R_Toe4.png" id="7_6elyo"]
+[ext_resource type="Texture2D" uid="uid://7wjkkg4558x4" path="res://Pics/Gliedmaßen/R_Toe5.png" id="8_gnfes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hael8"]
 size = Vector2(80, 127)

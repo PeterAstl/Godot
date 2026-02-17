@@ -27,11 +27,11 @@ func setup_from_data():
 	$Costs.text = str(data.cost)
 	for i in range(data.toe_finger_places.size()):
 		if not data.left_or_right:
-			$Toe1.texture = load("res://Pics/L_Toe1.png")
-			$Toe2.texture = load("res://Pics/L_Toe2.png")
-			$Toe3.texture = load("res://Pics/L_Toe3.png")
-			$Toe4.texture = load("res://Pics/L_Toe4.png")
-			$Toe5.texture = load("res://Pics/L_Toe5.png")
+			$Toe1.texture = load("res://Pics/Gliedmaßen/L_Toe1.png")
+			$Toe2.texture = load("res://Pics/Gliedmaßen/L_Toe2.png")
+			$Toe3.texture = load("res://Pics/Gliedmaßen/L_Toe3.png")
+			$Toe4.texture = load("res://Pics/Gliedmaßen/L_Toe4.png")
+			$Toe5.texture = load("res://Pics/Gliedmaßen/L_Toe5.png")
 		if data.toe_finger_places[i]:
 			toe_node = get_node("Toe" + str(i+1))
 			toe_node.visible = true

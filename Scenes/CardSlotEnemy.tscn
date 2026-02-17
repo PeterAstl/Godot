@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buuua4bvu6x6f"]
 
-[ext_resource type="Script" uid="uid://buq2wixssvwkr" path="res://Scenes/CardSlotEnemy.gd" id="1_fx5bw"]
+[ext_resource type="Script" uid="uid://buq2wixssvwkr" path="res://Skripts/CardSlotEnemy.gd" id="1_fx5bw"]
 [ext_resource type="Texture2D" uid="uid://b2wubj13xntrc" path="res://Pics/Card_Slot.png" id="2_fx5bw"]
 
 [node name="CardSlot" type="Node2D" unique_id=2002253229]

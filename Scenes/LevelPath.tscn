@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://jo7qwoyxujqd"]
+
+[ext_resource type="Script" uid="uid://d2t4lr58eg00h" path="res://Skripts/Level_Path.gd" id="1_7lcwv"]
+[ext_resource type="Texture2D" uid="uid://b4pta3ur8tkjk" path="res://Pics/Herz_Level.png" id="1_udkcs"]
+[ext_resource type="Texture2D" uid="uid://bi082qcca6xtk" path="res://Pics/UpgradeIcon/upgrade_1.png" id="3_oy5vm"]
+[ext_resource type="Texture2D" uid="uid://76ghle13ah53" path="res://Pics/UpgradeIcon/upgrade_disabled.png" id="4_udkcs"]
+
+[node name="LevelPath" type="Node2D" unique_id=827686986]
+script = ExtResource("1_7lcwv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1507289472]
+texture = ExtResource("1_udkcs")
+centered = false
+
+[node name="Button_Manager" type="Node2D" parent="." unique_id=1109234906]
+scale = Vector2(0.365, 0.365)
+
+[node name="TextureButton1" type="TextureButton" parent="Button_Manager" unique_id=1788282698]
+offset_left = 260.274
+offset_top = 427.39722
+offset_right = 560.27405
+offset_bottom = 727.3972
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton2" type="TextureButton" parent="Button_Manager" unique_id=525230819]
+offset_left = 260.27393
+offset_top = 2232.8774
+offset_right = 560.274
+offset_bottom = 2532.8774
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton3" type="TextureButton" parent="Button_Manager" unique_id=1833700387]
+offset_left = 643.83563
+offset_top = 1328.767
+offset_right = 943.8357
+offset_bottom = 1628.767
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton4" type="TextureButton" parent="Button_Manager" unique_id=1520491979]
+offset_left = 972.6026
+offset_top = 589.04065
+offset_right = 1272.6027
+offset_bottom = 889.0408
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton5" type="TextureButton" parent="Button_Manager" unique_id=913149522]
+offset_left = 972.6026
+offset_top = 2071.2327
+offset_right = 1272.6028
+offset_bottom = 2371.233
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton6" type="TextureButton" parent="Button_Manager" unique_id=2042586738]
+offset_left = 1465.7534
+offset_top = 232.87671
+offset_right = 1765.7535
+offset_bottom = 532.87695
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton7" type="TextureButton" parent="Button_Manager" unique_id=1777466015]
+offset_left = 1493.1504
+offset_top = 1328.7671
+offset_right = 1793.1505
+offset_bottom = 1628.7673
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton8" type="TextureButton" parent="Button_Manager" unique_id=223537461]
+offset_left = 1465.7534
+offset_top = 2424.6572
+offset_right = 1765.7535
+offset_bottom = 2724.6575
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton9" type="TextureButton" parent="Button_Manager" unique_id=164896797]
+offset_left = 1986.3013
+offset_top = 534.2466
+offset_right = 2286.3013
+offset_bottom = 834.2468
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton10" type="TextureButton" parent="Button_Manager" unique_id=1968706441]
+offset_left = 1986.3013
+offset_top = 2123.2876
+offset_right = 2286.3013
+offset_bottom = 2423.2878
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton11" type="TextureButton" parent="Button_Manager" unique_id=1689195777]
+offset_left = 2479.4521
+offset_top = 123.28763
+offset_right = 2779.4521
+offset_bottom = 423.28787
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton12" type="TextureButton" parent="Button_Manager" unique_id=1302715714]
+offset_left = 2479.4512
+offset_top = 1328.7671
+offset_right = 2779.4512
+offset_bottom = 1628.7673
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton13" type="TextureButton" parent="Button_Manager" unique_id=18072223]
+offset_left = 2479.452
+offset_top = 2506.849
+offset_right = 2779.452
+offset_bottom = 2806.8494
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton14" type="TextureButton" parent="Button_Manager" unique_id=226138533]
+offset_left = 2972.6045
+offset_top = 534.2468
+offset_right = 3272.6045
+offset_bottom = 834.2471
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton15" type="TextureButton" parent="Button_Manager" unique_id=1422318067]
+offset_left = 2972.603
+offset_top = 2123.288
+offset_right = 3272.603
+offset_bottom = 2423.2883
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton16" type="TextureButton" parent="Button_Manager" unique_id=1823307392]
+offset_left = 3493.1504
+offset_top = 232.87671
+offset_right = 3793.1504
+offset_bottom = 532.87695
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton17" type="TextureButton" parent="Button_Manager" unique_id=826696474]
+offset_left = 3465.754
+offset_top = 1328.7683
+offset_right = 3765.754
+offset_bottom = 1628.7686
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton18" type="TextureButton" parent="Button_Manager" unique_id=832920016]
+offset_left = 3493.1504
+offset_top = 2424.6572
+offset_right = 3793.1504
+offset_bottom = 2724.6575
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton19" type="TextureButton" parent="Button_Manager" unique_id=50664314]
+offset_left = 3986.3008
+offset_top = 589.041
+offset_right = 4286.301
+offset_bottom = 889.04126
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="TextureButton20" type="TextureButton" parent="Button_Manager" unique_id=1219114180]
+offset_left = 3986.3008
+offset_top = 2068.4932
+offset_right = 4286.301
+offset_bottom = 2368.4934
+disabled = true
+texture_normal = ExtResource("3_oy5vm")
+texture_disabled = ExtResource("4_udkcs")
+
+[node name="Heart" type="TextureButton" parent="Button_Manager" unique_id=437029339]
+offset_left = 4224.657
+offset_top = 1065.7534
+offset_right = 4758.9043
+offset_bottom = 1769.863
+disabled = true
+
+[connection signal="pressed" from="Button_Manager/TextureButton1" to="." method="Button1"]
+[connection signal="pressed" from="Button_Manager/TextureButton1" to="Button_Manager" method="Button1"]
+[connection signal="pressed" from="Button_Manager/TextureButton2" to="." method="Button2"]
+[connection signal="pressed" from="Button_Manager/TextureButton3" to="." method="Button3"]
+[connection signal="pressed" from="Button_Manager/TextureButton4" to="." method="Button4"]
+[connection signal="pressed" from="Button_Manager/TextureButton5" to="." method="Button5"]
+[connection signal="pressed" from="Button_Manager/TextureButton6" to="." method="Button6"]
+[connection signal="pressed" from="Button_Manager/TextureButton7" to="." method="Button7"]
+[connection signal="pressed" from="Button_Manager/TextureButton8" to="." method="Button8"]
+[connection signal="pressed" from="Button_Manager/TextureButton9" to="." method="Button9"]
+[connection signal="pressed" from="Button_Manager/TextureButton10" to="." method="Button10"]
+[connection signal="pressed" from="Button_Manager/TextureButton11" to="." method="Button11"]
+[connection signal="pressed" from="Button_Manager/TextureButton12" to="." method="Button12"]
+[connection signal="pressed" from="Button_Manager/TextureButton13" to="." method="Button13"]
+[connection signal="pressed" from="Button_Manager/TextureButton14" to="." method="Button14"]
+[connection signal="pressed" from="Button_Manager/TextureButton15" to="." method="Button15"]
+[connection signal="pressed" from="Button_Manager/TextureButton16" to="." method="Button16"]
+[connection signal="pressed" from="Button_Manager/TextureButton17" to="." method="Button17"]
+[connection signal="pressed" from="Button_Manager/TextureButton18" to="." method="Button18"]
+[connection signal="pressed" from="Button_Manager/TextureButton19" to="." method="Button19"]
+[connection signal="pressed" from="Button_Manager/TextureButton20" to="." method="Button20"]
+[connection signal="pressed" from="Button_Manager/Heart" to="." method="Button20"]
+[connection signal="pressed" from="Button_Manager/Heart" to="." method="ButtonHeart"]

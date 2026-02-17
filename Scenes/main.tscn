@@ -11,44 +11,8 @@
 [ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
 [ext_resource type="Script" uid="uid://bcaqyqw36bacy" path="res://Skripts/OpponentDeck.gd" id="8_d1ilt"]
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
-[ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Scenes/ContinueButton.gd" id="11_d1ilt"]
-
-[sub_resource type="Animation" id="Animation_d1ilt"]
-resource_name = "Draw_Your_Card"
-length = 1.3333334
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/default_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.3000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.9607843, 0, 0.011764706, 0), Color(0.9607843, 0, 0.011764706, 1), Color(0.9607843, 0, 0.011764706, 0.39215687), Color(0.9607843, 0, 0.011764706, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6iyac"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/default_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.9607843, 0, 0.011764706, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdnlq"]
-_data = {
-&"Draw_Your_Card": SubResource("Animation_d1ilt"),
-&"RESET": SubResource("Animation_6iyac")
-}
+[ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Skripts/ContinueButton.gd" id="11_d1ilt"]
+[ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="13_fdnlq"]
 
 [node name="Main" type="Node2D" unique_id=40358678]
 
@@ -114,78 +78,52 @@ texture = ExtResource("6_21xkr")
 [node name="InputManager" type="Node2D" parent="." unique_id=620736888]
 script = ExtResource("6_d1ilt")
 
-[node name="Button" type="Button" parent="." unique_id=1017366725]
-offset_left = 375.0
-offset_top = 460.0
-offset_right = 495.0
-offset_bottom = 530.0
-theme_override_font_sizes/font_size = 25
-text = "End Turn"
-icon_alignment = 1
-
 [node name="BattleManager" type="Node" parent="." unique_id=2115354227]
 script = ExtResource("10_6iyac")
 
-[node name="BattleTimer" type="Timer" parent="." unique_id=2105420457]
-one_shot = true
+[node name="Texts" type="Node2D" parent="." unique_id=526805144]
+position = Vector2(1375, 291)
 
-[node name="Health_Enemy" type="RichTextLabel" parent="." unique_id=1741568441]
-offset_left = 1375.0
-offset_top = 291.0
-offset_right = 1649.0
-offset_bottom = 487.0
+[node name="Health_Enemy" type="RichTextLabel" parent="Texts" unique_id=1741568441]
+offset_right = 274.0
+offset_bottom = 196.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health_Player" type="RichTextLabel" parent="." unique_id=1955239820]
-offset_left = 1387.0
-offset_top = 552.0
-offset_right = 1637.0
-offset_bottom = 647.0
+[node name="Health_Player" type="RichTextLabel" parent="Texts" unique_id=1955239820]
+offset_left = 12.0
+offset_top = 261.0
+offset_right = 262.0
+offset_bottom = 356.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost_Player" type="RichTextLabel" parent="." unique_id=2112016811]
-offset_left = 1529.0
-offset_top = 800.0
-offset_right = 1779.0
-offset_bottom = 895.0
+[node name="Cost_Player" type="RichTextLabel" parent="Texts" unique_id=2112016811]
+offset_left = 154.0
+offset_top = 509.0
+offset_right = 404.0
+offset_bottom = 604.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Info_Card_Draw_Animation" type="AnimationPlayer" parent="." unique_id=1723952672]
-root_node = NodePath("../Info_Card_Draw")
-libraries/ = SubResource("AnimationLibrary_fdnlq")
-
-[node name="Info_Card_Draw" type="RichTextLabel" parent="." unique_id=729445554]
-offset_left = 19.0
-offset_top = 670.0
-offset_right = 374.0
-offset_bottom = 767.0
-theme_override_colors/default_color = Color(0.9607843, 0, 0.011764706, 0)
-theme_override_font_sizes/normal_font_size = 40
-text = "Draw your Card"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Win" type="RichTextLabel" parent="." unique_id=602786402]
+[node name="Win" type="RichTextLabel" parent="Texts" unique_id=602786402]
 visible = false
-offset_left = 455.0
-offset_top = 90.0
-offset_right = 1345.0
-offset_bottom = 374.0
+offset_left = -920.0
+offset_top = -201.0
+offset_right = -30.0
+offset_bottom = 83.0
 theme_override_font_sizes/normal_font_size = 199
 text = "YOU WIN"
 
-[node name="Loose" type="RichTextLabel" parent="." unique_id=1304955312]
+[node name="Loose" type="RichTextLabel" parent="Texts" unique_id=1304955312]
 visible = false
-offset_left = 436.0
-offset_top = 88.0
-offset_right = 1446.0
-offset_bottom = 372.0
+offset_left = -939.0
+offset_top = -203.0
+offset_right = 71.0
+offset_bottom = 81.0
 theme_override_font_sizes/normal_font_size = 199
 text = "YOU LOST"
 
@@ -208,5 +146,20 @@ text = "Continue"
 script = ExtResource("11_d1ilt")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]
+[node name="Button" type="Button" parent="." unique_id=1017366725]
+offset_left = 375.0
+offset_top = 460.0
+offset_right = 495.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 25
+text = "End Turn"
+icon_alignment = 1
+
+[node name="Sounds" type="Node2D" parent="." unique_id=433700582]
+position = Vector2(436, 88)
+
+[node name="Hit_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=520214020]
+stream = ExtResource("13_fdnlq")
+
 [connection signal="pressed" from="Continue_Button" to="Continue_Button" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]

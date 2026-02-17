@@ -13,20 +13,17 @@ var true_false = [true, false]
 var foot_name = ["Fußibert", "Lord Fußion", "Sir Barfuß", "Der Kurfüßt", "Kleiner Fußel"]
 var hand_name = ["Handy"]
 
-var random_card_image
-var random_card_image_path
-
 var health
 var attack
 var name_card
 var effects
 var costs
-var texture
 
 var card_name
 var points
 var cards_left
 var next_id = 0
+var enemy_next_id = 0
 var player_cards = 5
 var card_instance
 var card_scene
@@ -34,6 +31,7 @@ var card_scene
 var card_now
 
 func _ready() -> void:
+	level_enemy_deck()
 	get_tree().paused = false
 	print(card_container)
 	card_scene = load("res://Scenes/Card.tscn")
@@ -85,8 +83,44 @@ func _ready() -> void:
 		
 		cards_left -= 1
 		
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	DataBase.battle_path.fight_scene()
+
+func level_enemy_deck():
+	if DataBase.level == 1:
+		for i in range(3):
+			add_foot_enemy()
+
+func add_foot_enemy():
+	left_or_right = randi_range(0, 1)
+	if left_or_right == 1:
+		foot = "L_Foot"
+		left_or_right = false
+	else:
+		left_or_right = true
+		foot = "R_Foot"
+		
+	enemy_next_id += 1
+	card_name = "Card" + str(next_id)
 	
+	for i in range(5):
+		true_or_false = true_false.pick_random()
+		toe_finger_list.append(true_or_false)
+		if true_or_false:
+			body_parts_count += 1
+	
+	card_name = Card_Data.new({
+	"name": "",
+	"damage": body_parts_count,
+	"health": 5,
+	"cost": 2,
+	"image_path": str("res://Pics/Gliedmaßen/" + foot + ".png"),
+	 "toe_finger_places": toe_finger_list,
+	"left_or_right": left_or_right,
+	})
+	DataBase.deck_enemy.append(card_name)
+	body_parts_count = 0
+	toe_finger_list = []
+
 func show_card(card_data: Card_Data):
 	card_instance = card_scene.instantiate()
 	card_instance.set_data(card_data)
@@ -96,7 +130,6 @@ func show_card(card_data: Card_Data):
 	card_instance.get_node("Name").modulate.a = 1
 	card_instance.get_node("Attack").modulate.a = 1
 	card_instance.get_node("Health").modulate.a = 1
-	
 
 func hide_counters():
 	$"../Texts/Card_Name".clear()
@@ -104,11 +137,11 @@ func hide_counters():
 	$"../Counters/Multi_Attack".visible = false
 	$"../Counters/Scaling".visible = false
 	$"../Counters/Lifesteal".visible = false
-	
+
 func update_stats():
 	$"../Counters/Punkte_Counter".text = str(points)
 	$"../Counters/Cards_Counter".text = str(cards_left)
-	
+
 func add_foot():
 	left_or_right = randi_range(0, 1)
 	if left_or_right == 1:
@@ -132,7 +165,7 @@ func add_foot():
 	"damage": body_parts_count,
 	"health": 5,
 	"cost": 2,
-	"image_path": str("res://Pics/" + foot + ".png"),
+	"image_path": str("res://Pics/Gliedmaßen/" + foot + ".png"),
 	 "toe_finger_places": toe_finger_list,
 	"left_or_right": left_or_right,
 	})
@@ -165,7 +198,6 @@ func Double_Attack() -> void:
 			$"../Counters/Double_Attack".visible = true
 			points -= 3
 			$"../Counters/Punkte_Counter".text = str(points)
-		
 
 func Multi_Attack() -> void:
 	if "multi_attack" not in effects:
@@ -174,7 +206,7 @@ func Multi_Attack() -> void:
 			$"../Counters/Multi_Attack".visible = true
 			points -= 5
 			$"../Counters/Punkte_Counter".text = str(points)
-			
+
 func Lifesteal() -> void:
 	if "lifesteal" not in effects:
 		if points >= 5:
@@ -182,7 +214,7 @@ func Lifesteal() -> void:
 			$"../Counters/Lifesteal".visible = true
 			points -= 5
 			$"../Counters/Punkte_Counter".text = str(points)
-			
+
 func Scaling() -> void:
 	if "scaling" not in effects:
 		if points >= 3:

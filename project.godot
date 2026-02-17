@@ -11,18 +11,33 @@ config_version=5
 [application]
 
 config/name="CardGameBase"
-run/main_scene="uid://ctgpoi4afqmmd"
+run/main_scene="uid://jo7qwoyxujqd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
 DataBase="*uid://c66myif1jhsbp"
+PauseMenu="*uid://cvig5uryfrhu6"
 
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1000
+window/size/viewport_height=1080
+window/size/mode=4
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
+
+[file_customization]
+
+folder_colors={
+"res://Pics/": "red",
+"res://Pics/Gliedmaßen/": "red",
+"res://Pics/UpgradeIcon/": "pink",
+"res://Scenes/": "blue",
+"res://Skripts/": "green",
+"res://Sounds/": "orange"
+}
 
 [physics]
 

@@ -2,7 +2,7 @@ extends Node2D
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_CARD_SLOT = 2
-const DEFAULT_CARD_MOVE_SPEED = 0.2
+const DEFAULT_CARD_MOVE_SPEED = 1
 const CARD_SMALLER_SCALE = 1
 
 var screen_size
@@ -19,7 +19,7 @@ func _ready():
 	your_turn = true
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
-	$"../Cost_Player".text = "🪙".repeat(ressource_amount)
+	$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
 	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
 	$"../InputManager".connect("left_mouse_button_clicked", on_left_click_pressed)
 
@@ -48,7 +48,7 @@ func finish_drag():
 		if card_slot_found and not card_slot_found.card_in_slot:
 			if ressource_amount >= int(card_being_dragged.get_node("Costs").text):
 				ressource_amount -= int(card_being_dragged.get_node("Costs").text)
-				$"../Cost_Player".text = "🪙".repeat(ressource_amount)
+				$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
 				card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
 				card_being_dragged.card_slot_card_in = card_slot_found
 				card_being_dragged.z_index = -1
@@ -127,4 +127,4 @@ func get_card_with_highest_z_index(cards):
 	
 func reset_played_card():
 	ressource_amount = 2
-	$"../Cost_Player".text = "🪙".repeat(ressource_amount)
+	$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
