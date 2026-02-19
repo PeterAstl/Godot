@@ -16,6 +16,7 @@ func _ready() -> void:
 	for i in range(STARTING_HAND_SIZE):
 		draw_card()
 		drawn_card_this_turn = false
+	drawn_card_this_turn = true
 
 func draw_card():
 	if drawn_card_this_turn:

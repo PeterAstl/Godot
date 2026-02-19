@@ -49,31 +49,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CardImage:scale")
+tracks/3/path = NodePath("Attack:theme_override_colors/font_shadow_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.3, 0.3)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Name:modulate")
+tracks/4/path = NodePath("Attack:theme_override_colors/font_shadow_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/5/path = NodePath("Costs:theme_override_colors/font_shadow_color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -85,7 +85,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Costs:theme_override_colors/font_shadow_color")
+tracks/6/path = NodePath("Health:theme_override_colors/font_shadow_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -97,7 +97,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Health:theme_override_colors/font_shadow_color")
+tracks/7/path = NodePath("Name:theme_override_colors/font_shadow_color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -109,22 +109,10 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Name:theme_override_colors/font_shadow_color")
+tracks/8/path = NodePath("Costs:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Costs:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -174,31 +162,31 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CardImage:scale")
+tracks/3/path = NodePath("Attack:theme_override_colors/font_shadow_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.19999999),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.91999996),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.3, 0.3), Vector2(0.3, 0.3), Vector2(0.3, 0.3)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Name:modulate")
+tracks/4/path = NodePath("Attack:theme_override_colors/font_shadow_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.14999999, 0.19999999),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.91999996),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/5/path = NodePath("Costs:theme_override_colors/font_shadow_color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -210,7 +198,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Costs:theme_override_colors/font_shadow_color")
+tracks/6/path = NodePath("Health:theme_override_colors/font_shadow_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -222,7 +210,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Health:theme_override_colors/font_shadow_color")
+tracks/7/path = NodePath("Name:theme_override_colors/font_shadow_color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -234,22 +222,10 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Name:theme_override_colors/font_shadow_color")
+tracks/8/path = NodePath("Costs:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.91999996),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Costs:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.14999999, 0.19999999),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -297,26 +273,32 @@ texture = ExtResource("7_1q8ov")
 
 [node name="Health" type="RichTextLabel" parent="." unique_id=1619744458]
 modulate = Color(1, 1, 1, 0)
-offset_left = 25.0
-offset_top = 43.99997
-offset_right = 45.0
-offset_bottom = 68.285736
-scale = Vector2(0.7, 0.7)
+offset_left = 16.0
+offset_top = 38.0
+offset_right = 316.0
+offset_bottom = 688.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(0, 0.89511347, 0.45991617, 1)
+theme_override_colors/font_outline_color = Color(9.62615e-08, 0.36472905, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 36
+theme_override_font_sizes/normal_font_size = 200
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Costs" type="RichTextLabel" parent="." unique_id=1199247189]
 modulate = Color(1, 1, 1, 0)
-offset_left = -19.0
-offset_top = 33.99997
-offset_right = 21.0
-offset_bottom = 58.99997
+offset_left = -13.0
+offset_top = 1.0000005
+offset_right = 287.0
+offset_bottom = 651.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(0.45764947, 0.5577517, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 16
+theme_override_constants/outline_size = 46
+theme_override_font_sizes/normal_font_size = 300
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -324,26 +306,29 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Attack" type="RichTextLabel" parent="." unique_id=1421771980]
 modulate = Color(1, 1, 1, 0)
-offset_left = -34.000004
-offset_top = 43.999977
-offset_right = -14.000004
-offset_bottom = 68.28574
-scale = Vector2(0.7, 0.7)
+offset_left = -43.0
+offset_top = 38.0
+offset_right = 257.0
+offset_bottom = 688.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(0.92703575, 0, 0.20131508, 1)
+theme_override_colors/font_outline_color = Color(0.1882353, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 41
+theme_override_font_sizes/normal_font_size = 200
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="RichTextLabel" parent="." unique_id=2020900763]
-modulate = Color(1, 1, 1, 0)
-offset_left = -34.999996
-offset_top = -61.000015
-offset_right = 65.0
-offset_bottom = -36.000015
+offset_left = -34.0
+offset_top = -75.0
+offset_right = 66.0
+offset_bottom = -50.0
 scale = Vector2(0.7, 0.7)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
 text = "Placeholder"
 tab_size = 1
 horizontal_alignment = 1

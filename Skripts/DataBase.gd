@@ -2,7 +2,7 @@ extends Node
 
 class_name Card_Data
 
-var attack: int
+var damage: int
 var health: int
 var card_name: String
 var cost: int
@@ -17,15 +17,16 @@ var starting_fight = true
 
 func _init(args := {}):
 	# Default-Werte
-	attack = args.get("damage", 0)
+	damage = args.get("damage", 0)
 	health = args.get("health", 1)
-	card_name = args.get("name", "No_Name")
+	card_name = args.get("name", "")
 	cost = args.get("cost", 1)
 	effects = args.get("effects", [])
 	image_path = args.get("image_path", "")
 	toe_finger_places = args.get("toe_finger_places", [false,false,false,false,false])
 	left_or_right =  args.get("left_or_right", false)
 	
+var player_effects = []
 
 var cards = {
 	"Card1" : [4, 1],
@@ -35,6 +36,6 @@ var cards = {
 
 var deck_enemy = []
 
-var level = 1
+var level = 0
 
 var battle_path

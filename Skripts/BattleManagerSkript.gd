@@ -13,8 +13,8 @@ var opponent_health = 8
 
 func _ready() -> void:
 	
-	$"../Texts/Health_Enemy".text = "❤️".repeat(opponent_health)
-	$"../Texts/Health_Player".text = "❤️".repeat(player_health)
+	$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
+	$"../Texts/Health_Player".text = "🫀".repeat(player_health)
 	
 	empty_card_slots_opponent.append($"../CardSlots_Enemy/CardSlot1")
 	empty_card_slots_opponent.append($"../CardSlots_Enemy/CardSlot2")
@@ -53,8 +53,10 @@ func opponent_turn() -> void:
 		await wait(1)
 
 	await opponent_turn_attack()
-
+	await wait(1)
+	
 	end_opponent_turn()
+	$"../PlayerDeck".draw_card()
 	$"../CardManager".your_turn = true
 
 func player_turn_attack() -> void:
@@ -184,19 +186,22 @@ func animate_attack_to_player(card, player_side, slot_node):
 	if player_side:
 		if "lifesteal" in card.data.effects:
 			player_health += 1
-			$"../Texts/Health_Player".text = "❤️".repeat(player_health)
+			$"../Texts/Health_Player".text = "🫀".repeat(player_health)
 
 		opponent_health -= 1
 		if opponent_health <= 0:
 			await continue_screen(true)
 		else:
-			$"../Texts/Health_Enemy".text = "❤️".repeat(opponent_health)
+			$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
 	else:
+		if "lifesteal" in card.data.effects:
+			opponent_health += 1
+			$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
 		player_health -= 1
 		if player_health <= 0:
 			await continue_screen(false)
 		else:
-			$"../Texts/Health_Player".text = "❤️".repeat(player_health)
+			$"../Texts/Health_Player".text = "🫀".repeat(player_health)
 	
 	tween = create_tween()
 	tween.tween_property(card, "position", original_pos, CARD_MOVE_SPEED)

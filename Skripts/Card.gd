@@ -21,7 +21,7 @@ func set_data(card_data: Card_Data):
 
 func setup_from_data():
 	$CardImage.texture = load(data.image_path)
-	$Attack.text = str(data.attack)
+	$Attack.text = str(data.damage)
 	$Health.text = str(data.health)
 	$Name.text = data.card_name
 	$Costs.text = str(data.cost)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buwwhfsikynve"]
 
 [ext_resource type="Script" uid="uid://ct63vqc26w40o" path="res://Skripts/Deck.gd" id="1_io7pv"]
-[ext_resource type="Texture2D" uid="uid://ef3584k01h08" path="res://Pics/Card_deck.png" id="2_nlncs"]
+[ext_resource type="Texture2D" uid="uid://cwo20f84gduyc" path="res://Pics/Bag.png" id="2_io7pv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(80, 128)
@@ -12,9 +12,9 @@ script = ExtResource("1_io7pv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082189705]
 z_index = -2
-position = Vector2(2.0000153, -2.999939)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_nlncs")
+position = Vector2(-20, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_io7pv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1150610192]
 collision_layer = 4
@@ -26,10 +26,14 @@ shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1878003169]
 z_index = -2
-offset_left = 16.0
-offset_top = -63.0
-offset_right = 38.0
-offset_bottom = -38.5
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = -6.0000005
+offset_top = 3.0000076
+offset_right = 294.0
+offset_bottom = 303.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 83
+theme_override_font_sizes/normal_font_size = 200
 text = "0"
 horizontal_alignment = 1

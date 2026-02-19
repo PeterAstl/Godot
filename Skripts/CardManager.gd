@@ -19,7 +19,7 @@ func _ready():
 	your_turn = true
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
-	$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
+	$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)
 	$"../InputManager".connect("left_mouse_button_released", on_left_click_released)
 	$"../InputManager".connect("left_mouse_button_clicked", on_left_click_pressed)
 
@@ -48,7 +48,7 @@ func finish_drag():
 		if card_slot_found and not card_slot_found.card_in_slot:
 			if ressource_amount >= int(card_being_dragged.get_node("Costs").text):
 				ressource_amount -= int(card_being_dragged.get_node("Costs").text)
-				$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
+				$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)
 				card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
 				card_being_dragged.card_slot_card_in = card_slot_found
 				card_being_dragged.z_index = -1
@@ -127,4 +127,4 @@ func get_card_with_highest_z_index(cards):
 	
 func reset_played_card():
 	ressource_amount = 2
-	$"../Texts/Cost_Player".text = "🪙".repeat(ressource_amount)
+	$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)

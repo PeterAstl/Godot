@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 DataBase="*uid://c66myif1jhsbp"
 PauseMenu="*uid://cvig5uryfrhu6"
+Adding="*uid://b8e53hfx3n8ux"
 
 [display]
 

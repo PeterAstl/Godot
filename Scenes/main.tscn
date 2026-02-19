@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://buwwhfsikynve" path="res://Scenes/deck.tscn" id="4_kry3j"]
 [ext_resource type="Script" uid="uid://bq8qvq4k5e2l7" path="res://Skripts/CardSlot.gd" id="5_6iyac"]
 [ext_resource type="PackedScene" uid="uid://b6uslatiyhddw" path="res://Scenes/CardSlot.tscn" id="5_kry3j"]
-[ext_resource type="Texture2D" uid="uid://ef3584k01h08" path="res://Pics/Card_deck.png" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://c1jhjjj6ff5d7" path="res://Skripts/InputManager.gd" id="6_d1ilt"]
 [ext_resource type="Script" uid="uid://bcaqyqw36bacy" path="res://Skripts/OpponentDeck.gd" id="8_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://cwo20f84gduyc" path="res://Pics/Bag.png" id="9_fdnlq"]
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Skripts/ContinueButton.gd" id="11_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="13_fdnlq"]
@@ -23,6 +23,7 @@ script = ExtResource("1_21xkr")
 script = ExtResource("3_344ge")
 
 [node name="PlayerDeck" parent="." unique_id=368514955 instance=ExtResource("4_kry3j")]
+position = Vector2(158, 850)
 
 [node name="CardSlots_Player" type="Node2D" parent="." unique_id=287090504]
 
@@ -72,8 +73,10 @@ script = ExtResource("8_d1ilt")
 
 [node name="Sprite2D" type="Sprite2D" parent="OpponentDeck" unique_id=1479028769]
 z_index = -2
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_21xkr")
+position = Vector2(-16, 30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_fdnlq")
+flip_h = true
 
 [node name="InputManager" type="Node2D" parent="." unique_id=620736888]
 script = ExtResource("6_d1ilt")
@@ -85,26 +88,28 @@ script = ExtResource("10_6iyac")
 position = Vector2(1375, 291)
 
 [node name="Health_Enemy" type="RichTextLabel" parent="Texts" unique_id=1741568441]
-offset_right = 274.0
-offset_bottom = 196.0
+offset_left = -40.0
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = 200.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Health_Player" type="RichTextLabel" parent="Texts" unique_id=1955239820]
-offset_left = 12.0
-offset_top = 261.0
-offset_right = 262.0
-offset_bottom = 356.0
+offset_left = -40.0
+offset_top = 220.0
+offset_right = 260.0
+offset_bottom = 520.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cost_Player" type="RichTextLabel" parent="Texts" unique_id=2112016811]
-offset_left = 154.0
-offset_top = 509.0
-offset_right = 404.0
-offset_bottom = 604.0
+offset_left = 238.0
+offset_top = 653.0
+offset_right = 488.0
+offset_bottom = 748.0
 theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,29 +1,17 @@
 extends Node2D
 
-var foot
-var hand
-var nose
-var mouth
-var eye
-var left_or_right
-var body_parts_count = 0
-var true_or_false
-var toe_finger_list = []
-var true_false = [true, false]
-var foot_name = ["Fußibert", "Lord Fußion", "Sir Barfuß", "Der Kurfüßt", "Kleiner Fußel"]
-var hand_name = ["Handy"]
+
 
 var health
-var attack
+var damage
 var name_card
 var effects
 var costs
 
-var card_name
+
 var points
 var cards_left
-var next_id = 0
-var enemy_next_id = 0
+
 var player_cards = 5
 var card_instance
 var card_scene
@@ -31,26 +19,28 @@ var card_scene
 var card_now
 
 func _ready() -> void:
-	level_enemy_deck()
+	Adding.level_enemy_deck()
 	get_tree().paused = false
 	print(card_container)
 	card_scene = load("res://Scenes/Card.tscn")
 	if DataBase.starting:
+		for i in range(10):
+			Adding.add_foot_enemy(DataBase.level)
 		for i in range(player_cards):
-			add_foot()
-			#add_hand()
-			#add_eye()
-			#add_mouth()
-			#add_nose()
+			Adding.add_foot()
+			#Adding.add_hand()
+			#Adding.add_eye()
+			#Adding.add_mouth()
+			#Adding.add_nose()
 			DataBase.starting = false
 	points = 20
-	cards_left = DataBase.deck_list.size()
+	cards_left = DataBase.deck_list.size() - 1
 	
 	for card in DataBase.deck_list:
 		card_now = card
 		show_card(card)
 		costs = card.cost
-		attack = card.attack
+		damage = card.damage
 		health = card.health
 		name_card = card.card_name
 		effects = card.effects
@@ -58,7 +48,7 @@ func _ready() -> void:
 		
 		if "scaling" in effects:
 			$"../Counters/Scaling".visible = true
-			attack += 1
+			damage += 1
 			health += 1
 		if "double_attack" in effects:
 			$"../Counters/Double_Attack".visible = true
@@ -72,7 +62,7 @@ func _ready() -> void:
 		await $"../Buttons/Next_Card".pressed
 			
 		name_card = $"../Texts/Card_Name".text
-		card.attack = attack
+		card.damage = damage
 		card.health = health
 		card.cost = costs
 		card.card_name = name_card
@@ -84,42 +74,6 @@ func _ready() -> void:
 		cards_left -= 1
 		
 	DataBase.battle_path.fight_scene()
-
-func level_enemy_deck():
-	if DataBase.level == 1:
-		for i in range(3):
-			add_foot_enemy()
-
-func add_foot_enemy():
-	left_or_right = randi_range(0, 1)
-	if left_or_right == 1:
-		foot = "L_Foot"
-		left_or_right = false
-	else:
-		left_or_right = true
-		foot = "R_Foot"
-		
-	enemy_next_id += 1
-	card_name = "Card" + str(next_id)
-	
-	for i in range(5):
-		true_or_false = true_false.pick_random()
-		toe_finger_list.append(true_or_false)
-		if true_or_false:
-			body_parts_count += 1
-	
-	card_name = Card_Data.new({
-	"name": "",
-	"damage": body_parts_count,
-	"health": 5,
-	"cost": 2,
-	"image_path": str("res://Pics/Gliedmaßen/" + foot + ".png"),
-	 "toe_finger_places": toe_finger_list,
-	"left_or_right": left_or_right,
-	})
-	DataBase.deck_enemy.append(card_name)
-	body_parts_count = 0
-	toe_finger_list = []
 
 func show_card(card_data: Card_Data):
 	card_instance = card_scene.instantiate()
@@ -142,40 +96,10 @@ func update_stats():
 	$"../Counters/Punkte_Counter".text = str(points)
 	$"../Counters/Cards_Counter".text = str(cards_left)
 
-func add_foot():
-	left_or_right = randi_range(0, 1)
-	if left_or_right == 1:
-		foot = "L_Foot"
-		left_or_right = false
-	else:
-		left_or_right = true
-		foot = "R_Foot"
-		
-	next_id += 1
-	card_name = "Card" + str(next_id)
-	
-	for i in range(5):
-		true_or_false = true_false.pick_random()
-		toe_finger_list.append(true_or_false)
-		if true_or_false:
-			body_parts_count += 1
-	
-	card_name = Card_Data.new({
-	"name": foot_name.pick_random(),
-	"damage": body_parts_count,
-	"health": 5,
-	"cost": 2,
-	"image_path": str("res://Pics/Gliedmaßen/" + foot + ".png"),
-	 "toe_finger_places": toe_finger_list,
-	"left_or_right": left_or_right,
-	})
-	DataBase.deck_list.append(card_name)
-	body_parts_count = 0
-	toe_finger_list = []
 
 func Attack() -> void:
 	if points >= 1:
-		attack += 1
+		damage += 1
 		points -= 1
 		update_stats()
 

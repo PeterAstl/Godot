@@ -113,9 +113,9 @@ texture_normal = ExtResource("3_oy5vm")
 texture_disabled = ExtResource("4_udkcs")
 
 [node name="TextureButton12" type="TextureButton" parent="Button_Manager" unique_id=1302715714]
-offset_left = 2479.4512
+offset_left = 2479.4502
 offset_top = 1328.7671
-offset_right = 2779.4512
+offset_right = 2779.4502
 offset_bottom = 1628.7673
 disabled = true
 texture_normal = ExtResource("3_oy5vm")
@@ -221,5 +221,5 @@ disabled = true
 [connection signal="pressed" from="Button_Manager/TextureButton18" to="." method="Button18"]
 [connection signal="pressed" from="Button_Manager/TextureButton19" to="." method="Button19"]
 [connection signal="pressed" from="Button_Manager/TextureButton20" to="." method="Button20"]
-[connection signal="pressed" from="Button_Manager/Heart" to="." method="Button20"]
 [connection signal="pressed" from="Button_Manager/Heart" to="." method="ButtonHeart"]
+[connection signal="pressed" from="Button_Manager/Heart" to="." method="Button20"]
