@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://5l7vnntyrbuv"]
 
 [ext_resource type="Script" uid="uid://moqtmqronbe7" path="res://Skripts/Upgrade_Gambling.gd" id="1_0dl12"]
+[ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="1_n0dpx"]
 [ext_resource type="AudioStream" uid="uid://cy1jivn24jjwk" path="res://Sounds/Death_bomb.mp3" id="2_ousv6"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1055085336]
+z_index = -10
+texture = ExtResource("1_n0dpx")
+centered = false
 
 [node name="Card" type="Node2D" parent="." unique_id=561863995]
 script = ExtResource("1_0dl12")

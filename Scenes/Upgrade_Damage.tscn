@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvborks2dc3ow"]
 
 [ext_resource type="Script" uid="uid://dkdkl7djcigtj" path="res://Skripts/Upgrade_Damage.gd" id="1_y05nn"]
+[ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="2_g16h0"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
 
@@ -81,6 +82,11 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Continue (keep points)"
 text_overrun_behavior = 2
+
+[node name="Background" type="Sprite2D" parent="." unique_id=374315870]
+z_index = -10
+texture = ExtResource("2_g16h0")
+centered = false
 
 [connection signal="pressed" from="Card/Button1" to="Card" method="Button1"]
 [connection signal="pressed" from="Card/Button2" to="Card" method="Button2"]

@@ -17,16 +17,16 @@ func _ready() -> void:
 	$Hearts.text = "🫀".repeat(DataBase.player_health)
 	
 func Button1() -> void:
-	if points >= 1:
+	if points >= 2:
 		DataBase.player_health += 1
 		$Hearts.text = "🫀".repeat(DataBase.player_health)
-		points -= 1
+		points -= 2
 		$Points.text = "Points: " + str(points)
 		if points == 0:
 				DataBase.battle_path.fight_scene()
 
 func Button2() -> void:
-	if points >= 2:
+	if points >= 3:
 		while not while_false:
 			DataBase.deck_list.shuffle()
 			for card in DataBase.deck_list:
@@ -34,7 +34,7 @@ func Button2() -> void:
 					card.card_name = "Lifesteal"
 					card.effects.append("lifesteal")
 					while_false = true
-					points -= 2
+					points -= 3
 					$Points.text = "Points: " + str(points)
 					break
 			while_false = true
@@ -56,7 +56,7 @@ func Button4() -> void:
 	if points >= 5:
 		for card in DataBase.deck_list:
 			if "death_bomb" not in card.effects:
-				card.card_name = "death_bomb"
+				card.card_name = "Stinkfuß"
 				card.effects.append("death_bomb")
 		points -= 5
 		$Points.text = "Points: " + str(points)

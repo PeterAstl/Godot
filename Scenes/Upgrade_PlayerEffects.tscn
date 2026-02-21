@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://2wqjdo2btjns"]
 
 [ext_resource type="Script" uid="uid://rqju3368u0my" path="res://Skripts/Upgrade_PlayerEffects.gd" id="1_jnjmu"]
+[ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="1_kwka1"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1723231640]
+z_index = -10
+texture = ExtResource("1_kwka1")
+centered = false
 
 [node name="Card" type="Node2D" parent="." unique_id=561863995]
 script = ExtResource("1_jnjmu")

@@ -32,12 +32,7 @@ var player_health = 5
 var opponent_health = 8
 var player_ressource_amount = 2
 var points = 0
-
-var cards = {
-	"Card1" : [4, 1],
-	"Card2" : [0, 5],
-	"Card3" : [1, 6],
-}
+var starting_hand_size_enemy = 3
 
 var deck_enemy = []
 var level = 0

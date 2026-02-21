@@ -97,7 +97,17 @@ func opponent_turn_attack() -> void:
 	for card in cards:
 		card.fought = false
 		await wait(0.3)
-		await fight_attack_opponent(card)
+		
+		if "multi_attack" in card.data.effects:
+			await fight_attack_opponent_multi(card)
+			if "double_attack" in card.data.effects:
+				await fight_attack_opponent_multi(card)
+
+		else:
+			if "double_attack" in card.data.effects:
+				await fight_attack_opponent(card)
+				
+			await fight_attack_opponent(card)
 
 func fight_attack_player(card):
 	card.fought = false
@@ -146,6 +156,31 @@ func fight_attack_player_multi(card):
 		else:
 			var slot_node = get_node("../CardSlots_Enemy/CardSlot" + str(index))
 			await animate_attack_to_player(card, true, slot_node)
+			
+func fight_attack_opponent_multi(card):
+	var my_slot = card.card_slot_card_in
+	var my_index = int(my_slot.name.substr(my_slot.name.length() - 1))
+	var target_indices = [my_index - 1, my_index, my_index + 1]
+
+	for index in target_indices:
+		if index < 1 or index > 5:
+			continue
+
+		var target_slot = null
+		var target_found = false
+
+		for player_cards in player_cards_on_board:
+			var enemy_index = int(player_cards.card_slot_card_in.name.substr(player_cards.card_slot_card_in.name.length() - 1))
+			if enemy_index == index:
+				target_slot = player_cards
+				target_found = true
+				break
+				
+		if target_found:
+			await animate_attack_to_card(card, target_slot, false)
+		else:
+			var slot_node = get_node("../CardSlots_Player/CardSlot" + str(index))
+			await animate_attack_to_player(card, false, slot_node)
 
 func animate_attack_to_card(attacker, defender, player_side):
 	attacker.fought = true
@@ -169,7 +204,7 @@ func animate_attack_to_card(attacker, defender, player_side):
 
 	if damage >= health:
 		defender.card_slot_card_in.card_in_slot = false
-		if "death_bomb" in defender.data.effects:
+		if "death_bomb" in defender.data.effects and not "death_bomb_immunity" in attacker.data.effects:
 			attacker.card_slot_card_in.card_in_slot = false
 			attacker_alive = false
 			$"../Sounds/Explosion_Sound".play()

@@ -42,7 +42,7 @@ func setup_from_data():
 		$Toe3.scale = Vector2(0.5,0.5)
 		$Toe4.scale = Vector2(0.5,0.5)
 		$Toe5.scale = Vector2(0.5,0.5)
-
+	
 signal hovered(card)
 signal hovered_off(card)
 

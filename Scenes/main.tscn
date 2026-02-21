@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Skripts/ContinueButton.gd" id="11_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="13_fdnlq"]
 [ext_resource type="AudioStream" uid="uid://cy1jivn24jjwk" path="res://Sounds/Death_bomb.mp3" id="14_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="15_wsu2k"]
 
 [node name="Main" type="Node2D" unique_id=40358678]
 
@@ -174,6 +175,12 @@ stream = ExtResource("14_jkdf5")
 z_index = -11
 position = Vector2(-167.915, 0)
 scale = Vector2(3.24, 3.24)
+centered = false
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1051764657]
+modulate = Color(0.39723974, 0.39723974, 0.39723974, 1)
+z_index = -10
+texture = ExtResource("15_wsu2k")
 centered = false
 
 [connection signal="pressed" from="Continue_Button" to="Continue_Button" method="_on_pressed"]

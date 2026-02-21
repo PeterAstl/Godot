@@ -20,7 +20,7 @@ var card_name
 var fun = [add_foot_enemy]
 var opponent_starting_cards = 7
 var level
-
+	
 func start():
 	for i in range(opponent_starting_cards):
 		fun.pick_random().call()
@@ -47,8 +47,10 @@ func level_up_enemy():
 		if level == 9:
 			card.effects.append("lifesteal")
 		if level == 10:
-			card.effects.append("lifesteal")
-			card.effects.append("double_attack")
+			DataBase.deck_enemy = []
+			DataBase.starting_hand_size_enemy = 1
+			add_boss()
+
 func add_foot_enemy():
 	if DataBase.starting:
 		left_or_right = randi_range(0, 1)
@@ -74,6 +76,7 @@ func add_foot_enemy():
 		"image_path": str("res://Pics/Gliedmaßen/" + foot + ".png"),
 		 "toe_finger_places": toe_finger_list,
 		"left_or_right": left_or_right,
+		"effects" : ["death_bomb_immunity"]
 		})
 		DataBase.deck_enemy.append(card_name)
 		body_parts_count = 0
@@ -136,4 +139,19 @@ func add_bigfoot():
 	"effects": ["double_attack", "lifesteal"]
 	})
 	DataBase.deck_list.append(card_name)
+	toe_finger_list = []
+	
+func add_boss():
+	enemy_next_id += 1
+	card_name = "Card" + str(enemy_next_id)
+	
+	card_name = Card_Data.new({
+	"name": "Scavalouche",
+	"damage": 3,
+	"health": 999,
+	"cost": 3,
+	"image_path": "res://Pics/Boss.png",
+	"effects": ["double_attack", "lifesteal", "multi_attack", "death_bomb_immunity"]
+	})
+	DataBase.deck_enemy.append(card_name)
 	toe_finger_list = []

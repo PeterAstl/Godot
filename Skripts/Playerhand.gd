@@ -8,7 +8,7 @@ var center_screen_x
 var hand_y_position
 
 func _ready() -> void: 
-	center_screen_x = get_viewport().size.x / 2
+	center_screen_x = get_viewport().size.x / 2 - 50
 	hand_y_position = get_viewport().size.y - 150
 
 

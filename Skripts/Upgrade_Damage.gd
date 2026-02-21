@@ -40,7 +40,7 @@ func Button3() -> void:
 			DataBase.deck_list.shuffle()
 			for card in DataBase.deck_list:
 				if "double_attack" not in card.effects:
-					card.card_name = "double_attack"
+					card.card_name = "DoubleTrouble"
 					card.effects.append("double_attack")
 					while_false = true
 					points -= 3
@@ -57,7 +57,7 @@ func Button4() -> void:
 			DataBase.deck_list.shuffle()
 			for card in DataBase.deck_list:
 				if "multi_attack" not in card.effects:
-					card.card_name = "multi_attack"
+					card.card_name = "Mutlimedia"
 					card.effects.append("multi_attack")
 					while_false = true
 					points -= 5
