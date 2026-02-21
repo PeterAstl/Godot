@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://0e5e5q6pxoxv"]
+
+[ext_resource type="Script" uid="uid://bh1eenqbncmag" path="res://Skripts/Upgrade_Health.gd" id="1_fmlck"]
+
+[node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Card" type="Node2D" parent="." unique_id=561863995]
+script = ExtResource("1_fmlck")
+
+[node name="Health" type="RichTextLabel" parent="Card" unique_id=1452792584]
+offset_left = 130.0
+offset_top = 400.0
+offset_right = 502.0
+offset_bottom = 555.0
+theme_override_colors/default_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/normal_font_size = 100
+text = "Health"
+
+[node name="Points" type="RichTextLabel" parent="Card" unique_id=1489367614]
+offset_left = 1354.0
+offset_top = 400.0
+offset_right = 1874.0
+offset_bottom = 555.0
+theme_override_colors/default_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/normal_font_size = 100
+text = "Points: 0"
+
+[node name="Hearts" type="RichTextLabel" parent="Card" unique_id=714131681]
+offset_left = 130.0
+offset_top = 536.0
+offset_right = 502.0
+offset_bottom = 691.0
+theme_override_colors/default_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button1" type="Button" parent="Card" unique_id=795017081]
+offset_left = 550.0
+offset_top = 50.0
+offset_right = 1300.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Upgrade Player Health (2)"
+
+[node name="Button2" type="Button" parent="Card" unique_id=606962802]
+offset_left = 550.0
+offset_top = 300.0
+offset_right = 1300.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Random Unit gets Lifesteal (3)"
+
+[node name="Button3" type="Button" parent="Card" unique_id=325381450]
+offset_left = 550.0
+offset_top = 550.0
+offset_right = 1300.0
+offset_bottom = 750.0
+theme_override_colors/font_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Upgrade All Cards Health (3)"
+
+[node name="Button4" type="Button" parent="Card" unique_id=307858303]
+offset_left = 550.0
+offset_top = 800.0
+offset_right = 1300.0
+offset_bottom = 1000.0
+theme_override_colors/font_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "All Units get Deathbomb (5)"
+
+[node name="Button" type="Button" parent="." unique_id=1750639118]
+offset_left = 1363.0
+offset_top = 665.0
+offset_right = 1831.0
+offset_bottom = 866.0
+theme_override_colors/font_color = Color(0, 0.7607843, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Continue (keep points)"
+text_overrun_behavior = 2
+
+[connection signal="pressed" from="Card/Button1" to="Card" method="Button1"]
+[connection signal="pressed" from="Card/Button2" to="Card" method="Button2"]
+[connection signal="pressed" from="Card/Button3" to="Card" method="Button3"]
+[connection signal="pressed" from="Card/Button4" to="Card" method="Button4"]
+[connection signal="pressed" from="Button" to="Card" method="Continue_Button"]

@@ -12,27 +12,19 @@ var costs
 var points
 var cards_left
 
-var player_cards = 5
 var card_instance
 var card_scene
 @onready var card_container = $CardContainer
 var card_now
 
 func _ready() -> void:
-	Adding.level_enemy_deck()
 	get_tree().paused = false
-	print(card_container)
 	card_scene = load("res://Scenes/Card.tscn")
 	if DataBase.starting:
-		for i in range(10):
-			Adding.add_foot_enemy(DataBase.level)
-		for i in range(player_cards):
-			Adding.add_foot()
-			#Adding.add_hand()
-			#Adding.add_eye()
-			#Adding.add_mouth()
-			#Adding.add_nose()
-			DataBase.starting = false
+		Adding.start()
+		DataBase.starting = false
+
+	Adding.level_up_enemy()
 	points = 20
 	cards_left = DataBase.deck_list.size() - 1
 	
@@ -95,7 +87,6 @@ func hide_counters():
 func update_stats():
 	$"../Counters/Punkte_Counter".text = str(points)
 	$"../Counters/Cards_Counter".text = str(cards_left)
-
 
 func Attack() -> void:
 	if points >= 1:

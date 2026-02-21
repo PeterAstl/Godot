@@ -2,10 +2,10 @@ extends Node2D
 
 var button
 var upgrade_list = {
-	"upgrade_1": "res://Scenes/AddingCards.tscn",
-	"upgrade_2": "res://Scenes/AddingCards.tscn",
-	"upgrade_3": "res://Scenes/AddingCards.tscn",
-	"upgrade_4": "res://Scenes/AddingCards.tscn",
+	"upgrade_1": "res://Scenes/Upgrade_Health.tscn",
+	"upgrade_2": "res://Scenes/Upgrade_Damage.tscn",
+	"upgrade_3": "res://Scenes/Upgrade_Gambling.tscn",
+	"upgrade_4": "res://Scenes/Upgrade_PlayerEffects.tscn",
 }
 
 var upgrade_choice
@@ -40,6 +40,10 @@ func choice_made(choice):
 func go_back():
 	other_scene.queue_free()
 	scene.visible = true
+	for card in DataBase.deck_list:
+		if "scaling" in card:
+			card.damage += 1
+			card.health += 1
 
 func fight_scene():
 	other_scene.queue_free()

@@ -35,6 +35,13 @@ func setup_from_data():
 		if data.toe_finger_places[i]:
 			toe_node = get_node("Toe" + str(i+1))
 			toe_node.visible = true
+	if data.card_name == "BigFoot":
+		$CardImage.scale = Vector2(0.5,0.5)
+		$Toe1.scale = Vector2(0.5,0.5)
+		$Toe2.scale = Vector2(0.5,0.5)
+		$Toe3.scale = Vector2(0.5,0.5)
+		$Toe4.scale = Vector2(0.5,0.5)
+		$Toe5.scale = Vector2(0.5,0.5)
 
 signal hovered(card)
 signal hovered_off(card)

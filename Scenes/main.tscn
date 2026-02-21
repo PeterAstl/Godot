@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Skripts/ContinueButton.gd" id="11_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="13_fdnlq"]
+[ext_resource type="AudioStream" uid="uid://cy1jivn24jjwk" path="res://Sounds/Death_bomb.mp3" id="14_jkdf5"]
 
 [node name="Main" type="Node2D" unique_id=40358678]
 
@@ -135,10 +136,10 @@ text = "YOU LOST"
 [node name="Continue_Button" type="Button" parent="." unique_id=1233731211]
 process_mode = 2
 visible = false
-offset_left = 737.0
-offset_top = 437.0
-offset_right = 1037.0
-offset_bottom = 562.0
+offset_left = 760.0
+offset_top = 478.0
+offset_right = 1060.0
+offset_bottom = 603.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
@@ -165,6 +166,15 @@ position = Vector2(436, 88)
 
 [node name="Hit_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=520214020]
 stream = ExtResource("13_fdnlq")
+
+[node name="Explosion_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=1137004308]
+stream = ExtResource("14_jkdf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=917862006]
+z_index = -11
+position = Vector2(-167.915, 0)
+scale = Vector2(3.24, 3.24)
+centered = false
 
 [connection signal="pressed" from="Continue_Button" to="Continue_Button" method="_on_pressed"]
 [connection signal="pressed" from="Button" to="BattleManager" method="_on_button_pressed"]

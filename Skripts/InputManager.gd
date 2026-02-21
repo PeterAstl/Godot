@@ -8,12 +8,15 @@ const COLLISION_MASK_DECK = 4
 
 var card_manager_reference
 var deck_reference
+var your_turn = true
 
 func _ready() -> void:
 	card_manager_reference = $"../CardManager"
 	deck_reference = $"../PlayerDeck"
 
 func _input(event):
+	if not your_turn:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("left_mouse_button_clicked")

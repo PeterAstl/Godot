@@ -9,14 +9,14 @@ var screen_size
 var card_being_dragged
 var is_hovering_over_card
 var player_hand_reference
-var ressource_amount = 2
+var ressource_amount
 var your_turn
 var dropped_on_slot
 var last_hovered_card
 
-# Called when the node enters the scene tree for the first time.
 func _ready():	
 	your_turn = true
+	ressource_amount = DataBase.player_ressource_amount
 	screen_size = get_viewport_rect().size
 	player_hand_reference = $"../PlayerHand"
 	$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)
@@ -126,5 +126,5 @@ func get_card_with_highest_z_index(cards):
 	return highest_z_card
 	
 func reset_played_card():
-	ressource_amount = 2
+	ressource_amount = DataBase.player_ressource_amount
 	$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)

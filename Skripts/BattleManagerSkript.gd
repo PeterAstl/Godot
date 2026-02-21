@@ -7,11 +7,14 @@ var empty_card_slots_opponent = []
 var empty_card_slots_player = []
 var opponent_cards_on_board = []
 var player_cards_on_board = []
-var player_health = 3
-var opponent_health = 8
-
+var player_health
+var opponent_health
+var player_effects
 
 func _ready() -> void:
+	player_effects = DataBase.player_effects.duplicate()
+	player_health = DataBase.player_health
+	opponent_health = DataBase.opponent_health
 	
 	$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
 	$"../Texts/Health_Player".text = "🫀".repeat(player_health)
@@ -30,27 +33,31 @@ func _ready() -> void:
 	
 	await wait(1)
 	if DataBase.starting_fight:
-		await try_play_card_random_card_start()
+		if "start_play" in DataBase.opponent_effects:
+			await try_play_card_random_card_start()
 		DataBase.starting_fight = false
 
 func wait(t):
 	await get_tree().create_timer(t).timeout
 
 func _on_button_pressed() -> void:
-	await opponent_turn()
+	opponent_turn()
 
 func opponent_turn() -> void:
 	$"../Button".disabled = true
 	$"../Button".visible = false
 	$"../CardManager".your_turn = false
+	$"../InputManager".your_turn = false
 
 	await player_turn_attack()
 	await wait(0.2)
 	
-
-	if $"../OpponentDeck".opponent_deck.size() > 0:
-		$"../OpponentDeck".draw_card()
-		await wait(1)
+	if "play" in DataBase.player_effects:
+		if $"../OpponentDeck".opponent_deck.size() > 0:
+			$"../OpponentDeck".draw_card()
+			await wait(1)
+	$"../OpponentDeck".draw_card()
+	await wait(1)
 
 	await opponent_turn_attack()
 	await wait(1)
@@ -58,9 +65,11 @@ func opponent_turn() -> void:
 	end_opponent_turn()
 	$"../PlayerDeck".draw_card()
 	$"../CardManager".your_turn = true
+	$"../InputManager".your_turn = true
+	player_effects.erase("immunity")
 
 func player_turn_attack() -> void:
-	var cards := player_cards_on_board.duplicate()
+	var cards = player_cards_on_board.duplicate()
 
 	for card in cards:
 		card.fought = false
@@ -78,6 +87,8 @@ func player_turn_attack() -> void:
 			await fight_attack_player(card)
 
 func opponent_turn_attack() -> void:
+	if "play" in DataBase.player_effects:
+		await try_play_card_random_card()
 	await try_play_card_random_card()
 	await wait(0.3)
 
@@ -138,7 +149,10 @@ func fight_attack_player_multi(card):
 
 func animate_attack_to_card(attacker, defender, player_side):
 	attacker.fought = true
-	var damage = int(attacker.get_node("Attack").text)
+	var damage = attacker.data.damage
+	var attacker_alive = true
+	if "immunity" in player_effects:
+		damage = 0
 	if damage <= 0:
 		return
 
@@ -155,6 +169,17 @@ func animate_attack_to_card(attacker, defender, player_side):
 
 	if damage >= health:
 		defender.card_slot_card_in.card_in_slot = false
+		if "death_bomb" in defender.data.effects:
+			attacker.card_slot_card_in.card_in_slot = false
+			attacker_alive = false
+			$"../Sounds/Explosion_Sound".play()
+			await wait(1)
+			attacker.queue_free()
+			if player_side:
+				player_cards_on_board.erase(attacker)
+			else:
+				opponent_cards_on_board.erase(attacker)
+				
 		defender.queue_free()
 
 		if player_side:
@@ -164,13 +189,16 @@ func animate_attack_to_card(attacker, defender, player_side):
 	else:
 		defender.get_node("Health").text = str(health - damage)
 	
-	tween = create_tween()
-	tween.tween_property(attacker, "position", original_pos, CARD_MOVE_SPEED)
-	await tween.finished
-	attacker.z_index = 0
+	if attacker_alive:
+		tween = create_tween()
+		tween.tween_property(attacker, "position", original_pos, CARD_MOVE_SPEED)
+		await tween.finished
+		attacker.z_index = 0
 
 func animate_attack_to_player(card, player_side, slot_node):
 	var damage = int(card.get_node("Attack").text)
+	if "immunity" in player_effects:
+		damage = 0
 	if damage <= 0:
 		return
 
@@ -218,7 +246,6 @@ func continue_screen(win):
 	$"../Continue_Button".disabled = false
 	$"../Continue_Button".battle_won = win
 
-	await wait(2.0)
 	get_tree().paused = true
 
 func try_play_card_random_card():

@@ -27,6 +27,11 @@ func _init(args := {}):
 	left_or_right =  args.get("left_or_right", false)
 	
 var player_effects = []
+var opponent_effects = []
+var player_health = 5
+var opponent_health = 8
+var player_ressource_amount = 2
+var points = 0
 
 var cards = {
 	"Card1" : [4, 1],
@@ -35,7 +40,5 @@ var cards = {
 }
 
 var deck_enemy = []
-
 var level = 0
-
 var battle_path

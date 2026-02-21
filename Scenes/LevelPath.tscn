@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2t4lr58eg00h" path="res://Skripts/Level_Path.gd" id="1_7lcwv"]
 [ext_resource type="Texture2D" uid="uid://b4pta3ur8tkjk" path="res://Pics/Herz_Level.png" id="1_udkcs"]
-[ext_resource type="Texture2D" uid="uid://bi082qcca6xtk" path="res://Pics/UpgradeIcon/upgrade_1.png" id="3_oy5vm"]
+[ext_resource type="Texture2D" uid="uid://bi082qcca6xtk" path="res://Pics/UpgradeIcon/upgrade_2.png" id="3_oy5vm"]
 [ext_resource type="Texture2D" uid="uid://76ghle13ah53" path="res://Pics/UpgradeIcon/upgrade_disabled.png" id="4_udkcs"]
 
 [node name="LevelPath" type="Node2D" unique_id=827686986]

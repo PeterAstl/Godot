@@ -2,7 +2,7 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
-const STARTING_HAND_SIZE = 3
+var starting_hand_size = 2
 
 var player_deck
 var drawn_card_this_turn = false
@@ -13,7 +13,10 @@ func _ready() -> void:
 	player_deck = DataBase.deck_list.duplicate()
 	player_deck.shuffle()
 	$RichTextLabel.text = str(player_deck.size())
-	for i in range(STARTING_HAND_SIZE):
+	for effect in DataBase.player_effects:
+		if effect == "draw":
+			starting_hand_size += 1
+	for i in range(starting_hand_size):
 		draw_card()
 		drawn_card_this_turn = false
 	drawn_card_this_turn = true

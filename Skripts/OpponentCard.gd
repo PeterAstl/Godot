@@ -22,7 +22,6 @@ func setup_from_data():
 	$Attack.text = str(data.damage)
 	$Health.text = str(data.health)
 	$Name.text = data.card_name
-	$Costs.text = str(data.cost)
 	for i in range(data.toe_finger_places.size()):
 		if not data.left_or_right:
 			$Toe1.texture = load("res://Pics/Gliedmaßen/L_Toe1.png")
