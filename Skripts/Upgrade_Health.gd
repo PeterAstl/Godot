@@ -1,7 +1,7 @@
 extends Node2D
 
-var while_false = false
 var points
+var pressed = false
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -23,24 +23,20 @@ func Button1() -> void:
 		points -= 2
 		$Points.text = "Points: " + str(points)
 		if points == 0:
-				DataBase.battle_path.fight_scene()
+				DataBase.battle_path.upgrade_card()
 
 func Button2() -> void:
 	if points >= 3:
-		while not while_false:
-			DataBase.deck_list.shuffle()
-			for card in DataBase.deck_list:
-				if "lifesteal" not in card.effects:
-					card.card_name = "Lifesteal"
-					card.effects.append("lifesteal")
-					while_false = true
-					points -= 3
-					$Points.text = "Points: " + str(points)
-					break
-			while_false = true
-		while_false = false
+		DataBase.deck_list.shuffle()
+		for card in DataBase.deck_list:
+			if "lifesteal" not in card.effects:
+				card.card_name = "Lifesteal"
+				card.effects.append("lifesteal")
+				points -= 3
+				$Points.text = "Points: " + str(points)
+				break
 		if points == 0:
-			DataBase.battle_path.fight_scene()
+			DataBase.battle_path.upgrade_card()
 
 func Button3() -> void:
 	if points >= 3:
@@ -49,7 +45,7 @@ func Button3() -> void:
 		points -= 3
 		$Points.text = "Points: " + str(points)
 		if points == 0:
-			DataBase.battle_path.fight_scene()
+			DataBase.battle_path.upgrade_card()
 
 
 func Button4() -> void:
@@ -61,9 +57,27 @@ func Button4() -> void:
 		points -= 5
 		$Points.text = "Points: " + str(points)
 		if points == 0:
-			DataBase.battle_path.fight_scene()
-
+			DataBase.battle_path.upgrade_card()
+			
+func Button5() -> void:
+	if points >= 5:
+		DataBase.upgrade_card_amount += 1
+		points -= 5
+		$Points.text = "Points: " + str(points)
+		if points == 0:
+			DataBase.battle_path.upgrade_card()
+			
+func Button6() -> void:
+	if points >= 3:
+		if not pressed:
+			for card in DataBase.deck_list:
+				card.health = card.damage
+			points -= 3
+			$Points.text = "Points: " + str(points)
+			pressed = true
+			if points == 0:
+				DataBase.battle_path.upgrade_card()
 
 func Continue_Button() -> void:
 	DataBase.points = points
-	DataBase.battle_path.fight_scene()
+	DataBase.battle_path.upgrade_card()

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b00a1ustxe76g" path="res://Pics/Gliedmaßen/R_Toe2.png" id="5_pbuqb"]
 [ext_resource type="Texture2D" uid="uid://de21dv55koow3" path="res://Pics/Gliedmaßen/R_Toe3.png" id="6_f3ywt"]
 [ext_resource type="Texture2D" uid="uid://bg3nnw0yftvu4" path="res://Pics/Gliedmaßen/R_Toe4.png" id="7_6elyo"]
+[ext_resource type="Texture2D" uid="uid://dyt2gsnyhwrf3" path="res://Pics/Gliedmaßen/Effects/R_Lifesteal.png" id="8_1geux"]
 [ext_resource type="Texture2D" uid="uid://7wjkkg4558x4" path="res://Pics/Gliedmaßen/R_Toe5.png" id="8_gnfes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hael8"]
@@ -16,7 +17,7 @@ length = 0.13333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Health:modulate")
+tracks/0/path = NodePath("size/Health:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Attack:modulate")
+tracks/1/path = NodePath("size/Attack:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +41,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CardImage:z_index")
+tracks/2/path = NodePath("size/CardImage:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -52,7 +53,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/3/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -64,7 +65,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/4/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -76,7 +77,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Costs:theme_override_colors/font_shadow_color")
+tracks/5/path = NodePath("size/Costs:theme_override_colors/font_shadow_color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -88,7 +89,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Health:theme_override_colors/font_shadow_color")
+tracks/6/path = NodePath("size/Health:theme_override_colors/font_shadow_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -100,7 +101,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Name:theme_override_colors/font_shadow_color")
+tracks/7/path = NodePath("size/Name:theme_override_colors/font_shadow_color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -112,7 +113,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Costs:modulate")
+tracks/8/path = NodePath("size/Costs:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -129,7 +130,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Health:modulate")
+tracks/0/path = NodePath("size/Health:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -141,7 +142,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Attack:modulate")
+tracks/1/path = NodePath("size/Attack:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -153,7 +154,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CardImage:z_index")
+tracks/2/path = NodePath("size/CardImage:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -165,7 +166,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/3/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -177,7 +178,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Attack:theme_override_colors/font_shadow_color")
+tracks/4/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -189,7 +190,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Costs:theme_override_colors/font_shadow_color")
+tracks/5/path = NodePath("size/Costs:theme_override_colors/font_shadow_color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -201,7 +202,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Health:theme_override_colors/font_shadow_color")
+tracks/6/path = NodePath("size/Health:theme_override_colors/font_shadow_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -213,7 +214,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Name:theme_override_colors/font_shadow_color")
+tracks/7/path = NodePath("size/Name:theme_override_colors/font_shadow_color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -225,7 +226,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Costs:modulate")
+tracks/8/path = NodePath("size/Costs:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -244,42 +245,79 @@ _data = {
 [node name="Card" type="Node2D" unique_id=597020301]
 script = ExtResource("1_hael8")
 
-[node name="CardImage" type="Sprite2D" parent="." unique_id=792200978]
-z_index = -1
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_1geux")
-
-[node name="Toe1" type="Sprite2D" parent="." unique_id=1050326829]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_13sua")
-
-[node name="Toe2" type="Sprite2D" parent="." unique_id=1672659950]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_pbuqb")
-
-[node name="Toe3" type="Sprite2D" parent="." unique_id=1311628180]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_f3ywt")
-
-[node name="Toe4" type="Sprite2D" parent="." unique_id=1916679940]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_6elyo")
-
-[node name="Toe5" type="Sprite2D" parent="." unique_id=385688649]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_gnfes")
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1321972705]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1526382263]
 shape = SubResource("RectangleShape2D_hael8")
 
-[node name="Health" type="RichTextLabel" parent="." unique_id=1619744458]
+[node name="size" type="Node2D" parent="." unique_id=2107723722]
+
+[node name="CardImage" type="Sprite2D" parent="size" unique_id=792200978]
+z_index = -1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_1geux")
+
+[node name="Toe1" type="Sprite2D" parent="size" unique_id=1050326829]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_13sua")
+
+[node name="Toe2" type="Sprite2D" parent="size" unique_id=1672659950]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_pbuqb")
+
+[node name="Toe3" type="Sprite2D" parent="size" unique_id=1311628180]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_f3ywt")
+
+[node name="Toe4" type="Sprite2D" parent="size" unique_id=1916679940]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_6elyo")
+
+[node name="Toe5" type="Sprite2D" parent="size" unique_id=385688649]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_gnfes")
+
+[node name="lifesteal" type="Sprite2D" parent="size" unique_id=1902627137]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="multi_attack" type="Sprite2D" parent="size" unique_id=79707903]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="double_attack" type="Sprite2D" parent="size" unique_id=770865007]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="scaling" type="Sprite2D" parent="size" unique_id=305140677]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="death_bomb" type="Sprite2D" parent="size" unique_id=667254577]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="death_bomb_immunity" type="Sprite2D" parent="size" unique_id=740981230]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="matroschka" type="Sprite2D" parent="size" unique_id=234345330]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_1geux")
+
+[node name="Health" type="RichTextLabel" parent="size" unique_id=1619744458]
 modulate = Color(1, 1, 1, 0)
 offset_left = 16.0
 offset_top = 38.0
@@ -295,7 +333,7 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Costs" type="RichTextLabel" parent="." unique_id=1199247189]
+[node name="Costs" type="RichTextLabel" parent="size" unique_id=1199247189]
 modulate = Color(1, 1, 1, 0)
 offset_left = -15.0
 offset_top = 1.0000005
@@ -312,7 +350,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Attack" type="RichTextLabel" parent="." unique_id=1421771980]
+[node name="Attack" type="RichTextLabel" parent="size" unique_id=1421771980]
 modulate = Color(1, 1, 1, 0)
 offset_left = -43.0
 offset_top = 38.0
@@ -328,7 +366,7 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Name" type="RichTextLabel" parent="." unique_id=2020900763]
+[node name="Name" type="RichTextLabel" parent="size" unique_id=2020900763]
 offset_left = -34.0
 offset_top = -75.0
 offset_right = 66.0
@@ -342,5 +380,6 @@ tab_size = 1
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=275909072]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="size" unique_id=275909072]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_kphy1")

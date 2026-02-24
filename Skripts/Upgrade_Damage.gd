@@ -1,6 +1,5 @@
 extends Node2D
 
-var while_false = false
 var points
 
 func _ready() -> void:
@@ -23,7 +22,7 @@ func Button1() -> void:
 		points -= 2
 		$Points.text = "Points: " + str(points)
 		if points == 0:
-				DataBase.battle_path.fight_scene()
+				DataBase.battle_path.upgrade_card()
 
 func Button2() -> void:
 	if points >= 3:
@@ -32,42 +31,59 @@ func Button2() -> void:
 		points -= 3
 		$Points.text = "Points: " + str(points)
 		if points == 0:
-			DataBase.battle_path.fight_scene()
+			DataBase.battle_path.upgrade_card()
 
 func Button3() -> void:
 	if points >= 3:
-		while not while_false:
-			DataBase.deck_list.shuffle()
-			for card in DataBase.deck_list:
-				if "double_attack" not in card.effects:
-					card.card_name = "DoubleTrouble"
-					card.effects.append("double_attack")
-					while_false = true
-					points -= 3
-					$Points.text = "Points: " + str(points)
-					break
-			while_false = true
-		while_false = false
+		DataBase.deck_list.shuffle()
+		for card in DataBase.deck_list:
+			if "double_attack" not in card.effects:
+				card.card_name = "DoubleTrouble"
+				card.effects.append("double_attack")
+				points -= 3
+				$Points.text = "Points: " + str(points)
+				break
 		if points == 0:
-			DataBase.battle_path.fight_scene()
+			DataBase.battle_path.upgrade_card()
 
 func Button4() -> void:
 	if points >= 5:
-		while not while_false:
-			DataBase.deck_list.shuffle()
-			for card in DataBase.deck_list:
-				if "multi_attack" not in card.effects:
-					card.card_name = "Mutlimedia"
-					card.effects.append("multi_attack")
-					while_false = true
-					points -= 5
-					$Points.text = "Points: " + str(points)
-					break
-			while_false = true
-		while_false = false
+		DataBase.deck_list.shuffle()
+		for card in DataBase.deck_list:
+			if "multi_attack" not in card.effects:
+				card.card_name = "Mutlimedia"
+				card.effects.append("multi_attack")
+				points -= 5
+				$Points.text = "Points: " + str(points)
+				break
 		if points == 0:
-			DataBase.battle_path.fight_scene()
+			DataBase.battle_path.upgrade_card()
 			
+func Button5() -> void:
+	if points >= 2:
+		var double
+		var starting = true
+		for card in DataBase.deck_list:
+			if starting:
+				double = card
+				starting = false
+			if card.damage <= double.damage:
+				double = card
+		double.damage *= 2
+		double = null
+		points -= 2
+		$Points.text = "Points: " + str(points)
+		if points == 0:
+			DataBase.battle_path.upgrade_card()
+			
+func Button6() -> void:
+	if points >= 2:
+		DataBase.upgrade_amount += 1
+		points -= 2
+		$Points.text = "Points: " + str(points)
+		if points == 0:
+			DataBase.battle_path.upgrade_card()
+
 func Continue_Button() -> void:
 	DataBase.points = points
-	DataBase.battle_path.fight_scene()
+	DataBase.battle_path.upgrade_card()

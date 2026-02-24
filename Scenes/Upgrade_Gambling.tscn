@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://moqtmqronbe7" path="res://Skripts/Upgrade_Gambling.gd" id="1_0dl12"]
 [ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="1_n0dpx"]
-[ext_resource type="AudioStream" uid="uid://cy1jivn24jjwk" path="res://Sounds/Death_bomb.mp3" id="2_ousv6"]
+[ext_resource type="Theme" uid="uid://clv73avxlaadl" path="res://Style1.tres" id="3_7t6a4"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
 
@@ -47,6 +47,7 @@ offset_left = 550.0
 offset_top = 50.0
 offset_right = 1300.0
 offset_bottom = 250.0
+theme = ExtResource("3_7t6a4")
 theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
 theme_override_font_sizes/font_size = 50
 text = "Random Unit gets Multi (3)
@@ -57,6 +58,7 @@ offset_left = 550.0
 offset_top = 300.0
 offset_right = 1300.0
 offset_bottom = 499.99957
+theme = ExtResource("3_7t6a4")
 theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
 theme_override_font_sizes/font_size = 50
 text = "Gain 1 Point (0)
@@ -68,6 +70,7 @@ offset_left = 550.0
 offset_top = 550.0
 offset_right = 1300.0
 offset_bottom = 750.0
+theme = ExtResource("3_7t6a4")
 theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
 theme_override_font_sizes/font_size = 50
 text = "Cost of 2 Cards -1 (3)"
@@ -77,25 +80,48 @@ offset_left = 550.0
 offset_top = 800.0
 offset_right = 1300.0
 offset_bottom = 1000.0
+theme = ExtResource("3_7t6a4")
 theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
 theme_override_font_sizes/font_size = 50
 text = "Random Exodia (10)"
+
+[node name="Button5" type="Button" parent="Card" unique_id=1942031355]
+offset_left = 1255.0
+offset_top = 185.0
+offset_right = 1838.0
+offset_bottom = 385.0
+theme = ExtResource("3_7t6a4")
+theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
+theme_override_font_sizes/font_size = 50
+text = "2 Health on all Cards
+-1 Dmg on all Cards (2)"
+
+[node name="Button6" type="Button" parent="Card" unique_id=2090610908]
+offset_left = 90.0
+offset_top = 173.0
+offset_right = 550.0
+offset_bottom = 373.0
+theme = ExtResource("3_7t6a4")
+theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
+theme_override_font_sizes/font_size = 50
+text = "More Points
+to specialize (6)"
 
 [node name="Button" type="Button" parent="." unique_id=703293873]
 offset_left = 1363.0
 offset_top = 665.0
 offset_right = 1831.0
 offset_bottom = 866.0
+theme = ExtResource("3_7t6a4")
 theme_override_colors/font_color = Color(1, 0.056370765, 0.8759815, 1)
 theme_override_font_sizes/font_size = 40
 text = "Continue (keep points)"
 text_overrun_behavior = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=152017472]
-stream = ExtResource("2_ousv6")
-
 [connection signal="pressed" from="Card/Button1" to="Card" method="Button1"]
 [connection signal="pressed" from="Card/Button2" to="Card" method="Button2"]
 [connection signal="pressed" from="Card/Button3" to="Card" method="Button3"]
 [connection signal="pressed" from="Card/Button4" to="Card" method="Button4"]
+[connection signal="pressed" from="Card/Button5" to="Card" method="Button5"]
+[connection signal="pressed" from="Card/Button6" to="Card" method="Button6"]
 [connection signal="pressed" from="Button" to="Card" method="Continue_Button"]

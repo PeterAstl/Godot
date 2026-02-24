@@ -17,67 +17,74 @@ offset_left = 600.0
 offset_top = 650.0
 offset_right = 772.0
 offset_bottom = 725.0
-text = "Double Attack(3)"
+text = "Double Attack
+- 1 Health"
 
 [node name="Multi_Attack" type="Button" parent="Buttons" unique_id=1446500673]
 offset_left = 600.0
 offset_top = 750.0
 offset_right = 772.0
 offset_bottom = 825.0
-text = "Multi Attack(5)"
+text = "Multi Attack
+-2 Damage"
 
 [node name="Lifesteal" type="Button" parent="Buttons" unique_id=453785154]
 offset_left = 800.0
 offset_top = 348.0
 offset_right = 972.0
 offset_bottom = 423.0
-text = "Lifesteal(5)"
+text = "Lifesteal"
 
 [node name="Scaling" type="Button" parent="Buttons" unique_id=1090788707]
 offset_left = 800.0
 offset_top = 448.0
 offset_right = 972.0
 offset_bottom = 523.0
-text = "Scaling(3)"
+text = "Scaling"
 
-[node name="Button8" type="Button" parent="Buttons" unique_id=948550784]
+[node name="Death_Bomb" type="Button" parent="Buttons" unique_id=948550784]
 offset_left = 800.0
 offset_top = 548.0
 offset_right = 972.0
 offset_bottom = 623.0
+text = "Death Bomb"
 
-[node name="Button9" type="Button" parent="Buttons" unique_id=2087925539]
+[node name="Death_Bomb_Immunity" type="Button" parent="Buttons" unique_id=2087925539]
 offset_left = 800.0
 offset_top = 648.0
 offset_right = 972.0
 offset_bottom = 723.0
+text = "Death Bomb 
+Immunity"
 
-[node name="Button10" type="Button" parent="Buttons" unique_id=759730324]
+[node name="Matroschka" type="Button" parent="Buttons" unique_id=759730324]
 offset_left = 800.0
 offset_top = 748.0
 offset_right = 972.0
 offset_bottom = 823.0
+text = "Matroschka
+Health / 2"
 
 [node name="Costs_Downgrade" type="Button" parent="Buttons" unique_id=373897951]
 offset_left = 600.0
 offset_top = 550.0
 offset_right = 772.0
 offset_bottom = 625.0
-text = "Lessen Cost (3)"
+text = "Cost -1"
 
 [node name="Health_Upgrade" type="Button" parent="Buttons" unique_id=668165183]
 offset_left = 600.0
 offset_top = 450.0
 offset_right = 772.0
 offset_bottom = 525.0
-text = "Add Health (1)"
+text = "Add Health 3"
 
 [node name="Attack_Upgrade" type="Button" parent="Buttons" unique_id=424753775]
 offset_left = 600.0
 offset_top = 350.0
 offset_right = 772.0
 offset_bottom = 425.0
-text = "Add Attack (1)"
+text = "Add Attack 2"
 
 [node name="Next_Card" type="Button" parent="Buttons" unique_id=1420192734]
 offset_left = 1059.0
@@ -151,7 +158,7 @@ offset_top = 180.0
 offset_right = 972.0
 offset_bottom = 262.0
 theme_override_font_sizes/normal_font_size = 53
-text = "10"
+text = "1"
 horizontal_alignment = 1
 
 [node name="Cards_Counter" type="RichTextLabel" parent="Counters" unique_id=816310687]
@@ -165,48 +172,81 @@ horizontal_alignment = 1
 
 [node name="Double_Attack" type="RichTextLabel" parent="Counters" unique_id=1717944987]
 visible = false
-offset_left = 1273.0
-offset_top = 243.0
-offset_right = 1715.0
-offset_bottom = 325.0
+offset_left = 1300.0
+offset_top = 200.0
+offset_right = 1742.0
+offset_bottom = 282.0
 theme_override_font_sizes/normal_font_size = 53
 text = "Double Attack"
 horizontal_alignment = 1
 
 [node name="Multi_Attack" type="RichTextLabel" parent="Counters" unique_id=2108726371]
 visible = false
-offset_left = 1302.0
-offset_top = 322.0
-offset_right = 1744.0
-offset_bottom = 404.0
+offset_left = 1300.0
+offset_top = 300.0
+offset_right = 1742.0
+offset_bottom = 382.0
 theme_override_font_sizes/normal_font_size = 53
 text = "Multi Attack"
 horizontal_alignment = 1
 
 [node name="Lifesteal" type="RichTextLabel" parent="Counters" unique_id=907636598]
 visible = false
-offset_left = 1285.0
-offset_top = 402.0
-offset_right = 1727.0
-offset_bottom = 484.0
+offset_left = 1300.0
+offset_top = 400.0
+offset_right = 1742.0
+offset_bottom = 482.0
 theme_override_font_sizes/normal_font_size = 53
 text = "Lifesteal"
 horizontal_alignment = 1
 
 [node name="Scaling" type="RichTextLabel" parent="Counters" unique_id=1920016661]
 visible = false
-offset_left = 1297.0
-offset_top = 479.0
-offset_right = 1739.0
-offset_bottom = 561.0
+offset_left = 1300.0
+offset_top = 500.0
+offset_right = 1742.0
+offset_bottom = 582.0
 theme_override_font_sizes/normal_font_size = 53
 text = "Scaling"
+horizontal_alignment = 1
+
+[node name="Death Bomb" type="RichTextLabel" parent="Counters" unique_id=1972498550]
+visible = false
+offset_left = 1300.0
+offset_top = 600.0
+offset_right = 1742.0
+offset_bottom = 682.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Death Bomb"
+horizontal_alignment = 1
+
+[node name="D-B Immunity" type="RichTextLabel" parent="Counters" unique_id=213931409]
+visible = false
+offset_left = 1300.0
+offset_top = 700.0
+offset_right = 1742.0
+offset_bottom = 782.0
+theme_override_font_sizes/normal_font_size = 53
+text = "D-B Immunity"
+horizontal_alignment = 1
+
+[node name="Matroschka" type="RichTextLabel" parent="Counters" unique_id=1044074282]
+visible = false
+offset_left = 1300.0
+offset_top = 800.0
+offset_right = 1742.0
+offset_bottom = 882.0
+theme_override_font_sizes/normal_font_size = 53
+text = "Matroschka"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Buttons/Double_Attack" to="Card" method="Double_Attack"]
 [connection signal="pressed" from="Buttons/Multi_Attack" to="Card" method="Multi_Attack"]
 [connection signal="pressed" from="Buttons/Lifesteal" to="Card" method="Lifesteal"]
 [connection signal="pressed" from="Buttons/Scaling" to="Card" method="Scaling"]
+[connection signal="pressed" from="Buttons/Death_Bomb" to="Card" method="Death_Bomb"]
+[connection signal="pressed" from="Buttons/Death_Bomb_Immunity" to="Card" method="Death_Bomb_Immunity"]
+[connection signal="pressed" from="Buttons/Matroschka" to="Card" method="Matroschka"]
 [connection signal="pressed" from="Buttons/Costs_Downgrade" to="Card" method="Costs_Downgrade"]
 [connection signal="pressed" from="Buttons/Health_Upgrade" to="Card" method="Health"]
 [connection signal="pressed" from="Buttons/Attack_Upgrade" to="Card" method="Attack"]

@@ -186,12 +186,13 @@ func animate_attack_to_card(attacker, defender, player_side):
 	attacker.fought = true
 	var damage = attacker.data.damage
 	var attacker_alive = true
-	if "immunity" in player_effects:
-		damage = 0
+	if player_side:
+		if "immunity" in player_effects:
+			damage = 0
 	if damage <= 0:
 		return
 
-	var health = int(defender.get_node("Health").text)
+	var health = int(defender.get_node("size/Health").text)
 
 	attacker.z_index = 10
 	var original_pos = attacker.position
@@ -213,16 +214,29 @@ func animate_attack_to_card(attacker, defender, player_side):
 			if player_side:
 				player_cards_on_board.erase(attacker)
 			else:
+				empty_card_slots_opponent.append(attacker.card_slot_card_in)
 				opponent_cards_on_board.erase(attacker)
-				
-		defender.queue_free()
-
-		if player_side:
-			opponent_cards_on_board.erase(defender)
+		if "matroschka" in defender.data.effects:
+			var node = defender.get_node("size")
+			node.scale = Vector2(node.scale.x*0.9,node.scale.y*0.9)
+			defender.data.health -= 1
+			defender.get_node("size/Health").text = str(defender.data.health)
+			if defender.data.health == 0:
+				defender.queue_free()
+				if player_side:
+					empty_card_slots_opponent.append(defender.card_slot_card_in)
+					opponent_cards_on_board.erase(defender)
+				else:
+					player_cards_on_board.erase(defender)
 		else:
-			player_cards_on_board.erase(defender)
+			defender.queue_free()
+			if player_side:
+				empty_card_slots_opponent.append(defender.card_slot_card_in)
+				opponent_cards_on_board.erase(defender)
+			else:
+				player_cards_on_board.erase(defender)
 	else:
-		defender.get_node("Health").text = str(health - damage)
+		defender.get_node("size/Health").text = str(health - damage)
 	
 	if attacker_alive:
 		tween = create_tween()
@@ -231,7 +245,7 @@ func animate_attack_to_card(attacker, defender, player_side):
 		attacker.z_index = 0
 
 func animate_attack_to_player(card, player_side, slot_node):
-	var damage = int(card.get_node("Attack").text)
+	var damage = int(card.get_node("size/Attack").text)
 	if "immunity" in player_effects:
 		damage = 0
 	if damage <= 0:
@@ -302,7 +316,7 @@ func try_play_card_random_card():
 	tween.tween_property(card, "scale", Vector2.ONE * CARD_SMALLER_SCALE, CARD_MOVE_SPEED)
 	await tween.finished
 
-	card.get_node("AnimationPlayer").play("card_flip")
+	card.get_node("size/AnimationPlayer").play("card_flip")
 	await wait(0.3)
 
 	$"../OpponentHand".remove_card_from_hand(card)

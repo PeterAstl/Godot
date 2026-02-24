@@ -9,4 +9,4 @@ func _on_pressed() -> void:
 		DataBase.battle_path.go_back()
 		
 	else:
-		print("defeat")
+		get_tree().quit()

@@ -28,12 +28,17 @@ func _init(args := {}):
 	
 var player_effects = []
 var opponent_effects = []
-var player_health = 5
+var player_health = 12
 var opponent_health = 8
 var player_ressource_amount = 2
 var points = 0
 var starting_hand_size_enemy = 3
+var upgrade_points = 1
+var upgrade_amount = 3
+var upgrade_card_amount = 1
 
 var deck_enemy = []
 var level = 0
 var battle_path
+
+var current_cards = []

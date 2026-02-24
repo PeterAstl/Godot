@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://clv73avxlaadl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o2lv"]
+bg_color = Color(0.4097655, 0.41449463, 0.40208542, 1)
+skew = Vector2(0.2, 0)
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 20
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_8o2lv")

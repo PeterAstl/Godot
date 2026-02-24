@@ -8,9 +8,8 @@ var center_screen_x
 var hand_y_position
 
 func _ready() -> void: 
-	center_screen_x = get_viewport().size.x / 2 - 50
-	hand_y_position = get_viewport().size.y - 150
-
+	center_screen_x = 910
+	hand_y_position = 1080 - 150
 
 func add_card_to_hand(card, speed):
 	if card not in player_hand:

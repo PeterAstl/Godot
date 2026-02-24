@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rqju3368u0my" path="res://Skripts/Upgrade_PlayerEffects.gd" id="1_jnjmu"]
 [ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="1_kwka1"]
+[ext_resource type="Theme" uid="uid://clv73avxlaadl" path="res://Style1.tres" id="3_amb1i"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
 
@@ -47,6 +48,7 @@ offset_left = 550.0
 offset_top = 50.0
 offset_right = 1300.0
 offset_bottom = 250.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "Increase Diamonds (4)"
@@ -56,6 +58,7 @@ offset_left = 550.0
 offset_top = 300.0
 offset_right = 1300.0
 offset_bottom = 499.99957
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "Draw 1 more Card at Start (3)"
@@ -65,6 +68,7 @@ offset_left = 550.0
 offset_top = 550.0
 offset_right = 1300.0
 offset_bottom = 750.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "Add Body Part (2)"
@@ -74,6 +78,7 @@ offset_left = 550.0
 offset_top = 800.0
 offset_right = 1300.0
 offset_bottom = 1000.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "First Turn Immunity (3)"
@@ -83,6 +88,7 @@ offset_left = 50.0
 offset_top = 200.0
 offset_right = 530.0
 offset_bottom = 400.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "Random Card
@@ -93,6 +99,7 @@ offset_left = 50.0
 offset_top = 450.0
 offset_right = 530.0
 offset_bottom = 650.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "50% for 4 Points (2)"
@@ -102,16 +109,29 @@ offset_left = 50.0
 offset_top = 700.0
 offset_right = 530.0
 offset_bottom = 900.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 50
 text = "Add
 Bigfoot (5)"
+
+[node name="Button8" type="Button" parent="Card" unique_id=1203474945]
+offset_left = 1309.0
+offset_top = 188.0
+offset_right = 1789.0
+offset_bottom = 388.0
+theme = ExtResource("3_amb1i")
+theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
+theme_override_font_sizes/font_size = 50
+text = "Remove Card
+with no effect (1)"
 
 [node name="Button" type="Button" parent="." unique_id=703293873]
 offset_left = 1363.0
 offset_top = 665.0
 offset_right = 1831.0
 offset_bottom = 866.0
+theme = ExtResource("3_amb1i")
 theme_override_colors/font_color = Color(0, 0.89113486, 0.7962867, 1)
 theme_override_font_sizes/font_size = 40
 text = "Continue (keep points)"
@@ -124,4 +144,5 @@ text_overrun_behavior = 2
 [connection signal="pressed" from="Card/Button5" to="Card" method="Button5"]
 [connection signal="pressed" from="Card/Button6" to="Card" method="Button6"]
 [connection signal="pressed" from="Card/Button7" to="Card" method="Button7"]
+[connection signal="pressed" from="Card/Button8" to="Card" method="Button8"]
 [connection signal="pressed" from="Button" to="Card" method="Continue_Button"]

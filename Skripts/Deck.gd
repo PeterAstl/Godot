@@ -42,7 +42,7 @@ func draw_card():
 	$"../CardManager".add_child(new_card)
 	$"../CardManager".connect_card_signals(new_card)
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)
-	new_card.get_node("AnimationPlayer").play("card_flip")
+	new_card.get_node("size/AnimationPlayer").play("card_flip")
 	
 	drawn_card_this_turn = true
 	

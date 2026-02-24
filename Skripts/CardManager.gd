@@ -46,8 +46,8 @@ func finish_drag():
 	if your_turn:
 		var card_slot_found = raycast_check_for_card_slot()
 		if card_slot_found and not card_slot_found.card_in_slot:
-			if ressource_amount >= int(card_being_dragged.get_node("Costs").text):
-				ressource_amount -= int(card_being_dragged.get_node("Costs").text)
+			if ressource_amount >= int(card_being_dragged.get_node("size/Costs").text):
+				ressource_amount -= int(card_being_dragged.get_node("size/Costs").text)
 				$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)
 				card_being_dragged.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
 				card_being_dragged.card_slot_card_in = card_slot_found
@@ -126,5 +126,5 @@ func get_card_with_highest_z_index(cards):
 	return highest_z_card
 	
 func reset_played_card():
-	ressource_amount = DataBase.player_ressource_amount
+	ressource_amount += DataBase.player_ressource_amount
 	$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)

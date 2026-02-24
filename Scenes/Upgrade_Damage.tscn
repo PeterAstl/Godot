@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dkdkl7djcigtj" path="res://Skripts/Upgrade_Damage.gd" id="1_y05nn"]
 [ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="2_g16h0"]
+[ext_resource type="Theme" uid="uid://clv73avxlaadl" path="res://Style1.tres" id="2_q6le2"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=374315870]
+z_index = -10
+texture = ExtResource("2_g16h0")
+centered = false
 
 [node name="Card" type="Node2D" parent="." unique_id=561863995]
 script = ExtResource("1_y05nn")
@@ -42,6 +48,7 @@ offset_left = 550.0
 offset_top = 50.0
 offset_right = 1300.0
 offset_bottom = 250.0
+theme = ExtResource("2_q6le2")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Decrease Op-Health (2)"
@@ -51,6 +58,7 @@ offset_left = 550.0
 offset_top = 300.0
 offset_right = 1300.0
 offset_bottom = 499.99957
+theme = ExtResource("2_q6le2")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Cards Damage Up (3)"
@@ -60,6 +68,7 @@ offset_left = 550.0
 offset_top = 550.0
 offset_right = 1300.0
 offset_bottom = 750.0
+theme = ExtResource("2_q6le2")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Random Double Hit (3)"
@@ -69,27 +78,48 @@ offset_left = 550.0
 offset_top = 800.0
 offset_right = 1300.0
 offset_bottom = 1000.0
+theme = ExtResource("2_q6le2")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Random Multi (5)"
+
+[node name="Button5" type="Button" parent="Card" unique_id=1949116197]
+offset_left = 1232.0
+offset_top = 168.0
+offset_right = 1811.0
+offset_bottom = 368.0
+theme = ExtResource("2_q6le2")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Lowest Dmg Card
+doubles Dmg (2)"
+
+[node name="Button6" type="Button" parent="Card" unique_id=1485711694]
+offset_left = 86.0
+offset_top = 171.0
+offset_right = 587.0
+offset_bottom = 371.0
+theme = ExtResource("2_q6le2")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "More specialized
+Choices (2)"
 
 [node name="Button" type="Button" parent="." unique_id=703293873]
 offset_left = 1363.0
 offset_top = 665.0
 offset_right = 1831.0
 offset_bottom = 866.0
+theme = ExtResource("2_q6le2")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Continue (keep points)"
 text_overrun_behavior = 2
 
-[node name="Background" type="Sprite2D" parent="." unique_id=374315870]
-z_index = -10
-texture = ExtResource("2_g16h0")
-centered = false
-
 [connection signal="pressed" from="Card/Button1" to="Card" method="Button1"]
 [connection signal="pressed" from="Card/Button2" to="Card" method="Button2"]
 [connection signal="pressed" from="Card/Button3" to="Card" method="Button3"]
 [connection signal="pressed" from="Card/Button4" to="Card" method="Button4"]
+[connection signal="pressed" from="Card/Button5" to="Card" method="Button5"]
+[connection signal="pressed" from="Card/Button6" to="Card" method="Button6"]
 [connection signal="pressed" from="Button" to="Card" method="Continue_Button"]

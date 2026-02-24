@@ -19,6 +19,7 @@ var buttons = []
 var upgrade_path_d
 
 func _ready() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	for i in range(1,21):
 		upgrade_choice = upgrade_list.keys().pick_random()
 		upgrade_path = "res://Pics/UpgradeIcon/" + upgrade_choice + ".png"
@@ -40,14 +41,15 @@ func choice_made(choice):
 func go_back():
 	other_scene.queue_free()
 	scene.visible = true
-	for card in DataBase.deck_list:
-		if "scaling" in card:
-			card.damage += 1
-			card.health += 1
 
 func fight_scene():
 	other_scene.queue_free()
 	path = "res://Scenes/main.tscn"
+	choice_made(path)
+
+func upgrade_card():
+	other_scene.queue_free()
+	path = "res://Scenes/Base_Upgrade.tscn"
 	choice_made(path)
 	
 func diasbling_enabling_buttons(button_name):
