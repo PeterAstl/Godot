@@ -20,3 +20,4 @@ Pics/
 .export/
 *.tmp
 *.log
+/Sounds
