@@ -13,6 +13,8 @@ var ressource_amount
 var your_turn
 var dropped_on_slot
 var last_hovered_card
+var card_slot_found
+var hovered_card
 
 func _ready():	
 	your_turn = true
@@ -41,10 +43,29 @@ func start_drag(card):
 	card_being_dragged = card
 	card.scale = Vector2(1, 1)
 	
+func _input(event):
+	for i in range(5):
+		if is_hovering_over_card:
+			if event.is_action_pressed("fast_place" + str(i + 1)):
+				if ressource_amount >= int(hovered_card.get_node("size/Costs").text):
+					ressource_amount -= int(hovered_card.get_node("size/Costs").text)
+					card_slot_found = get_node("../CardSlots_Player/CardSlot" + str(i + 1))
+					$"../Texts/Cost_Player".text = "💎".repeat(ressource_amount)
+					hovered_card.scale = Vector2(CARD_SMALLER_SCALE,CARD_SMALLER_SCALE)
+					hovered_card.card_slot_card_in = card_slot_found
+					hovered_card.z_index = -1
+					is_hovering_over_card = false
+					player_hand_reference.remove_card_from_hand(hovered_card)
+					hovered_card.global_position = card_slot_found.global_position
+					hovered_card.get_node("Area2D/CollisionShape2D").disabled = true
+					card_slot_found.card_in_slot = true
+					$"../BattleManager".player_cards_on_board.append(hovered_card)
+					dropped_on_slot = true
+	
 func finish_drag():
 	dropped_on_slot = false
 	if your_turn:
-		var card_slot_found = raycast_check_for_card_slot()
+		card_slot_found = raycast_check_for_card_slot()
 		if card_slot_found and not card_slot_found.card_in_slot:
 			if ressource_amount >= int(card_being_dragged.get_node("size/Costs").text):
 				ressource_amount -= int(card_being_dragged.get_node("size/Costs").text)
@@ -83,9 +104,12 @@ func highlight_card(card, hovered):
 		if hovered:
 			card.scale = Vector2(1.5, 1.5)
 			card.z_index = 2
+			is_hovering_over_card = true
+			hovered_card = card
 		else:
 			card.scale = Vector2(1,1)
 			card.z_index = 1
+			is_hovering_over_card = false
 
 func raycast_check_for_card_slot():
 	var space_state = get_world_2d().direct_space_state

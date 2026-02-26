@@ -31,7 +31,6 @@ func start():
 func level_up_enemy():
 	level = DataBase.level
 	for card in DataBase.deck_enemy:
-		card.effects.append(effect_list.pick_random())
 		card.health =  1 + level
 		if level == 2:
 			DataBase.opponent_effects.append("start_play")
@@ -44,13 +43,19 @@ func level_up_enemy():
 		if level == 5:
 			DataBase.opponent_effects.append("play")
 		if level == 6:
+			card.effects.append(effect_list.pick_random())
+		if level == 7:
 			if "double_attack" in card.effects:
 				card.effects.erase("double_attack")
-			card.effects.append("multi_attack")
+				card.effects.append("multi_attack")
+		if level == 8:
+			card.effects.append(effect_list.pick_random())
+			card.effects.append(effect_list.pick_random())
 		if level == 9:
 			DataBase.opponent_effects = []
 			DataBase.deck_enemy = []
-			DataBase.starting_hand_size_enemy = 1
+			DataBase.starting_hand_size_enemy = 2
+			add_boss()
 			add_boss()
 
 func add_foot_enemy():

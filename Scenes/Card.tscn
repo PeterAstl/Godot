@@ -6,8 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://b00a1ustxe76g" path="res://Pics/Gliedmaßen/R_Toe2.png" id="5_pbuqb"]
 [ext_resource type="Texture2D" uid="uid://de21dv55koow3" path="res://Pics/Gliedmaßen/R_Toe3.png" id="6_f3ywt"]
 [ext_resource type="Texture2D" uid="uid://bg3nnw0yftvu4" path="res://Pics/Gliedmaßen/R_Toe4.png" id="7_6elyo"]
-[ext_resource type="Texture2D" uid="uid://dyt2gsnyhwrf3" path="res://Pics/Gliedmaßen/Effects/R_Lifesteal.png" id="8_1geux"]
+[ext_resource type="Texture2D" uid="uid://dyt2gsnyhwrf3" path="res://Pics/Gliedmaßen/Effects/R_lifesteal.png" id="8_1geux"]
 [ext_resource type="Texture2D" uid="uid://7wjkkg4558x4" path="res://Pics/Gliedmaßen/R_Toe5.png" id="8_gnfes"]
+[ext_resource type="Texture2D" uid="uid://bj3w0lvs1urun" path="res://Pics/Gliedmaßen/Effects/R_multi_attack.png" id="9_swj2d"]
+[ext_resource type="Texture2D" uid="uid://da0631q3ce8m3" path="res://Pics/Gliedmaßen/Effects/R_double_attack.png" id="10_co2vc"]
+[ext_resource type="Texture2D" uid="uid://dmetp71xh5q7j" path="res://Pics/Gliedmaßen/Effects/R_scaling.png" id="11_tayg5"]
+[ext_resource type="Texture2D" uid="uid://b1pogbpotqopi" path="res://Pics/Gliedmaßen/Effects/R_death_bomb.png" id="12_w84x6"]
+[ext_resource type="Texture2D" uid="uid://cj313vhp2h36e" path="res://Pics/Gliedmaßen/Effects/R_death_bomb_immunity.png" id="13_7qgfu"]
+[ext_resource type="Texture2D" uid="uid://ci6km0lcr0gkh" path="res://Pics/Gliedmaßen/Effects/R_matroschka.png" id="14_bnn6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hael8"]
 size = Vector2(80, 127)
@@ -290,32 +296,32 @@ texture = ExtResource("8_1geux")
 [node name="multi_attack" type="Sprite2D" parent="size" unique_id=79707903]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("9_swj2d")
 
 [node name="double_attack" type="Sprite2D" parent="size" unique_id=770865007]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("10_co2vc")
 
 [node name="scaling" type="Sprite2D" parent="size" unique_id=305140677]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("11_tayg5")
 
 [node name="death_bomb" type="Sprite2D" parent="size" unique_id=667254577]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("12_w84x6")
 
 [node name="death_bomb_immunity" type="Sprite2D" parent="size" unique_id=740981230]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("13_7qgfu")
 
 [node name="matroschka" type="Sprite2D" parent="size" unique_id=234345330]
 visible = false
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_1geux")
+texture = ExtResource("14_bnn6f")
 
 [node name="Health" type="RichTextLabel" parent="size" unique_id=1619744458]
 modulate = Color(1, 1, 1, 0)
@@ -367,14 +373,14 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="RichTextLabel" parent="size" unique_id=2020900763]
-offset_left = -34.0
-offset_top = -75.0
-offset_right = 66.0
-offset_bottom = -50.0
-scale = Vector2(0.7, 0.7)
+offset_left = -35.000004
+offset_top = -75.00001
+offset_right = 665.0
+offset_bottom = 225.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 90
 text = "Placeholder"
 tab_size = 1
 horizontal_alignment = 1

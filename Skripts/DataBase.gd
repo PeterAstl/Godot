@@ -28,8 +28,8 @@ func _init(args := {}):
 	
 var player_effects = []
 var opponent_effects = []
-var player_health = 12
-var opponent_health = 8
+var player_health = 5
+var opponent_health = 10
 var player_ressource_amount = 2
 var points = 0
 var starting_hand_size_enemy = 3

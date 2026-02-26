@@ -32,7 +32,7 @@ func _ready() -> void:
 		random_card = DataBase.deck_list.pick_random()
 		card_list.append(random_card)
 		
-	cards_left = card_list.size()
+	cards_left = card_list.size() - 1
 	
 	for card in card_list:
 		randomize_buttons()
@@ -152,6 +152,7 @@ func Scaling() -> void:
 	if points >= 1:
 		if "scaling" not in shown_card.effects:
 			shown_card.effects.append("scaling")
+			shown_card.health -= 1
 			$"../Counters/Scaling".visible = true
 			points -= 1
 			update_stats()

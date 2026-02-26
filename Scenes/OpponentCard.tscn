@@ -7,6 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://de21dv55koow3" path="res://Pics/Gliedmaßen/R_Toe3.png" id="5_chm3h"]
 [ext_resource type="Texture2D" uid="uid://bg3nnw0yftvu4" path="res://Pics/Gliedmaßen/R_Toe4.png" id="6_kmw7u"]
 [ext_resource type="Texture2D" uid="uid://7wjkkg4558x4" path="res://Pics/Gliedmaßen/R_Toe5.png" id="7_1q8ov"]
+[ext_resource type="Texture2D" uid="uid://dyt2gsnyhwrf3" path="res://Pics/Gliedmaßen/Effects/R_lifesteal.png" id="8_v14j5"]
+[ext_resource type="Texture2D" uid="uid://bj3w0lvs1urun" path="res://Pics/Gliedmaßen/Effects/R_multi_attack.png" id="9_iwsnn"]
+[ext_resource type="Texture2D" uid="uid://da0631q3ce8m3" path="res://Pics/Gliedmaßen/Effects/R_double_attack.png" id="10_u43pd"]
+[ext_resource type="Texture2D" uid="uid://dmetp71xh5q7j" path="res://Pics/Gliedmaßen/Effects/R_scaling.png" id="11_u0s3k"]
+[ext_resource type="Texture2D" uid="uid://b1pogbpotqopi" path="res://Pics/Gliedmaßen/Effects/R_death_bomb.png" id="12_1gwc0"]
+[ext_resource type="Texture2D" uid="uid://cj313vhp2h36e" path="res://Pics/Gliedmaßen/Effects/R_death_bomb_immunity.png" id="13_ewrge"]
+[ext_resource type="Texture2D" uid="uid://ci6km0lcr0gkh" path="res://Pics/Gliedmaßen/Effects/R_matroschka.png" id="14_5npbi"]
 
 [sub_resource type="Animation" id="Animation_h8wm0"]
 length = 0.13333334
@@ -225,10 +232,45 @@ visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_1q8ov")
 
+[node name="lifesteal" type="Sprite2D" parent="size" unique_id=961969632]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_v14j5")
+
+[node name="multi_attack" type="Sprite2D" parent="size" unique_id=628595749]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_iwsnn")
+
+[node name="double_attack" type="Sprite2D" parent="size" unique_id=1042364863]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_u43pd")
+
+[node name="scaling" type="Sprite2D" parent="size" unique_id=1862507272]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_u0s3k")
+
+[node name="death_bomb" type="Sprite2D" parent="size" unique_id=785961831]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_1gwc0")
+
+[node name="death_bomb_immunity" type="Sprite2D" parent="size" unique_id=1817103295]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_ewrge")
+
+[node name="matroschka" type="Sprite2D" parent="size" unique_id=2111601602]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_5npbi")
+
 [node name="Health" type="RichTextLabel" parent="size" unique_id=1619744458]
 modulate = Color(1, 1, 1, 0)
 offset_left = 16.000002
-offset_top = 61.999996
+offset_top = 62.0
 offset_right = 366.0
 offset_bottom = 712.0
 rotation = 3.1415927

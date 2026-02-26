@@ -86,6 +86,10 @@ func diasbling_enabling_buttons(button_name):
 		$Button_Manager/TextureButton8.disabled = true
 		$Button_Manager/TextureButton9.disabled = false
 		$Button_Manager/TextureButton10.disabled = false
+		if button_number == 6:
+			$Button_Manager/TextureButton10.disabled = true
+		if button_number == 8:
+			$Button_Manager/TextureButton9.disabled = true
 		DataBase.level = 4
 	if button_number in [9,10]:
 		buttons[8].texture_disabled = load("res://Pics/UpgradeIcon/upgrade_disabled.png")
@@ -105,6 +109,10 @@ func diasbling_enabling_buttons(button_name):
 		$Button_Manager/TextureButton13.disabled = true
 		$Button_Manager/TextureButton14.disabled = false
 		$Button_Manager/TextureButton15.disabled = false
+		if button_number == 11:
+			$Button_Manager/TextureButton15.disabled = true
+		if button_number == 13:
+			$Button_Manager/TextureButton14.disabled = true
 		DataBase.level = 6
 	if button_number in [14,15]:
 		buttons[13].texture_disabled = load("res://Pics/UpgradeIcon/upgrade_disabled.png")
@@ -124,6 +132,10 @@ func diasbling_enabling_buttons(button_name):
 		$Button_Manager/TextureButton18.disabled = true
 		$Button_Manager/TextureButton19.disabled = false
 		$Button_Manager/TextureButton20.disabled = false
+		if button_number == 16:
+			$Button_Manager/TextureButton20.disabled = true
+		if button_number == 18:
+			$Button_Manager/TextureButton19.disabled = true
 		DataBase.level = 8
 	if button_number in [19,20]:
 		buttons[18].texture_disabled = load("res://Pics/UpgradeIcon/upgrade_disabled.png")

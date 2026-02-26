@@ -39,9 +39,19 @@ func _ready() -> void:
 
 func wait(t):
 	await get_tree().create_timer(t).timeout
+	
+var player_turn = true
+	
+			
+func _input(event):
+	if player_turn and event.is_action_pressed("end_turn"):
+		opponent_turn()
+		player_turn = false
 
 func _on_button_pressed() -> void:
-	opponent_turn()
+	if player_turn:
+		opponent_turn()
+		player_turn = false
 
 func opponent_turn() -> void:
 	$"../Button".disabled = true
@@ -52,7 +62,7 @@ func opponent_turn() -> void:
 	await player_turn_attack()
 	await wait(0.2)
 	
-	if "play" in DataBase.player_effects:
+	if "play" in DataBase.opponent_effects:
 		if $"../OpponentDeck".opponent_deck.size() > 0:
 			$"../OpponentDeck".draw_card()
 			await wait(1)
@@ -66,6 +76,7 @@ func opponent_turn() -> void:
 	$"../PlayerDeck".draw_card()
 	$"../CardManager".your_turn = true
 	$"../InputManager".your_turn = true
+	player_turn = true
 	player_effects.erase("immunity")
 
 func player_turn_attack() -> void:
@@ -87,7 +98,7 @@ func player_turn_attack() -> void:
 			await fight_attack_player(card)
 
 func opponent_turn_attack() -> void:
-	if "play" in DataBase.player_effects:
+	if "play" in DataBase.opponent_effects:
 		await try_play_card_random_card()
 	await try_play_card_random_card()
 	await wait(0.3)
@@ -183,45 +194,53 @@ func fight_attack_opponent_multi(card):
 			await animate_attack_to_player(card, false, slot_node)
 
 func animate_attack_to_card(attacker, defender, player_side):
-	attacker.fought = true
-	var damage = attacker.data.damage
-	var attacker_alive = true
-	if player_side:
-		if "immunity" in player_effects:
-			damage = 0
-	if damage <= 0:
-		return
+	if attacker != null:
+		attacker.fought = true
+		var damage = attacker.data.damage
+		var attacker_alive = true
+		if player_side:
+			if "immunity" in player_effects:
+				damage = 0
+		if damage <= 0:
+			return
 
-	var health = int(defender.get_node("size/Health").text)
+		var health = int(defender.get_node("size/Health").text)
 
-	attacker.z_index = 10
-	var original_pos = attacker.position
+		attacker.z_index = 10
+		var original_pos = attacker.position
 
-	var tween = create_tween()
-	tween.tween_property(attacker, "position", defender.position, CARD_MOVE_SPEED)
-	$"../Sounds/Hit_Sound".play()
-	await tween.finished
-	
+		var tween = create_tween()
+		tween.tween_property(attacker, "position", defender.position, CARD_MOVE_SPEED)
+		$"../Sounds/Hit_Sound".play()
+		await tween.finished
+		
 
-	if damage >= health:
-		defender.card_slot_card_in.card_in_slot = false
-		if "death_bomb" in defender.data.effects and not "death_bomb_immunity" in attacker.data.effects:
-			attacker.card_slot_card_in.card_in_slot = false
-			attacker_alive = false
-			$"../Sounds/Explosion_Sound".play()
-			await wait(1)
-			attacker.queue_free()
-			if player_side:
-				player_cards_on_board.erase(attacker)
+		if damage >= health:
+			defender.card_slot_card_in.card_in_slot = false
+			if "death_bomb" in defender.data.effects and not "death_bomb_immunity" in attacker.data.effects:
+				attacker.card_slot_card_in.card_in_slot = false
+				attacker_alive = false
+				$"../Sounds/Explosion_Sound".play()
+				await wait(1)
+				attacker.queue_free()
+				if player_side:
+					player_cards_on_board.erase(attacker)
+				else:
+					empty_card_slots_opponent.append(attacker.card_slot_card_in)
+					opponent_cards_on_board.erase(attacker)
+			if "matroschka" in defender.data.effects:
+				var node = defender.get_node("size")
+				node.scale = Vector2(node.scale.x*0.9,node.scale.y*0.9)
+				defender.data.health -= 1
+				defender.get_node("size/Health").text = str(defender.data.health)
+				if defender.data.health == 0:
+					defender.queue_free()
+					if player_side:
+						empty_card_slots_opponent.append(defender.card_slot_card_in)
+						opponent_cards_on_board.erase(defender)
+					else:
+						player_cards_on_board.erase(defender)
 			else:
-				empty_card_slots_opponent.append(attacker.card_slot_card_in)
-				opponent_cards_on_board.erase(attacker)
-		if "matroschka" in defender.data.effects:
-			var node = defender.get_node("size")
-			node.scale = Vector2(node.scale.x*0.9,node.scale.y*0.9)
-			defender.data.health -= 1
-			defender.get_node("size/Health").text = str(defender.data.health)
-			if defender.data.health == 0:
 				defender.queue_free()
 				if player_side:
 					empty_card_slots_opponent.append(defender.card_slot_card_in)
@@ -229,61 +248,55 @@ func animate_attack_to_card(attacker, defender, player_side):
 				else:
 					player_cards_on_board.erase(defender)
 		else:
-			defender.queue_free()
-			if player_side:
-				empty_card_slots_opponent.append(defender.card_slot_card_in)
-				opponent_cards_on_board.erase(defender)
-			else:
-				player_cards_on_board.erase(defender)
-	else:
-		defender.get_node("size/Health").text = str(health - damage)
-	
-	if attacker_alive:
-		tween = create_tween()
-		tween.tween_property(attacker, "position", original_pos, CARD_MOVE_SPEED)
-		await tween.finished
-		attacker.z_index = 0
+			defender.get_node("size/Health").text = str(health - damage)
+		
+		if attacker_alive:
+			tween = create_tween()
+			tween.tween_property(attacker, "position", original_pos, CARD_MOVE_SPEED)
+			await tween.finished
+			attacker.z_index = 0
 
 func animate_attack_to_player(card, player_side, slot_node):
-	var damage = int(card.get_node("size/Attack").text)
-	if "immunity" in player_effects:
-		damage = 0
-	if damage <= 0:
-		return
+	if card != null:
+		var damage = int(card.get_node("size/Attack").text)
+		if "immunity" in player_effects:
+			damage = 0
+		if damage <= 0:
+			return
 
-	card.z_index = 10
-	var original_pos = card.position
-	var target = slot_node.position
-	
-	var tween = create_tween()
-	tween.tween_property(card, "position", target, CARD_MOVE_SPEED)
-	$"../Sounds/Hit_Sound".play()
-	await tween.finished
+		card.z_index = 10
+		var original_pos = card.position
+		var target = slot_node.position
+		
+		var tween = create_tween()
+		tween.tween_property(card, "position", target, CARD_MOVE_SPEED)
+		$"../Sounds/Hit_Sound".play()
+		await tween.finished
 
-	if player_side:
-		if "lifesteal" in card.data.effects:
-			player_health += 1
-			$"../Texts/Health_Player".text = "🫀".repeat(player_health)
+		if player_side:
+			if "lifesteal" in card.data.effects:
+				player_health += 1
+				$"../Texts/Health_Player".text = "🫀".repeat(player_health)
 
-		opponent_health -= 1
-		if opponent_health <= 0:
-			await continue_screen(true)
+			opponent_health -= 1
+			if opponent_health <= 0:
+				await continue_screen(true)
+			else:
+				$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
 		else:
-			$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
-	else:
-		if "lifesteal" in card.data.effects:
-			opponent_health += 1
-			$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
-		player_health -= 1
-		if player_health <= 0:
-			await continue_screen(false)
-		else:
-			$"../Texts/Health_Player".text = "🫀".repeat(player_health)
-	
-	tween = create_tween()
-	tween.tween_property(card, "position", original_pos, CARD_MOVE_SPEED)
-	await tween.finished
-	card.z_index = 0
+			if "lifesteal" in card.data.effects:
+				opponent_health += 1
+				$"../Texts/Health_Enemy".text = "🫀".repeat(opponent_health)
+			player_health -= 1
+			if player_health <= 0:
+				await continue_screen(false)
+			else:
+				$"../Texts/Health_Player".text = "🫀".repeat(player_health)
+		
+		tween = create_tween()
+		tween.tween_property(card, "position", original_pos, CARD_MOVE_SPEED)
+		await tween.finished
+		card.z_index = 0
 
 func continue_screen(win):
 	if win:

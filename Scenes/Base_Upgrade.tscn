@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://ctgpoi4afqmmd"]
 
 [ext_resource type="Script" uid="uid://d2ptketlngj35" path="res://Skripts/BasePathChoice.gd" id="1_af5o4"]
+[ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="1_aqmai"]
+[ext_resource type="Theme" uid="uid://vs886xf8g2s1" path="res://Style2.tres" id="3_ng4kj"]
+
+[sub_resource type="FontVariation" id="FontVariation_63qx7"]
 
 [node name="Adding_Cards" type="Node2D" unique_id=1380721097]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=550889605]
+modulate = Color(0.39723974, 0.39723974, 0.39723974, 1)
+z_index = -10
+texture = ExtResource("1_aqmai")
+centered = false
 
 [node name="Card" type="Node2D" parent="." unique_id=561863995]
 script = ExtResource("1_af5o4")
@@ -17,6 +27,10 @@ offset_left = 600.0
 offset_top = 650.0
 offset_right = 772.0
 offset_bottom = 725.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Double Attack
 - 1 Health"
 
@@ -25,6 +39,10 @@ offset_left = 600.0
 offset_top = 750.0
 offset_right = 772.0
 offset_bottom = 825.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Multi Attack
 -2 Damage"
 
@@ -33,6 +51,10 @@ offset_left = 800.0
 offset_top = 348.0
 offset_right = 972.0
 offset_bottom = 423.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Lifesteal"
 
 [node name="Scaling" type="Button" parent="Buttons" unique_id=1090788707]
@@ -40,13 +62,22 @@ offset_left = 800.0
 offset_top = 448.0
 offset_right = 972.0
 offset_bottom = 523.0
-text = "Scaling"
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
+text = "Scaling
+-1 Health"
 
 [node name="Death_Bomb" type="Button" parent="Buttons" unique_id=948550784]
 offset_left = 800.0
 offset_top = 548.0
 offset_right = 972.0
 offset_bottom = 623.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Death Bomb"
 
 [node name="Death_Bomb_Immunity" type="Button" parent="Buttons" unique_id=2087925539]
@@ -54,6 +85,10 @@ offset_left = 800.0
 offset_top = 648.0
 offset_right = 972.0
 offset_bottom = 723.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Death Bomb 
 Immunity"
 
@@ -62,6 +97,10 @@ offset_left = 800.0
 offset_top = 748.0
 offset_right = 972.0
 offset_bottom = 823.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Matroschka
 Health / 2"
 
@@ -70,6 +109,10 @@ offset_left = 600.0
 offset_top = 550.0
 offset_right = 772.0
 offset_bottom = 625.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Cost -1"
 
 [node name="Health_Upgrade" type="Button" parent="Buttons" unique_id=668165183]
@@ -77,6 +120,10 @@ offset_left = 600.0
 offset_top = 450.0
 offset_right = 772.0
 offset_bottom = 525.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Add Health 3"
 
 [node name="Attack_Upgrade" type="Button" parent="Buttons" unique_id=424753775]
@@ -84,6 +131,10 @@ offset_left = 600.0
 offset_top = 350.0
 offset_right = 772.0
 offset_bottom = 425.0
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Add Attack 2"
 
 [node name="Next_Card" type="Button" parent="Buttons" unique_id=1420192734]
@@ -91,7 +142,10 @@ offset_left = 1059.0
 offset_top = 546.0
 offset_right = 1212.0
 offset_bottom = 596.0
-theme_override_font_sizes/font_size = 30
+theme = ExtResource("3_ng4kj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_63qx7")
+theme_override_font_sizes/font_size = 20
 text = "Next Card"
 
 [node name="Texts" type="Node2D" parent="." unique_id=1963774032]
@@ -115,12 +169,12 @@ text = "Points"
 horizontal_alignment = 1
 
 [node name="Cards" type="RichTextLabel" parent="Texts" unique_id=200045578]
-offset_left = 152.0
+offset_left = 52.0
 offset_top = 108.0
-offset_right = 346.0
+offset_right = 356.0
 offset_bottom = 190.0
 theme_override_font_sizes/normal_font_size = 53
-text = "Cards:"
+text = "Cards left:"
 horizontal_alignment = 1
 
 [node name="Health" type="RichTextLabel" parent="Texts" unique_id=1303297120]
@@ -162,9 +216,9 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="Cards_Counter" type="RichTextLabel" parent="Counters" unique_id=816310687]
-offset_left = 336.0
+offset_left = 357.0
 offset_top = 108.0
-offset_right = 530.0
+offset_right = 551.0
 offset_bottom = 190.0
 theme_override_font_sizes/normal_font_size = 53
 text = "3"

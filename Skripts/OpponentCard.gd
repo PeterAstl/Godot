@@ -7,6 +7,7 @@ var card_slot_card_in
 var position_in_hand
 var fought
 var toe_node
+var texture
 
 func _ready():
 	if data:
@@ -35,5 +36,9 @@ func setup_from_data():
 	if data.card_name == "BigFoot":
 		$size.scale = Vector2(1.5,1.5)
 	for effect in data.effects:
-		pass
-		
+		texture = get_node("size/" + effect)
+		texture.visible = true
+		if not data.left_or_right:
+			$size.get_node(effect).texture = load("res://Pics/Gliedmaßen/Effects/L_" + effect + ".png")
+	if data.card_name == "BigFoot":
+		$size.scale = Vector2(1.5,1.5)
