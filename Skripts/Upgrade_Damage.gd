@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 func Button1() -> void:
 	if points >= 2:
-		DataBase.player_health += 1
+		DataBase.opponent_health -= 1
 		$Hearts.text = "🫀".repeat(DataBase.opponent_health)
 		points -= 2
 		$Points.text = "Points: " + str(points)

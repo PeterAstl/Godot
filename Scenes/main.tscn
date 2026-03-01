@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://box830fsci70p" path="res://Skripts/BattleManagerSkript.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://bvve0i0hvocqw" path="res://Skripts/ContinueButton.gd" id="11_d1ilt"]
 [ext_resource type="Theme" uid="uid://clv73avxlaadl" path="res://Style1.tres" id="12_k12tt"]
-[ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="13_fdnlq"]
 [ext_resource type="AudioStream" uid="uid://cy1jivn24jjwk" path="res://Sounds/Death_bomb.mp3" id="14_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="14_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="15_wsu2k"]
 
 [node name="Main" type="Node2D" unique_id=40358678]
@@ -163,10 +163,12 @@ icon_alignment = 1
 position = Vector2(436, 88)
 
 [node name="Hit_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=520214020]
-stream = ExtResource("13_fdnlq")
+stream = ExtResource("14_k12tt")
+volume_db = -20.0
 
 [node name="Explosion_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=1137004308]
 stream = ExtResource("14_jkdf5")
+volume_db = -20.0
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1051764657]
 modulate = Color(0.39723974, 0.39723974, 0.39723974, 1)

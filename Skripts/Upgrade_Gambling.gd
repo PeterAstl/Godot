@@ -44,9 +44,7 @@ func Button2() -> void:
 		luck -= 10
 		$Button2.text = "Gain 1 Point\nLoose Game " + str(100 - luck) + "% Chance\n"
 	else:
-		$"../AudioStreamPlayer".play()
-		await wait(2)
-		get_tree().free()
+		get_tree().quit()
 
 
 func Button3() -> void:
