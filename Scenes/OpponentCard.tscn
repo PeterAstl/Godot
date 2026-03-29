@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ch4hxy1gyep4o"]
+[gd_scene load_steps=15 format=3 uid="uid://ch4hxy1gyep4o"]
 
 [ext_resource type="Script" uid="uid://dusu8yxqub5q8" path="res://Skripts/OpponentCard.gd" id="1_mv32a"]
 [ext_resource type="Texture2D" uid="uid://00si0hqfn7fi" path="res://Pics/Gliedmaßen/R_Foot.png" id="2_ejfph"]
@@ -15,260 +15,77 @@
 [ext_resource type="Texture2D" uid="uid://cj313vhp2h36e" path="res://Pics/Gliedmaßen/Effects/R_death_bomb_immunity.png" id="13_ewrge"]
 [ext_resource type="Texture2D" uid="uid://ci6km0lcr0gkh" path="res://Pics/Gliedmaßen/Effects/R_matroschka.png" id="14_5npbi"]
 
-[sub_resource type="Animation" id="Animation_h8wm0"]
-length = 0.13333334
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("size/Health:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("size/Attack:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("size/CardImage:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("size/Health:theme_override_colors/font_shadow_color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("size/Name:theme_override_colors/font_shadow_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3m7nw"]
-resource_name = "card_flip"
-length = 0.92
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("size/Health:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.14999999, 0.19999999),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("size/Attack:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.14999999, 0.19999999),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("size/CardImage:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-1, 0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.91999996),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("size/Attack:theme_override_colors/font_shadow_color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.91999996),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("size/Health:theme_override_colors/font_shadow_color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.91999996),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("size/Name:theme_override_colors/font_shadow_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.91999996),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kphy1"]
-_data = {
-&"RESET": SubResource("Animation_h8wm0"),
-&"card_flip": SubResource("Animation_3m7nw")
-}
-
-[node name="Card" type="Node2D" unique_id=597020301]
+[node name="Card" type="Node2D"]
 script = ExtResource("1_mv32a")
 
-[node name="size" type="Node2D" parent="." unique_id=903736807]
+[node name="size" type="Node2D" parent="."]
 
-[node name="CardImage" type="Sprite2D" parent="size" unique_id=792200978]
+[node name="CardImage" type="Sprite2D" parent="size"]
 z_index = -1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ejfph")
 
-[node name="Toe1" type="Sprite2D" parent="size" unique_id=1050326829]
+[node name="Toe1" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_8pbt4")
 
-[node name="Toe2" type="Sprite2D" parent="size" unique_id=1672659950]
+[node name="Toe2" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_aq450")
 
-[node name="Toe3" type="Sprite2D" parent="size" unique_id=1311628180]
+[node name="Toe3" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_chm3h")
 
-[node name="Toe4" type="Sprite2D" parent="size" unique_id=1916679940]
+[node name="Toe4" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_kmw7u")
 
-[node name="Toe5" type="Sprite2D" parent="size" unique_id=385688649]
+[node name="Toe5" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_1q8ov")
 
-[node name="lifesteal" type="Sprite2D" parent="size" unique_id=961969632]
+[node name="lifesteal" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_v14j5")
 
-[node name="multi_attack" type="Sprite2D" parent="size" unique_id=628595749]
+[node name="multi_attack" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_iwsnn")
 
-[node name="double_attack" type="Sprite2D" parent="size" unique_id=1042364863]
+[node name="double_attack" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_u43pd")
 
-[node name="scaling" type="Sprite2D" parent="size" unique_id=1862507272]
+[node name="scaling" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_u0s3k")
 
-[node name="death_bomb" type="Sprite2D" parent="size" unique_id=785961831]
+[node name="death_bomb" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("12_1gwc0")
 
-[node name="death_bomb_immunity" type="Sprite2D" parent="size" unique_id=1817103295]
+[node name="death_bomb_immunity" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("13_ewrge")
 
-[node name="matroschka" type="Sprite2D" parent="size" unique_id=2111601602]
+[node name="matroschka" type="Sprite2D" parent="size"]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("14_5npbi")
 
-[node name="Health" type="RichTextLabel" parent="size" unique_id=1619744458]
-modulate = Color(1, 1, 1, 0)
+[node name="Health" type="RichTextLabel" parent="size"]
 offset_left = 16.000002
 offset_top = 62.0
 offset_right = 366.0
@@ -284,7 +101,7 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Attack" type="RichTextLabel" parent="size" unique_id=1421771980]
+[node name="Attack" type="RichTextLabel" parent="size"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 offset_left = 46.999992
@@ -302,7 +119,7 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Name" type="RichTextLabel" parent="size" unique_id=2020900763]
+[node name="Name" type="RichTextLabel" parent="size"]
 visible = false
 offset_left = -34.0
 offset_top = -75.0
@@ -316,7 +133,3 @@ text = "Placeholder"
 tab_size = 1
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="size" unique_id=275909072]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_kphy1")

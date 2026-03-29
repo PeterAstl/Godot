@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bmwr40mr2hksh"]
+[gd_scene load_steps=17 format=3 uid="uid://bmwr40mr2hksh"]
 
 [ext_resource type="Script" uid="uid://gyll5jd45yex" path="res://Skripts/CardManager.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://buuua4bvu6x6f" path="res://Scenes/CardSlotEnemy.tscn" id="3_6bp64"]
@@ -17,80 +17,80 @@
 [ext_resource type="AudioStream" uid="uid://diptyy4sr3amn" path="res://Sounds/Sound1.wav" id="14_k12tt"]
 [ext_resource type="Texture2D" uid="uid://dwoop3fptj56y" path="res://Pics/Background.png" id="15_wsu2k"]
 
-[node name="Main" type="Node2D" unique_id=40358678]
+[node name="Main" type="Node2D"]
 
-[node name="CardManager" type="Node2D" parent="." unique_id=1267260433]
+[node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_21xkr")
 
-[node name="PlayerHand" type="Node2D" parent="." unique_id=1954708184]
+[node name="PlayerHand" type="Node2D" parent="."]
 script = ExtResource("3_344ge")
 
-[node name="PlayerDeck" parent="." unique_id=368514955 instance=ExtResource("4_kry3j")]
+[node name="PlayerDeck" parent="." instance=ExtResource("4_kry3j")]
 position = Vector2(158, 850)
 
-[node name="CardSlots_Player" type="Node2D" parent="." unique_id=287090504]
+[node name="CardSlots_Player" type="Node2D" parent="."]
 
-[node name="CardSlot1" parent="CardSlots_Player" unique_id=1031181629 instance=ExtResource("5_kry3j")]
+[node name="CardSlot1" parent="CardSlots_Player" instance=ExtResource("5_kry3j")]
 position = Vector2(600, 600)
 script = ExtResource("5_6iyac")
 
-[node name="CardSlot2" parent="CardSlots_Player" unique_id=1744993710 instance=ExtResource("5_kry3j")]
+[node name="CardSlot2" parent="CardSlots_Player" instance=ExtResource("5_kry3j")]
 position = Vector2(750, 600)
 script = ExtResource("5_6iyac")
 
-[node name="CardSlot3" parent="CardSlots_Player" unique_id=1690882529 instance=ExtResource("5_kry3j")]
+[node name="CardSlot3" parent="CardSlots_Player" instance=ExtResource("5_kry3j")]
 position = Vector2(900, 600)
 script = ExtResource("5_6iyac")
 
-[node name="CardSlot4" parent="CardSlots_Player" unique_id=889572711 instance=ExtResource("5_kry3j")]
+[node name="CardSlot4" parent="CardSlots_Player" instance=ExtResource("5_kry3j")]
 position = Vector2(1050, 600)
 script = ExtResource("5_6iyac")
 
-[node name="CardSlot5" parent="CardSlots_Player" unique_id=1705288064 instance=ExtResource("5_kry3j")]
+[node name="CardSlot5" parent="CardSlots_Player" instance=ExtResource("5_kry3j")]
 position = Vector2(1200, 600)
 script = ExtResource("5_6iyac")
 
-[node name="CardSlots_Enemy" type="Node2D" parent="." unique_id=1453268792]
+[node name="CardSlots_Enemy" type="Node2D" parent="."]
 
-[node name="CardSlot1" parent="CardSlots_Enemy" unique_id=1744934376 instance=ExtResource("3_6bp64")]
+[node name="CardSlot1" parent="CardSlots_Enemy" instance=ExtResource("3_6bp64")]
 position = Vector2(600, 400)
 
-[node name="CardSlot2" parent="CardSlots_Enemy" unique_id=302198417 instance=ExtResource("3_6bp64")]
+[node name="CardSlot2" parent="CardSlots_Enemy" instance=ExtResource("3_6bp64")]
 position = Vector2(750, 400)
 
-[node name="CardSlot3" parent="CardSlots_Enemy" unique_id=1343401586 instance=ExtResource("3_6bp64")]
+[node name="CardSlot3" parent="CardSlots_Enemy" instance=ExtResource("3_6bp64")]
 position = Vector2(900, 400)
 
-[node name="CardSlot4" parent="CardSlots_Enemy" unique_id=714707243 instance=ExtResource("3_6bp64")]
+[node name="CardSlot4" parent="CardSlots_Enemy" instance=ExtResource("3_6bp64")]
 position = Vector2(1050, 400)
 
-[node name="CardSlot5" parent="CardSlots_Enemy" unique_id=709054749 instance=ExtResource("3_6bp64")]
+[node name="CardSlot5" parent="CardSlots_Enemy" instance=ExtResource("3_6bp64")]
 position = Vector2(1200, 400)
 
-[node name="OpponentHand" type="Node2D" parent="." unique_id=834570780]
+[node name="OpponentHand" type="Node2D" parent="."]
 script = ExtResource("4_hptm8")
 
-[node name="OpponentDeck" type="Node2D" parent="." unique_id=365820089]
+[node name="OpponentDeck" type="Node2D" parent="."]
 position = Vector2(1800, 100)
 script = ExtResource("8_d1ilt")
 
-[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck" unique_id=1479028769]
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck"]
 z_index = -2
 position = Vector2(-16, 30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_fdnlq")
 flip_h = true
 
-[node name="InputManager" type="Node2D" parent="." unique_id=620736888]
+[node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_d1ilt")
 
-[node name="BattleManager" type="Node" parent="." unique_id=2115354227]
+[node name="BattleManager" type="Node" parent="."]
 script = ExtResource("10_6iyac")
 
-[node name="Texts" type="Node2D" parent="." unique_id=526805144]
+[node name="Texts" type="Node2D" parent="."]
 position = Vector2(1375, 291)
 
-[node name="Health_Enemy" type="RichTextLabel" parent="Texts" unique_id=1741568441]
+[node name="Health_Enemy" type="RichTextLabel" parent="Texts"]
 offset_left = -40.0
 offset_top = -100.0
 offset_right = 260.0
@@ -99,7 +99,7 @@ theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health_Player" type="RichTextLabel" parent="Texts" unique_id=1955239820]
+[node name="Health_Player" type="RichTextLabel" parent="Texts"]
 offset_left = -40.0
 offset_top = 220.0
 offset_right = 260.0
@@ -108,7 +108,7 @@ theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cost_Player" type="RichTextLabel" parent="Texts" unique_id=2112016811]
+[node name="Cost_Player" type="RichTextLabel" parent="Texts"]
 offset_left = 238.0
 offset_top = 653.0
 offset_right = 488.0
@@ -117,7 +117,7 @@ theme_override_font_sizes/normal_font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Win" type="RichTextLabel" parent="Texts" unique_id=602786402]
+[node name="Win" type="RichTextLabel" parent="Texts"]
 visible = false
 offset_left = -920.0
 offset_top = -201.0
@@ -126,7 +126,7 @@ offset_bottom = 83.0
 theme_override_font_sizes/normal_font_size = 199
 text = "YOU WIN"
 
-[node name="Loose" type="RichTextLabel" parent="Texts" unique_id=1304955312]
+[node name="Loose" type="RichTextLabel" parent="Texts"]
 visible = false
 offset_left = -939.0
 offset_top = -203.0
@@ -135,7 +135,7 @@ offset_bottom = 81.0
 theme_override_font_sizes/normal_font_size = 199
 text = "YOU LOST"
 
-[node name="Continue_Button" type="Button" parent="." unique_id=1233731211]
+[node name="Continue_Button" type="Button" parent="."]
 process_mode = 2
 visible = false
 offset_left = 760.0
@@ -149,7 +149,7 @@ text = "Continue"
 script = ExtResource("11_d1ilt")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="." unique_id=1017366725]
+[node name="Button" type="Button" parent="."]
 offset_left = 375.0
 offset_top = 460.0
 offset_right = 495.0
@@ -159,18 +159,17 @@ theme_override_font_sizes/font_size = 25
 text = "End Turn"
 icon_alignment = 1
 
-[node name="Sounds" type="Node2D" parent="." unique_id=433700582]
+[node name="Sounds" type="Node2D" parent="."]
 position = Vector2(436, 88)
 
-[node name="Hit_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=520214020]
+[node name="Hit_Sound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("14_k12tt")
-volume_db = -20.0
+volume_db = -30.0
 
-[node name="Explosion_Sound" type="AudioStreamPlayer" parent="Sounds" unique_id=1137004308]
+[node name="Explosion_Sound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("14_jkdf5")
-volume_db = -20.0
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1051764657]
+[node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.39723974, 0.39723974, 0.39723974, 1)
 z_index = -10
 texture = ExtResource("15_wsu2k")

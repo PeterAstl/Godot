@@ -12,13 +12,13 @@ config_version=5
 
 config/name="CardGameBase"
 run/main_scene="uid://jo7qwoyxujqd"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
-DataBase="*uid://c66myif1jhsbp"
-PauseMenu="*uid://cvig5uryfrhu6"
-Adding="*uid://b8e53hfx3n8ux"
+DataBase="*res://Skripts/DataBase.gd"
+Adding="*res://Skripts/AddCards.gd"
+PauseMenu="*res://Scenes/PauseMenu.tscn"
 
 [display]
 

@@ -329,7 +329,6 @@ func try_play_card_random_card():
 	tween.tween_property(card, "scale", Vector2.ONE * CARD_SMALLER_SCALE, CARD_MOVE_SPEED)
 	await tween.finished
 
-	card.get_node("size/AnimationPlayer").play("card_flip")
 	await wait(0.3)
 
 	$"../OpponentHand".remove_card_from_hand(card)
